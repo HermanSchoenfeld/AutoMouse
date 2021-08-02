@@ -1,9 +1,12 @@
-﻿namespace Sphere10.AutoMouse.Windows {
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Sphere10.AutoMouse.Windows {
 	partial class ClickTypeSelectorForm {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -167,15 +170,15 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button _leftDownButton;
-		private System.Windows.Forms.Button _leftClickButton;
-		private System.Windows.Forms.Button _rightDownButton;
-		private System.Windows.Forms.Button _rightClickButton;
-		private System.Windows.Forms.Button _scrollPressButton;
-		private System.Windows.Forms.Button _scrollClickButton;
-		private System.Windows.Forms.Button _rightDoubleClickButton;
-		private System.Windows.Forms.Button _leftDoubleClickButton;
-		private System.Windows.Forms.Timer _timer;
+		private Button _leftDownButton;
+		private Button _leftClickButton;
+		private Button _rightDownButton;
+		private Button _rightClickButton;
+		private Button _scrollPressButton;
+		private Button _scrollClickButton;
+		private Button _rightDoubleClickButton;
+		private Button _leftDoubleClickButton;
+		private Timer _timer;
 	}
 }
 

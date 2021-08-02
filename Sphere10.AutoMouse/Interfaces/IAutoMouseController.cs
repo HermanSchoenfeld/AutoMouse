@@ -1,6 +1,6 @@
 ﻿
 using System;
-using Sphere10.Common;
+using Sphere10.Framework;
 
 namespace Sphere10.AutoMouse {
 

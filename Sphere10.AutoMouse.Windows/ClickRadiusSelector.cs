@@ -1,15 +1,10 @@
+using Sphere10.Framework;
+using Sphere10.Framework.Windows.Forms;
+using Sphere10.Framework.Windows.Forms.WinForms;
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
-using System.Reflection;
-using System.IO;
-using Sphere10.Common.WinForms;
-using Sphere10.Application.WinForms;
-using Sphere10.Common;
 
 namespace Sphere10.AutoMouse.Windows {
 
@@ -17,11 +12,11 @@ namespace Sphere10.AutoMouse.Windows {
 	/// Summary description for AutoClickRadiusSelector.
 	/// </summary>
 	public class ClickRadiusSelector : UserControl {
-		private System.Windows.Forms.Panel panel;
+		private Panel panel;
 		private TransparentPanel transparentPanel;
 		private int _mouseOverRadius = 50;
-		private System.Windows.Forms.PictureBox cursorImage;
-		private bool _mouseOver = false;
+		private PictureBox cursorImage;
+		private bool _mouseOver;
 
 		public event EventHandler RadiusChanged;
 		
@@ -132,45 +127,45 @@ namespace Sphere10.AutoMouse.Windows {
 			}
 		}
 
-		private void transparentPanel_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e) {
+		private void transparentPanel_MouseDown(object sender, MouseEventArgs e) {
 			SelectedRadius = MouseOverRadius;
 			if (RadiusChanged != null) {
 				RadiusChanged(this, new EventArgs());
 			}
 		}
 
-		private void transparentPanel_Resize(object sender, System.EventArgs e) {
-			int mid_x = this.Size.Width / 2;
-			int mid_y = this.Size.Height / 2;
+		private void transparentPanel_Resize(object sender, EventArgs e) {
+			int mid_x = Size.Width / 2;
+			int mid_y = Size.Height / 2;
 			cursorImage.Left = mid_x;
 			cursorImage.Top = mid_y;
 		}
 
-		private void transparentPanel_MouseLeave(object sender, System.EventArgs e) {
+		private void transparentPanel_MouseLeave(object sender, EventArgs e) {
 			_mouseOver = false;
 			Invalidate(true);
 		}
 
-		private void transparentPanel_MouseEnter(object sender, System.EventArgs e) {
+		private void transparentPanel_MouseEnter(object sender, EventArgs e) {
 			_mouseOver = true;
 			Invalidate(true);
 		}
 
-		private void transparentPanel_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e) {
-			int mid_x = this.Size.Width / 2;
-			int mid_y = this.Size.Height / 2;
+		private void transparentPanel_MouseMove(object sender, MouseEventArgs e) {
+			int mid_x = Size.Width / 2;
+			int mid_y = Size.Height / 2;
 			MouseOverRadius = (int) Math.Sqrt(
 				Math.Pow(e.X - mid_x, 2) +
 				Math.Pow(e.Y - mid_y, 2));
 			Invalidate(true);
 		}
 
-		private void transparentPanel_OnBackgroundPaint(object sender, System.Windows.Forms.PaintEventArgs e) {
+		private void transparentPanel_OnBackgroundPaint(object sender, PaintEventArgs e) {
 			Pen selectedPen = new Pen(Color.LightGreen, 3);
 			Pen mouseOverPen = new Pen(Color.Black, 1);
 			try  {
-				int mid_x = this.Size.Width / 2;
-				int mid_y = this.Size.Height / 2;
+				int mid_x = Size.Width / 2;
+				int mid_y = Size.Height / 2;
 
 				e.Graphics.DrawEllipse(
 					selectedPen,

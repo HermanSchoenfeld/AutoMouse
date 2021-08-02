@@ -1,62 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D75836CD-0FD3-4547-8DCB-D493664867A4}</ProjectGuid>
+    <TargetFramework>net472</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sphere10.AutoMouse.Windows</RootNamespace>
     <AssemblyName>AutoMouse</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <SccProjectName>Svn</SccProjectName>
-    <SccLocalPath>Svn</SccLocalPath>
-    <SccAuxPath>Svn</SccAuxPath>
-    <SccProvider>SubversionScc</SccProvider>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;t</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\SchoenfeldSoftware.snk</AssemblyOriginatorKeyFile>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>Full</DebugType>
+    <DefineConstants>DEBUG/TRACE;t</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -65,112 +22,20 @@
     <StartupObject>Sphere10.AutoMouse.Windows.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AboutBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AutoMouseSettingsControl.cs">
+    <Compile Update="AutoMouseSettingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AutoMouseSettingsControl.Designer.cs">
-      <DependentUpon>AutoMouseSettingsControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ClickRadiusSelector.cs">
+    <Compile Update="ClickRadiusSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ClickTypeSelectorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClickTypeSelectorForm.Designer.cs">
-      <DependentUpon>ClickTypeSelectorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NagScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NagScreen.Designer.cs">
-      <DependentUpon>NagScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WindowsExpaningCircleRenderer.cs" />
-    <Compile Include="WindowsAutoMouseController.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="WindowsScreenMouse.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AutoMouseSettingsControl.resx">
-      <DependentUpon>AutoMouseSettingsControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ClickRadiusSelector.resx">
-      <DependentUpon>ClickRadiusSelector.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ClickTypeSelectorForm.resx">
-      <DependentUpon>ClickTypeSelectorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NagScreen.resx">
-      <DependentUpon>NagScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework\Sphere10.Application.WinForms\Sphere10.Application.WinForms.csproj">
-      <Project>{2D74CAF0-F9B0-4010-91CB-15578916BC1C}</Project>
-      <Name>Sphere10.Application.WinForms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Framework\Sphere10.Application\Sphere10.Application.csproj">
-      <Project>{5843D59F-C8E2-4ED7-AD4C-DA55F968CB92}</Project>
-      <Name>Sphere10.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Framework\Sphere10.Common.Drawing\Sphere10.Common.Drawing.csproj">
-      <Project>{DF48D80D-BE17-46A0-A030-4832775F0C5D}</Project>
-      <Name>Sphere10.Common.Drawing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Framework\Sphere10.Common.WinForms\Sphere10.Common.WinForms.csproj">
-      <Project>{D8A9C063-32E0-4104-990E-F1A9DD2C436B}</Project>
-      <Name>Sphere10.Common.WinForms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Framework\Sphere10.Common\Sphere10.Common.csproj">
-      <Project>{1CDD0FFB-6E00-42C3-9D77-427AB3451C0F}</Project>
-      <Name>Sphere10.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Framework\Sphere10.Windows\Sphere10.Windows.csproj">
-      <Project>{B92F90CD-D893-4A33-AF28-CF7434586061}</Project>
-      <Name>Sphere10.Windows</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sphere10.AutoMouse\Sphere10.AutoMouse.csproj">
-      <Project>{42AFF3AB-0D9B-46C8-9257-E81053D47832}</Project>
-      <Name>Sphere10.AutoMouse</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\src\Sphere10.Framework.Application\Sphere10.Framework.Application.csproj" />
+    <ProjectReference Include="..\..\Framework\src\Sphere10.Framework.Drawing\Sphere10.Framework.Drawing.csproj" />
+    <ProjectReference Include="..\..\Framework\src\Sphere10.Framework.Windows.Forms\Sphere10.Framework.Windows.Forms.csproj" />
+    <ProjectReference Include="..\..\Framework\src\Sphere10.Framework.Windows\Sphere10.Framework.Windows.csproj" />
+    <ProjectReference Include="..\..\Framework\src\Sphere10.Framework\Sphere10.Framework.csproj" />
+    <ProjectReference Include="..\Sphere10.AutoMouse\Sphere10.AutoMouse.csproj" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -190,43 +55,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\SchoenfeldSoftware.snk">
-      <Link>SchoenfeldSoftware.snk</Link>
-    </None>
-    <None Include="Resources\Play_16x16x32.ico" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Shutdown_16x16x32.ico" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(SolutionDir)Resources\Help\1.0\*.CHM" "$(TargetDir)"</PostBuildEvent>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <!--___BEGIN_CRYPTO_OBFUSCATOR___-->
-  <PropertyGroup>
-    <CO_FirstProject>False</CO_FirstProject>
-    <CO_LastProject>True</CO_LastProject>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\x86\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <CO_Config>Release|x86</CO_Config>
-    <CO_ProjectFilePath>..\AutoMouse WIN_Release_x86.obproj</CO_ProjectFilePath>
-    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
-  <ItemGroup>
-    <CO_ObjFiles Include="..\Sphere10.AutoMouse\obj\x86\Release\Sphere10.AutoMouse.dll;..\..\Framework\Sphere10.Windows\obj\x86\Release\Sphere10.Windows.dll;..\..\Framework\Sphere10.Common.WinForms\obj\x86\Release\Sphere10.Common.WinForms.dll;..\..\Framework\Sphere10.Common.Drawing\obj\x86\Release\Sphere10.Common.Drawing.dll;..\..\Framework\Sphere10.Common\obj\x86\Release\Sphere10.Common.dll;..\..\Framework\Sphere10.Application.WinForms\obj\x86\Release\Sphere10.Application.WinForms.dll;..\..\Framework\Sphere10.Application\obj\x86\Release\Sphere10.Application.dll" Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-      <InProject>false</InProject>
-    </CO_ObjFiles>
-    <CO_BinFiles Include="..\Sphere10.AutoMouse\bin\x86\Release\Sphere10.AutoMouse.dll;..\..\Framework\Sphere10.Windows\bin\x86\Release\Sphere10.Windows.dll;..\..\Framework\Sphere10.Common.WinForms\bin\x86\Release\Sphere10.Common.WinForms.dll;..\..\Framework\Sphere10.Common.Drawing\bin\x86\Release\Sphere10.Common.Drawing.dll;..\..\Framework\Sphere10.Common\bin\x86\Release\Sphere10.Common.dll;..\..\Framework\Sphere10.Application.WinForms\bin\x86\Release\Sphere10.Application.WinForms.dll;..\..\Framework\Sphere10.Application\bin\x86\Release\Sphere10.Application.dll" Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-      <InProject>false</InProject>
-    </CO_BinFiles>
-  </ItemGroup>
-  <Import Project="C:\Program Files (x86)\LogicNP Software\Crypto Obfuscator For .Net 2012 R2\CryptoObfuscator.targets" />
-  <!--___END_CRYPTO_OBFUSCATOR___-->
 </Project>

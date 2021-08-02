@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Sphere10.Common.WinForms;
-using Sphere10.AutoMouse.Properties;
-using Sphere10.Common;
-using Sphere10.Windows;
-using System.Runtime.InteropServices;
-using Sphere10.Application.WinForms;
-using Sphere10.Application;
-
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
+using Sphere10.Framework.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 
@@ -24,7 +14,7 @@ namespace Sphere10.AutoMouse.Windows {
 		public WindowsScreenMouse(IConfigurationServices configurationServices, IUserInterfaceServices userInterfaceServices)
 			: base(configurationServices) {
 			UserInterfaceServices = userInterfaceServices;
-			ScreenForm = new WindowsScreenMouse.Form();
+			ScreenForm = new Form();
 			ScreenForm.Width = DefaultWidth;
 			ScreenForm.Height = DefaultHeight;
 			base.UpdateMouseImage();
@@ -51,7 +41,7 @@ namespace Sphere10.AutoMouse.Windows {
 			}
 		}
 
-		protected WindowsScreenMouse.Form ScreenForm { get; set; }
+		protected Form ScreenForm { get; set; }
 
 
 		public override void MoveTo(int screenX, int screenY) {
@@ -79,8 +69,6 @@ namespace Sphere10.AutoMouse.Windows {
 					if (ScreenForm.Visible) {
 						ExecuteInUIFriendlyContext(ScreenForm.Hide);
 					}
-					break;
-				default:
 					break;
 			}
 		}

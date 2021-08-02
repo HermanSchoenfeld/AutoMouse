@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Media;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿using System.Media;
 using Sphere10.AutoMouse.Properties;
-using Sphere10.Common;
+using Sphere10.Framework;
 
 namespace Sphere10.AutoMouse {
 	public class DefaultSoundMaker : ISoundMaker {
@@ -58,7 +52,7 @@ namespace Sphere10.AutoMouse {
 			}
 
 			if (player != null) {
-				Tool.ActionAsAsyncronous(
+				Tools.Lambda.ActionAsAsyncronous(
 					() => {
 						bool skip = false;
 						if (_clicksQueued < MaxTimeSingleSoundQueued) {

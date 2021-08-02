@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using Sphere10.Common;
-using Sphere10.Application;
 using System.ComponentModel;
 using System.Drawing;
-using Sphere10.Drawing;
 using System.Reflection;
-
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
+using Tools;
 
 namespace Sphere10.AutoMouse {
 
     [Obfuscation(Exclude = true)]
-	[RegisterSettings]
-	public class AutoMouseSettings : ComponentSettings {
+	public class AutoMouseSettings : SettingsObject {
 
 		[DefaultValue(true)]
 		public bool ScreenMouseKeepAliveOnManualActivation { get; set; }
@@ -72,7 +69,6 @@ namespace Sphere10.AutoMouse {
 			set { MultipleClickIntervalMS = (int)value.TotalMilliseconds; }
 		}
 
-
 		[DefaultValue(10)]
 		public int MouseUpIntervalMS { get; set; }
 
@@ -94,7 +90,7 @@ namespace Sphere10.AutoMouse {
 		public string ExpandingRingColorARGB { get; set; }
 
 		public Color ExpandingRingColor {
-			get { return DrawingTool.ConvertStringToColor(ExpandingRingColorARGB); }
+			get { return Drawing.ConvertStringToColor(ExpandingRingColorARGB); }
 			set { ExpandingRingColorARGB = value.ToARGBString(); }
 		}
 
@@ -103,7 +99,7 @@ namespace Sphere10.AutoMouse {
 		public string ExpandingRingColor2ARGB { get; set; }
 		
 		public Color ExpandingRingColor2 {
-			get { return DrawingTool.ConvertStringToColor(ExpandingRingColor2ARGB); }
+			get { return Drawing.ConvertStringToColor(ExpandingRingColor2ARGB); }
 			set { ExpandingRingColor2ARGB = value.ToARGBString(); }
 		}
 
@@ -112,10 +108,10 @@ namespace Sphere10.AutoMouse {
 
 		public int ScreenMouseIdleAlphaPercentage {
 			get {
-				return (int)Math.Round((double)ScreenMouseIdleAlpha*100.0d);
+				return (int)Math.Round(ScreenMouseIdleAlpha*100.0d);
 			}
 			set { 
-				ScreenMouseIdleAlpha = ((float) value)/100.0f;
+				ScreenMouseIdleAlpha = value/100.0f;
 			}
 		}
 
@@ -125,10 +121,10 @@ namespace Sphere10.AutoMouse {
 
 		public int ScreenMouseActiveAlphaPercentage {
 			get {
-				return (int)Math.Round((double)ScreenMouseActiveAlpha * 100.0d);
+				return (int)Math.Round(ScreenMouseActiveAlpha * 100.0d);
 			}
 			set {
-				ScreenMouseActiveAlpha = ((float)value) / 100.0f;
+				ScreenMouseActiveAlpha = value / 100.0f;
 			}
 		}
 

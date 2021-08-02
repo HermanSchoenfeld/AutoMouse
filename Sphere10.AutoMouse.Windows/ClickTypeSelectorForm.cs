@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Sphere10.Common;
-using System.Threading;
+using Sphere10.Framework;
 
 namespace Sphere10.AutoMouse.Windows {
 	public partial class ClickTypeSelectorForm : Form {
@@ -29,7 +23,7 @@ namespace Sphere10.AutoMouse.Windows {
 			TopMost = true;
 			State = SelectorState.Selecting;
 			KeyHook = hook;
-			KeyHandler = new EventHandler<KeyEvent>(KeyHook_KeyDown);
+			KeyHandler = KeyHook_KeyDown;
 			KeyHook.KeyDown += KeyHandler;
 		}
 
@@ -61,7 +55,7 @@ namespace Sphere10.AutoMouse.Windows {
 			SelectedClickType = clickType;
 			this.InvokeEx(() => {
 				Opacity = 0;
-				this.DialogResult = DialogResult.OK;
+				DialogResult = DialogResult.OK;
 			});
 		}
 

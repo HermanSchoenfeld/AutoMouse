@@ -21,6 +21,13 @@
     <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'DefaultBuild' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'All|x86' ">
+    <OutputPath>bin\x86\All\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
   <!--Search foe the AI path in the registry. If the AI version used to create the project is not present, use the latest version-->
   <Choose>
     <When Condition="Exists('$(registry:HKEY_CURRENT_USER\SOFTWARE\Caphyon\Advanced Installer\Extension for VS@9.4)bin\x86\AdvancedInstaller.com')">

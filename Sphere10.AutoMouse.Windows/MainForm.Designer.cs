@@ -1,9 +1,12 @@
-﻿namespace Sphere10.AutoMouse.Windows {
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace Sphere10.AutoMouse.Windows {
 	partial class MainForm {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+		private IContainer components = null;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -38,7 +41,7 @@
             this._aboutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this._resetToDefaultButton = new System.Windows.Forms.Button();
             this._autoMouseSettingsControl = new Sphere10.AutoMouse.Windows.AutoMouseSettingsControl();
-            this.applicationBanner1 = new Sphere10.Application.WinForms.ApplicationBanner();
+            this.applicationBanner1 = new Sphere10.Framework.Windows.Forms.ApplicationBanner();
             this.panel1 = new System.Windows.Forms.Panel();
             this._systrayMenu.SuspendLayout();
             this._toolStrip.SuspendLayout();
@@ -153,7 +156,7 @@
             // 
             // _autoMouseSettingsControl
             // 
-            this._autoMouseSettingsControl.AutoLocateSettings = true;
+            //this._autoMouseSettingsControl.AutoLocateSettings = true; 
             this._autoMouseSettingsControl.AutoSaveSettingsOnStateChanged = true;
             this._autoMouseSettingsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this._autoMouseSettingsControl.Location = new System.Drawing.Point(0, 121);
@@ -192,7 +195,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 625);
-            this.CloseAction = ((Sphere10.Application.FormCloseAction)((Sphere10.Application.FormCloseAction.Hide | Sphere10.Application.FormCloseAction.Minimize)));
+            this.CloseAction = ((Sphere10.Framework.Windows.Forms.FormCloseAction)((Sphere10.Framework.Windows.Forms.FormCloseAction.Hide | Sphere10.Framework.Windows.Forms.FormCloseAction.Minimize)));
             this.ControlBox = false;
             this.Controls.Add(this._autoMouseSettingsControl);
             this.Controls.Add(this._toolStrip);
@@ -215,20 +218,20 @@
 
 		#endregion
 
-		private System.Windows.Forms.ContextMenuStrip _systrayMenu;
-		private System.Windows.Forms.ToolStripMenuItem _toggleAutoMouseToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem _optionsToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem _exitToolStripMenuItem;
-		private System.Windows.Forms.NotifyIcon _notifyIcon;
-		private global::Sphere10.AutoMouse.Windows.AutoMouseSettingsControl _autoMouseSettingsControl;
-		private System.Windows.Forms.Button _closeButton;
-		private System.Windows.Forms.ToolStrip _toolStrip;
-		private System.Windows.Forms.ToolStripButton _toggleToolStripButton;
-		private System.Windows.Forms.ToolStripButton _helpIcon;
-		private System.Windows.Forms.ToolStripButton _purchaseToolStripButton;
-		private System.Windows.Forms.ToolStripButton _aboutToolStripButton;
-		private System.Windows.Forms.Button _resetToDefaultButton;
-		private Sphere10.Application.WinForms.ApplicationBanner applicationBanner1;
-		private System.Windows.Forms.Panel panel1;
+		private ContextMenuStrip _systrayMenu;
+		private ToolStripMenuItem _toggleAutoMouseToolStripMenuItem;
+		private ToolStripMenuItem _optionsToolStripMenuItem;
+		private ToolStripMenuItem _exitToolStripMenuItem;
+		private NotifyIcon _notifyIcon;
+		private AutoMouseSettingsControl _autoMouseSettingsControl;
+		private Button _closeButton;
+		private ToolStrip _toolStrip;
+		private ToolStripButton _toggleToolStripButton;
+		private ToolStripButton _helpIcon;
+		private ToolStripButton _purchaseToolStripButton;
+		private ToolStripButton _aboutToolStripButton;
+		private Button _resetToDefaultButton;
+		private Sphere10.Framework.Windows.Forms.ApplicationBanner applicationBanner1;
+		private Panel panel1;
 	}
 }

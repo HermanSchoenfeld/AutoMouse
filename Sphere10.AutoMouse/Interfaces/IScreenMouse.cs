@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Drawing;
-using System.Timers;
-using Sphere10.AutoMouse.Properties;
-using Sphere10.Application;
-using Sphere10.Common;
+using Sphere10.Framework;
 
 namespace Sphere10.AutoMouse {
 

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Timers;
 using Sphere10.AutoMouse.Properties;
-using Sphere10.Application;
-using Sphere10.Common;
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
+using Timer = System.Timers.Timer;
 
 namespace Sphere10.AutoMouse {
 
@@ -57,8 +59,9 @@ namespace Sphere10.AutoMouse {
 			get {
 				if (_settings == null) {
 					lock (this) {
-						if (_settings == null) {
-							_settings = ConfigurationServices.GetComponentSettings(typeof(AutoMouseSettings)) as AutoMouseSettings;
+						if (_settings == null)
+						{
+							_settings = UserSettings.Get<AutoMouseSettings>();
 						}
 					}
 				}

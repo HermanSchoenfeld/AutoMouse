@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Sphere10.Application;
+using Sphere10.Framework.Application;
 
 
 namespace Sphere10.AutoMouse {

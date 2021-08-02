@@ -1,475 +1,559 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Media;
-using System.Text;
-using Sphere10.Application;
-using Sphere10.AutoMouse.Properties;
-using Sphere10.Common;
 using System.Threading;
+using Sphere10.Framework.Application;
+using Sphere10.Framework;
 
-namespace Sphere10.AutoMouse {
 
-	public abstract class BaseAutoMouseController : IAutoMouseController  {
+namespace Sphere10.AutoMouse
+{
+    public abstract class BaseAutoMouseController : IAutoMouseController
+    {
+        private volatile AutoMouseSettings _settings;
+        private DateTime _lastKeyDown;
+        protected volatile int LastMouseX;
+        protected volatile int LastMouseY;
+        protected volatile int KeyDownX;
+        protected volatile int KeyDownY;
+        protected DecayGauge _decayGauge;
 
-		private volatile AutoMouseSettings _settings;
-		private DateTime _lastKeyDown;
-		protected volatile int LastMouseX;
-		protected volatile int LastMouseY;
-		protected volatile int KeyDownX;
-		protected volatile int KeyDownY;
-		protected DecayGauge _decayGauge;
-		
-		protected BaseAutoMouseController(IMouseHook mouseHook, IKeyboardHook keyboardHook, IScreenMouse screenMouse,  IExpandingCircleRenderer expandingCircleRenderer, ISoundMaker soundMaker, IConfigurationServices configurationServices, IUserInterfaceServices userInterfaceServices) {
+        protected BaseAutoMouseController(IMouseHook mouseHook, IKeyboardHook keyboardHook, IScreenMouse screenMouse,
+            IExpandingCircleRenderer expandingCircleRenderer, ISoundMaker soundMaker,
+            IConfigurationServices configurationServices, IUserInterfaceServices userInterfaceServices)
+        {
             ConfigurationServices = configurationServices;
-			MouseHook = mouseHook;
-			KeyboardHook = keyboardHook;
-			ScreenMouse =  screenMouse;
-			ScreenMouse.StateChanged += new EventHandler<ScreenMouseStateChangedEvent>(ScreenMouse_StateChanged);
-			ExpandingCircleRenderer = expandingCircleRenderer;
-			UserInterfaceServices = userInterfaceServices;
-			SoundMaker = soundMaker;
-
-			_lastKeyDown = DateTime.Now;
-
-			// Configure this object
-			_settings = null;
-			_decayGauge = DecayGauge.ScreenMouse;
-			
-			MouseHook = ApplicationFrameworkManager.Resolve<IMouseHook>();
-			MouseHook.MotionStop += new EventHandler<MouseMoveEvent>(_mouseHook_MotionStop);
-			MouseHook.Motion += new EventHandler<MouseMoveEvent>(_mouseHook_Motion);
-
-			KeyboardHook = ApplicationFrameworkManager.Resolve<IKeyboardHook>();
-			KeyboardHook.KeyDown += new EventHandler<KeyEvent>(_keyHook_KeyDown);
-			KeyboardHook.KeyUp += new EventHandler<KeyEvent>(_keyHook_KeyUp);
-		}
-
-		protected IMouseHook MouseHook { get; private set; }
-
-		protected IKeyboardHook KeyboardHook { get; private set; }
-
-		protected IScreenMouse ScreenMouse { get; private set; }
-
-		protected IConfigurationServices ConfigurationServices { get; private set; }
-
-		protected IExpandingCircleRenderer ExpandingCircleRenderer { get; private set; }
-
-		protected IUserInterfaceServices UserInterfaceServices { get; private set; }
-
-		protected ISoundMaker SoundMaker { get; private set; }
-	
-		#region Properties
-
-		public AutoMouseSettings Settings {
-			get {
-				if (_settings == null) {
-					lock(this) {
-						if (_settings==null) {
-							_settings = ConfigurationServices.GetComponentSettings(typeof(AutoMouseSettings)) as AutoMouseSettings;
-						}
-					}
-				}
-				return _settings;
-			}
-		}
-
-		public bool Started { get; set; }
-
-		public abstract int CursorCurrentPositionX { get; set; }
-
-		public abstract int CursorCurrentPositionY { get; set; }
-
-		#endregion
-
-		#region Methods
-
-		#region Mode - AutoActivateScreenMouse
-
-
-		
-		public virtual void ProcessKeyDown_AutoActivateScreenMouse(KeyEvent e) {
-			
-			if (ScreenMouse.State.IsIn(ScreenMouseState.Active)) {
-
-				#region Process Button Keys
-
-				bool buttonPressedInCall = false;
-				if (e.Key == Settings.LeftButtonKey && ScreenMouse.PressedButton != MouseButton.Left) {
-					ScreenMouse.PressedButton = MouseButton.Left;
-					buttonPressedInCall = true;
-				}
-				if (e.Key == Settings.MiddleButtonKey && ScreenMouse.PressedButton != MouseButton.Middle) {
-					ScreenMouse.PressedButton = MouseButton.Middle;
-					buttonPressedInCall = true;
-				}
-				if (e.Key == Settings.RightButtonKey && ScreenMouse.PressedButton != MouseButton.Right) {
-					ScreenMouse.PressedButton = MouseButton.Right;
-					buttonPressedInCall = true;
-				}
-				if (buttonPressedInCall && ScreenMouse.PressedButton != MouseButton.None) {
-					KeyDownX = LastMouseX;
-					KeyDownY = LastMouseY;
-					if (Settings.ShowExpandingRings) {
-						ExecuteInUIFriendlyContext(
-							() =>
-							ExpandingCircleRenderer.DrawExpandingCircle(CursorCurrentPositionX, CursorCurrentPositionY, Settings.ExpandingRingColor,
-																Settings.ExpandingRingThickness, Settings.ExpandingRingRadius, Settings.ExpandingRingSpeedPixelsPerSecond));
-					}
-					if (Settings.MakeClickSound) {
-						SoundMaker.PlayClickSound(ScreenMouse.PressedButton, MouseButtonState.Down);
-					}
-					MouseHook.Simulate(ScreenMouse.PressedButton, MouseButtonState.Down, LastMouseX, LastMouseY);
-				}
-
-				#endregion
-
-				#region Process Arrow Keys 
-				if (Settings.KeyboardArrowsMoveScreenMouse) {
-					_decayGauge.RegisterEvent(1);
-					switch (e.Key) {
-						case Key.Left:
-							CursorCurrentPositionX -= (int) _decayGauge.Level.ClipTo(1, double.MaxValue);
-							break;
-						case Key.Right:
-							CursorCurrentPositionX += (int)_decayGauge.Level.ClipTo(1, double.MaxValue);
-							break;
-						case Key.Up:
-							CursorCurrentPositionY -= (int)_decayGauge.Level.ClipTo(1, double.MaxValue);
-							break;
-						case Key.Down:
-							CursorCurrentPositionY += (int)_decayGauge.Level.ClipTo(1, double.MaxValue);
-							break;
-					}
-					LastMouseX = CursorCurrentPositionX;
-					LastMouseY = CursorCurrentPositionY;
-					ScreenMouse.MoveTo(LastMouseX, LastMouseY);
-				}
-
-				#endregion
-			}
-			_lastKeyDown = DateTime.Now;
-		}
-
-		public virtual void ProcessKeyUp_AutoActivateScreenMouse(KeyEvent e) {
-			if (ScreenMouse.PressedButton != MouseButton.None) {
-				MouseButton buttonLetGo = ScreenMouse.PressedButton;
-				if (e.Key == Settings.LeftButtonKey && ScreenMouse.PressedButton == MouseButton.Left ||
-					e.Key == Settings.MiddleButtonKey && ScreenMouse.PressedButton == MouseButton.Middle ||
-						e.Key == Settings.RightButtonKey && ScreenMouse.PressedButton == MouseButton.Right) {
-					ScreenMouse.PressedButton = MouseButton.None;
-				}
-
-				if (Tool.EuclideanDistance(KeyDownX, KeyDownY, LastMouseX, LastMouseY) > Settings.ClickFreeZoneRadius) {
-					// If it was a drag-type operation, we also show circle on mouse up
-					if (Settings.ShowExpandingRings) {
-						ExecuteInUIFriendlyContext(
-							() =>
-								ExpandingCircleRenderer.DrawExpandingCircle(
-									CursorCurrentPositionX,
-									CursorCurrentPositionY,
-									Settings.ExpandingRingColor2,
-									Settings.ExpandingRingThickness,
-									Settings.ExpandingRingRadius,
-									Settings.ExpandingRingSpeedPixelsPerSecond
-								)
-							);
-					}
-				}
-
-				if (Settings.MakeClickSound) {
-					SoundMaker.PlayClickSound(ScreenMouse.PressedButton, MouseButtonState.Up);
-				}
-
-				MouseHook.Simulate(buttonLetGo, MouseButtonState.Up, LastMouseX, LastMouseY);
-			}
-		}
-
-		public virtual void ProcessMotion_AutoActivateScreenMouse(MouseMoveEvent e) {
-			LastMouseX = e.X;
-			LastMouseY = e.Y;
-			if (ScreenMouse.State != ScreenMouseState.Active && e.DeltaFromMotionStart > Settings.ClickFreeZoneRadius) {
-				ScreenMouse.FadeIn();
-			}
-			if (ScreenMouse.State != ScreenMouseState.Inactive) {
-				ScreenMouse.MoveTo(e.X, e.Y);
-			}
-		}
-
-		public virtual void ProcessMotionStop_AutoActivateScreenMouse(MouseMoveEvent e) {
-		}
-
-		public virtual void MouseFormStateChanged_AutoActivateScreenMouse(ScreenMouseStateChangedEvent e) {
-			switch (e.CurrentState) {
-				case ScreenMouseState.Active:
-					KeyboardHook.InterceptKeys.Add(Settings.LeftButtonKey);
-					KeyboardHook.InterceptKeys.Add(Settings.MiddleButtonKey);
-					KeyboardHook.InterceptKeys.Add(Settings.RightButtonKey);
-					if (Settings.KeyboardArrowsMoveScreenMouse) {
-						KeyboardHook.InterceptKeys.Add(Key.Left);
-						KeyboardHook.InterceptKeys.Add(Key.Right);
-						KeyboardHook.InterceptKeys.Add(Key.Up);
-						KeyboardHook.InterceptKeys.Add(Key.Down);
-					}
-					break;
-				case ScreenMouseState.Inactive:
-					KeyboardHook.InterceptKeys.Clear();
-					break;
-			}
-		}
-
-		#endregion
-
-		#region Mode - AutoClickOnMouseStop
-
-		public virtual void ProcessKeyDown_AutoClickOnMouseStop(KeyEvent e) {
-		}
-
-		public virtual void ProcessKeyUp_AutoClickOnMouseStop(KeyEvent key) {
-		}
-
-		public virtual void ProcessMotion_AutoClickOnMouseStop(MouseMoveEvent e) {
-			LastMouseX = e.X;
-			LastMouseY = e.Y;
-		}
-
-		public virtual void ProcessMotionStop_AutoClickOnMouseStop(MouseMoveEvent e) {
-			// If mouse is active, and user has moved beyond click free zone, set the mouse to fading
-			if (e.DeltaFromMotionStart > Settings.ClickFreeZoneRadius) {
-				SimulateMouse(Settings.AutoClickButton, Settings.AutoClickType, e.X, e.Y);
-			}
-		}
-
-		public virtual void MouseFormStateChanged_AutoClickOnMouseStop(ScreenMouseStateChangedEvent e) {
-		}
-
-		#endregion
-
-		#region Mode - ManuallyActivateScreenMouse
-		
-		public virtual void ProcessKeyDown_ManuallyActivateScreenMouse(KeyEvent e) {
-			ProcessKeyDown_AutoActivateScreenMouse(e);
-			if (Settings.ScreenMouseActivationKey == e.Key) {
-				if (ScreenMouse.State == ScreenMouseState.Inactive) {
-					ScreenMouse.FadeToFullOpacity();
-					ScreenMouse.KeepAlive = Settings.ScreenMouseKeepAliveOnManualActivation;
-				} else {
-					ScreenMouse.KeepAlive = false;
-					ScreenMouse.FadeOut();
-				}
-				if (ScreenMouse.State != ScreenMouseState.Inactive) {
-					ScreenMouse.MoveTo(LastMouseX, LastMouseY);
-				}
-			}
-		}
-
-		public virtual void ProcessKeyUp_ManuallyActivateScreenMouse(KeyEvent e) {
-			ProcessKeyUp_AutoActivateScreenMouse(e);
-		}
-
-		public virtual void ProcessMotion_ManuallyActivateScreenMouse(MouseMoveEvent e) {
-			LastMouseX = e.X;
-			LastMouseY = e.Y;
-			if (ScreenMouse.State != ScreenMouseState.Inactive) {
-				ScreenMouse.MoveTo(e.X, e.Y);
-			}
-		}
-
-		public virtual void ProcessMotionStop_ManuallyActivateScreenMouse(MouseMoveEvent e) {
-			// If mouse is active, and user has moved beyond click free zone, set the mouse to fading
-			if (!Settings.ScreenMouseKeepAliveOnManualActivation &&
-			    ScreenMouse.State == ScreenMouseState.Active &&
-				e.DeltaFromMotionStart > Settings.ClickFreeZoneRadius) {
-				ScreenMouse.FadeOut();
-			}
-			if (ScreenMouse.State != ScreenMouseState.Inactive) {
-				ScreenMouse.MoveTo(e.X, e.Y);
-			}
-		}
-
-		public virtual void MouseFormStateChanged_ManuallyActivateScreenMouse(ScreenMouseStateChangedEvent e) {
-			switch (e.CurrentState) {
-				case ScreenMouseState.Active:
-					KeyboardHook.InterceptKeys.Add(Settings.LeftButtonKey);
-					KeyboardHook.InterceptKeys.Add(Settings.MiddleButtonKey);
-					KeyboardHook.InterceptKeys.Add(Settings.RightButtonKey);
-					if (Settings.KeyboardArrowsMoveScreenMouse) {
-						KeyboardHook.InterceptKeys.Add(Key.Left);
-						KeyboardHook.InterceptKeys.Add(Key.Right);
-						KeyboardHook.InterceptKeys.Add(Key.Up);
-						KeyboardHook.InterceptKeys.Add(Key.Down);
-					}
-					break;
-				case ScreenMouseState.Inactive:
-					KeyboardHook.InterceptKeys.Clear();
-					break;
-			}
-		}
-
-		#endregion
-
-		protected virtual void ExecuteInUIFriendlyContext(Action action) {
-			UserInterfaceServices.ExecuteInUIFriendlyContext(action);
-		}
-
-		public void Start() {
-			if (MouseHook.Status == DeviceHookStatus.Uninstalled) {
-				MouseHook.InstallHook();
-			}
-			if (KeyboardHook.Status == DeviceHookStatus.Uninstalled) {
-				KeyboardHook.InstallHook();
-			}
-			MouseHook.StartHook();
-			KeyboardHook.StartHook();
-			Started = true;
-		}
-
-		public void Stop() {
-			MouseHook.StopHook();
-			KeyboardHook.StopHook();
-			ScreenMouse.KeepAlive = false;
-			Started = false;
-		}
-
-
-		public void SimulateMouse(MouseButton button, MouseClickType clickType, int centerX, int centerY) {
-			var mouseActions = new List<Tuple<MouseButton, MouseButtonState, TimeSpan>>();
-			switch (clickType) {
-				case MouseClickType.Single:
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, TimeSpan.FromSeconds(0)));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
-					break;
-				case MouseClickType.Double:
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, TimeSpan.FromSeconds(0)));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, Settings.MultipleClickInterval));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
-					break;
-				case MouseClickType.Tripple:
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, TimeSpan.FromSeconds(0)));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, Settings.MultipleClickInterval));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, Settings.MultipleClickInterval));
-					mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
-					break;
-				default:
-					break;
-			}
-
-			Tool.ActionAsAsyncronous(
-				() => mouseActions.ForEach(
-					action => {
-						Thread.Sleep(action.Item3);
-
-						// Show expanding rings on click down
-						if (Settings.ShowExpandingRings && action.Item2 == MouseButtonState.Down) {
-							ExecuteInUIFriendlyContext(
-								() =>
-								ExpandingCircleRenderer.DrawExpandingCircle(centerX, centerY, Settings.ExpandingRingColor,
-								                                    Settings.ExpandingRingThickness, Settings.ExpandingRingRadius, Settings.ExpandingRingSpeedPixelsPerSecond));
-						}
-
-						// Make click sound
-						if (Settings.MakeClickSound) {
-							SoundMaker.PlayClickSound(action.Item1, action.Item2);
-						}
-
-						// Send actual mouse event to OS
-						MouseHook.Simulate(action.Item1, action.Item2, centerX, centerY);
-					}
-				      	)
-				).Invoke();
-		}
-
-		#endregion
-
-		#region Handlers
-
-		void ScreenMouse_StateChanged(object sender, ScreenMouseStateChangedEvent e) {
-			switch (Settings.MouseStoppedBehavior) {
-				case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
-					MouseFormStateChanged_AutoActivateScreenMouse(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
-					MouseFormStateChanged_AutoClickOnMouseStop(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
-					MouseFormStateChanged_ManuallyActivateScreenMouse(e);
-					break;
-			}
-		}
-
-		void _keyHook_KeyDown(object sender, KeyEvent e) {
-			switch (Settings.MouseStoppedBehavior) {
-				case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
-					ProcessKeyDown_AutoActivateScreenMouse(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
-					ProcessKeyDown_AutoClickOnMouseStop(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
-					ProcessKeyDown_ManuallyActivateScreenMouse(e);
-					break;
-			}
-		}
-
-		void _keyHook_KeyUp(object sender, KeyEvent e) {
-			switch (Settings.MouseStoppedBehavior) {
-				case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
-					ProcessKeyUp_AutoActivateScreenMouse(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
-					ProcessKeyUp_AutoClickOnMouseStop(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
-					ProcessKeyUp_ManuallyActivateScreenMouse(e);
-					break;
-			}
-		}
-
-		void _mouseHook_Motion(object sender, MouseMoveEvent e) {
-			switch (Settings.MouseStoppedBehavior) {
-				case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
-					ProcessMotion_AutoActivateScreenMouse(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
-					ProcessMotion_AutoClickOnMouseStop(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
-					ProcessMotion_ManuallyActivateScreenMouse(e);
-					break;
-			}
-		}
-
-		void _mouseHook_MotionStop(object sender, MouseMoveEvent e) {
-			switch (Settings.MouseStoppedBehavior) {
-				case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
-					ProcessMotionStop_AutoActivateScreenMouse(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
-					ProcessMotionStop_AutoClickOnMouseStop(e);
-					break;
-				case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
-					ProcessMotionStop_ManuallyActivateScreenMouse(e);
-					break;
-			}
-		}
-
-		#endregion
-
-
-		public void Dispose() {
-			if (MouseHook.Status != DeviceHookStatus.Uninstalled) {
-				MouseHook.UninstallHook();
-			}
-
-			if (KeyboardHook.Status != DeviceHookStatus.Uninstalled) {
-				KeyboardHook.UninstallHook();
-			}
-		}
-	}
+            MouseHook = mouseHook;
+            KeyboardHook = keyboardHook;
+            ScreenMouse = screenMouse;
+            ScreenMouse.StateChanged += ScreenMouse_StateChanged;
+            ExpandingCircleRenderer = expandingCircleRenderer;
+            UserInterfaceServices = userInterfaceServices;
+            SoundMaker = soundMaker;
+
+            _lastKeyDown = DateTime.Now;
+
+            // Configure this object
+            _settings = null;
+            _decayGauge = DecayGauge.ScreenMouse;
+
+            MouseHook = ComponentRegistry.Instance.Resolve<IMouseHook>();
+            MouseHook.MotionStop += _mouseHook_MotionStop;
+            MouseHook.Motion += _mouseHook_Motion;
+
+            KeyboardHook = ComponentRegistry.Instance.Resolve<IKeyboardHook>();
+            KeyboardHook.KeyDown += _keyHook_KeyDown;
+            KeyboardHook.KeyUp += _keyHook_KeyUp;
+        }
+
+        protected IMouseHook MouseHook { get; private set; }
+
+        protected IKeyboardHook KeyboardHook { get; private set; }
+
+        protected IScreenMouse ScreenMouse { get; private set; }
+
+        protected IConfigurationServices ConfigurationServices { get; private set; }
+
+        protected IExpandingCircleRenderer ExpandingCircleRenderer { get; private set; }
+
+        protected IUserInterfaceServices UserInterfaceServices { get; private set; }
+
+        protected ISoundMaker SoundMaker { get; private set; }
+
+        #region Properties
+
+        public AutoMouseSettings Settings
+        {
+            get
+            {
+                if (_settings == null)
+                {
+                    lock (this)
+                    {
+                        if (_settings == null)
+                        {
+                            _settings = UserSettings.Get<AutoMouseSettings>();
+                        }
+                    }
+                }
+
+                return _settings;
+            }
+        }
+
+        public bool Started { get; set; }
+
+        public abstract int CursorCurrentPositionX { get; set; }
+
+        public abstract int CursorCurrentPositionY { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        #region Mode - AutoActivateScreenMouse
+
+        public virtual void ProcessKeyDown_AutoActivateScreenMouse(KeyEvent e)
+        {
+            if (ScreenMouse.State.IsIn(ScreenMouseState.Active))
+            {
+                #region Process Button Keys
+
+                bool buttonPressedInCall = false;
+                if (e.Key == Settings.LeftButtonKey && ScreenMouse.PressedButton != MouseButton.Left)
+                {
+                    ScreenMouse.PressedButton = MouseButton.Left;
+                    buttonPressedInCall = true;
+                }
+
+                if (e.Key == Settings.MiddleButtonKey && ScreenMouse.PressedButton != MouseButton.Middle)
+                {
+                    ScreenMouse.PressedButton = MouseButton.Middle;
+                    buttonPressedInCall = true;
+                }
+
+                if (e.Key == Settings.RightButtonKey && ScreenMouse.PressedButton != MouseButton.Right)
+                {
+                    ScreenMouse.PressedButton = MouseButton.Right;
+                    buttonPressedInCall = true;
+                }
+
+                if (buttonPressedInCall && ScreenMouse.PressedButton != MouseButton.None)
+                {
+                    KeyDownX = LastMouseX;
+                    KeyDownY = LastMouseY;
+                    if (Settings.ShowExpandingRings)
+                    {
+                        ExecuteInUIFriendlyContext(
+                            () =>
+                                ExpandingCircleRenderer.DrawExpandingCircle(CursorCurrentPositionX,
+                                    CursorCurrentPositionY, Settings.ExpandingRingColor,
+                                    Settings.ExpandingRingThickness, Settings.ExpandingRingRadius,
+                                    Settings.ExpandingRingSpeedPixelsPerSecond));
+                    }
+
+                    if (Settings.MakeClickSound)
+                    {
+                        SoundMaker.PlayClickSound(ScreenMouse.PressedButton, MouseButtonState.Down);
+                    }
+
+                    MouseHook.Simulate(ScreenMouse.PressedButton, MouseButtonState.Down, LastMouseX, LastMouseY);
+                }
+
+                #endregion
+
+                #region Process Arrow Keys
+
+                if (Settings.KeyboardArrowsMoveScreenMouse)
+                {
+                    _decayGauge.RegisterEvent(1);
+                    switch (e.Key)
+                    {
+                        case Key.Left:
+                            CursorCurrentPositionX -= (int) _decayGauge.Level.ClipTo(1, double.MaxValue);
+                            break;
+                        case Key.Right:
+                            CursorCurrentPositionX += (int) _decayGauge.Level.ClipTo(1, double.MaxValue);
+                            break;
+                        case Key.Up:
+                            CursorCurrentPositionY -= (int) _decayGauge.Level.ClipTo(1, double.MaxValue);
+                            break;
+                        case Key.Down:
+                            CursorCurrentPositionY += (int) _decayGauge.Level.ClipTo(1, double.MaxValue);
+                            break;
+                    }
+
+                    LastMouseX = CursorCurrentPositionX;
+                    LastMouseY = CursorCurrentPositionY;
+                    ScreenMouse.MoveTo(LastMouseX, LastMouseY);
+                }
+
+                #endregion
+            }
+
+            _lastKeyDown = DateTime.Now;
+        }
+
+        public virtual void ProcessKeyUp_AutoActivateScreenMouse(KeyEvent e)
+        {
+            if (ScreenMouse.PressedButton != MouseButton.None)
+            {
+                MouseButton buttonLetGo = ScreenMouse.PressedButton;
+                if (e.Key == Settings.LeftButtonKey && ScreenMouse.PressedButton == MouseButton.Left ||
+                    e.Key == Settings.MiddleButtonKey && ScreenMouse.PressedButton == MouseButton.Middle ||
+                    e.Key == Settings.RightButtonKey && ScreenMouse.PressedButton == MouseButton.Right)
+                {
+                    ScreenMouse.PressedButton = MouseButton.None;
+                }
+
+                if (Tool.EuclideanDistance(KeyDownX, KeyDownY, LastMouseX, LastMouseY) > Settings.ClickFreeZoneRadius)
+                {
+                    // If it was a drag-type operation, we also show circle on mouse up
+                    if (Settings.ShowExpandingRings)
+                    {
+                        ExecuteInUIFriendlyContext(
+                            () =>
+                                ExpandingCircleRenderer.DrawExpandingCircle(
+                                    CursorCurrentPositionX,
+                                    CursorCurrentPositionY,
+                                    Settings.ExpandingRingColor2,
+                                    Settings.ExpandingRingThickness,
+                                    Settings.ExpandingRingRadius,
+                                    Settings.ExpandingRingSpeedPixelsPerSecond
+                                )
+                        );
+                    }
+                }
+
+                if (Settings.MakeClickSound)
+                {
+                    SoundMaker.PlayClickSound(ScreenMouse.PressedButton, MouseButtonState.Up);
+                }
+
+                MouseHook.Simulate(buttonLetGo, MouseButtonState.Up, LastMouseX, LastMouseY);
+            }
+        }
+
+        public virtual void ProcessMotion_AutoActivateScreenMouse(MouseMoveEvent e)
+        {
+            LastMouseX = e.X;
+            LastMouseY = e.Y;
+            if (ScreenMouse.State != ScreenMouseState.Active && e.DeltaFromMotionStart > Settings.ClickFreeZoneRadius)
+            {
+                ScreenMouse.FadeIn();
+            }
+
+            if (ScreenMouse.State != ScreenMouseState.Inactive)
+            {
+                ScreenMouse.MoveTo(e.X, e.Y);
+            }
+        }
+
+        public virtual void ProcessMotionStop_AutoActivateScreenMouse(MouseMoveEvent e)
+        {
+        }
+
+        public virtual void MouseFormStateChanged_AutoActivateScreenMouse(ScreenMouseStateChangedEvent e)
+        {
+            switch (e.CurrentState)
+            {
+                case ScreenMouseState.Active:
+                    KeyboardHook.InterceptKeys.Add(Settings.LeftButtonKey);
+                    KeyboardHook.InterceptKeys.Add(Settings.MiddleButtonKey);
+                    KeyboardHook.InterceptKeys.Add(Settings.RightButtonKey);
+                    if (Settings.KeyboardArrowsMoveScreenMouse)
+                    {
+                        KeyboardHook.InterceptKeys.Add(Key.Left);
+                        KeyboardHook.InterceptKeys.Add(Key.Right);
+                        KeyboardHook.InterceptKeys.Add(Key.Up);
+                        KeyboardHook.InterceptKeys.Add(Key.Down);
+                    }
+
+                    break;
+                case ScreenMouseState.Inactive:
+                    KeyboardHook.InterceptKeys.Clear();
+                    break;
+            }
+        }
+
+        #endregion
+
+        #region Mode - AutoClickOnMouseStop
+
+        public virtual void ProcessKeyDown_AutoClickOnMouseStop(KeyEvent e)
+        {
+        }
+
+        public virtual void ProcessKeyUp_AutoClickOnMouseStop(KeyEvent key)
+        {
+        }
+
+        public virtual void ProcessMotion_AutoClickOnMouseStop(MouseMoveEvent e)
+        {
+            LastMouseX = e.X;
+            LastMouseY = e.Y;
+        }
+
+        public virtual void ProcessMotionStop_AutoClickOnMouseStop(MouseMoveEvent e)
+        {
+            // If mouse is active, and user has moved beyond click free zone, set the mouse to fading
+            if (e.DeltaFromMotionStart > Settings.ClickFreeZoneRadius)
+            {
+                SimulateMouse(Settings.AutoClickButton, Settings.AutoClickType, e.X, e.Y);
+            }
+        }
+
+        public virtual void MouseFormStateChanged_AutoClickOnMouseStop(ScreenMouseStateChangedEvent e)
+        {
+        }
+
+        #endregion
+
+        #region Mode - ManuallyActivateScreenMouse
+
+        public virtual void ProcessKeyDown_ManuallyActivateScreenMouse(KeyEvent e)
+        {
+            ProcessKeyDown_AutoActivateScreenMouse(e);
+            if (Settings.ScreenMouseActivationKey == e.Key)
+            {
+                if (ScreenMouse.State == ScreenMouseState.Inactive)
+                {
+                    ScreenMouse.FadeToFullOpacity();
+                    ScreenMouse.KeepAlive = Settings.ScreenMouseKeepAliveOnManualActivation;
+                }
+                else
+                {
+                    ScreenMouse.KeepAlive = false;
+                    ScreenMouse.FadeOut();
+                }
+
+                if (ScreenMouse.State != ScreenMouseState.Inactive)
+                {
+                    ScreenMouse.MoveTo(LastMouseX, LastMouseY);
+                }
+            }
+        }
+
+        public virtual void ProcessKeyUp_ManuallyActivateScreenMouse(KeyEvent e)
+        {
+            ProcessKeyUp_AutoActivateScreenMouse(e);
+        }
+
+        public virtual void ProcessMotion_ManuallyActivateScreenMouse(MouseMoveEvent e)
+        {
+            LastMouseX = e.X;
+            LastMouseY = e.Y;
+            if (ScreenMouse.State != ScreenMouseState.Inactive)
+            {
+                ScreenMouse.MoveTo(e.X, e.Y);
+            }
+        }
+
+        public virtual void ProcessMotionStop_ManuallyActivateScreenMouse(MouseMoveEvent e)
+        {
+            // If mouse is active, and user has moved beyond click free zone, set the mouse to fading
+            if (!Settings.ScreenMouseKeepAliveOnManualActivation &&
+                ScreenMouse.State == ScreenMouseState.Active &&
+                e.DeltaFromMotionStart > Settings.ClickFreeZoneRadius)
+            {
+                ScreenMouse.FadeOut();
+            }
+
+            if (ScreenMouse.State != ScreenMouseState.Inactive)
+            {
+                ScreenMouse.MoveTo(e.X, e.Y);
+            }
+        }
+
+        public virtual void MouseFormStateChanged_ManuallyActivateScreenMouse(ScreenMouseStateChangedEvent e)
+        {
+            switch (e.CurrentState)
+            {
+                case ScreenMouseState.Active:
+                    KeyboardHook.InterceptKeys.Add(Settings.LeftButtonKey);
+                    KeyboardHook.InterceptKeys.Add(Settings.MiddleButtonKey);
+                    KeyboardHook.InterceptKeys.Add(Settings.RightButtonKey);
+                    if (Settings.KeyboardArrowsMoveScreenMouse)
+                    {
+                        KeyboardHook.InterceptKeys.Add(Key.Left);
+                        KeyboardHook.InterceptKeys.Add(Key.Right);
+                        KeyboardHook.InterceptKeys.Add(Key.Up);
+                        KeyboardHook.InterceptKeys.Add(Key.Down);
+                    }
+
+                    break;
+                case ScreenMouseState.Inactive:
+                    KeyboardHook.InterceptKeys.Clear();
+                    break;
+            }
+        }
+
+        #endregion
+
+        protected virtual void ExecuteInUIFriendlyContext(Action action)
+        {
+            UserInterfaceServices.ExecuteInUIFriendlyContext(action);
+        }
+
+        public void Start()
+        {
+            if (MouseHook.Status == DeviceHookStatus.Uninstalled)
+            {
+                MouseHook.InstallHook();
+            }
+
+            if (KeyboardHook.Status == DeviceHookStatus.Uninstalled)
+            {
+                KeyboardHook.InstallHook();
+            }
+
+            MouseHook.StartHook();
+            KeyboardHook.StartHook();
+            Started = true;
+        }
+
+        public void Stop()
+        {
+            MouseHook.StopHook();
+            KeyboardHook.StopHook();
+            ScreenMouse.KeepAlive = false;
+            Started = false;
+        }
+
+
+        public void SimulateMouse(MouseButton button, MouseClickType clickType, int centerX, int centerY)
+        {
+            var mouseActions = new List<Tuple<MouseButton, MouseButtonState, TimeSpan>>();
+            switch (clickType)
+            {
+                case MouseClickType.Single:
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, TimeSpan.FromSeconds(0)));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
+                    break;
+                case MouseClickType.Double:
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, TimeSpan.FromSeconds(0)));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, Settings.MultipleClickInterval));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
+                    break;
+                case MouseClickType.Tripple:
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, TimeSpan.FromSeconds(0)));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, Settings.MultipleClickInterval));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Down, Settings.MultipleClickInterval));
+                    mouseActions.Add(Tuple.Create(button, MouseButtonState.Up, Settings.MouseUpInterval));
+                    break;
+            }
+
+            Tools.Lambda.ActionAsAsyncronous(
+                () => mouseActions.ForEach(
+                    action =>
+                    {
+                        Thread.Sleep(action.Item3);
+
+                        // Show expanding rings on click down
+                        if (Settings.ShowExpandingRings && action.Item2 == MouseButtonState.Down)
+                        {
+                            ExecuteInUIFriendlyContext(
+                                () =>
+                                    ExpandingCircleRenderer.DrawExpandingCircle(centerX, centerY,
+                                        Settings.ExpandingRingColor,
+                                        Settings.ExpandingRingThickness, Settings.ExpandingRingRadius,
+                                        Settings.ExpandingRingSpeedPixelsPerSecond));
+                        }
+
+                        // Make click sound
+                        if (Settings.MakeClickSound)
+                        {
+                            SoundMaker.PlayClickSound(action.Item1, action.Item2);
+                        }
+
+                        // Send actual mouse event to OS
+                        MouseHook.Simulate(action.Item1, action.Item2, centerX, centerY);
+                    }
+                )
+            ).Invoke();
+        }
+
+        #endregion
+
+        #region Handlers
+
+        void ScreenMouse_StateChanged(object sender, ScreenMouseStateChangedEvent e)
+        {
+            switch (Settings.MouseStoppedBehavior)
+            {
+                case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
+                    MouseFormStateChanged_AutoActivateScreenMouse(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
+                    MouseFormStateChanged_AutoClickOnMouseStop(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
+                    MouseFormStateChanged_ManuallyActivateScreenMouse(e);
+                    break;
+            }
+        }
+
+        void _keyHook_KeyDown(object sender, KeyEvent e)
+        {
+            switch (Settings.MouseStoppedBehavior)
+            {
+                case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
+                    ProcessKeyDown_AutoActivateScreenMouse(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
+                    ProcessKeyDown_AutoClickOnMouseStop(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
+                    ProcessKeyDown_ManuallyActivateScreenMouse(e);
+                    break;
+            }
+        }
+
+        void _keyHook_KeyUp(object sender, KeyEvent e)
+        {
+            switch (Settings.MouseStoppedBehavior)
+            {
+                case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
+                    ProcessKeyUp_AutoActivateScreenMouse(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
+                    ProcessKeyUp_AutoClickOnMouseStop(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
+                    ProcessKeyUp_ManuallyActivateScreenMouse(e);
+                    break;
+            }
+        }
+
+        void _mouseHook_Motion(object sender, MouseMoveEvent e)
+        {
+            switch (Settings.MouseStoppedBehavior)
+            {
+                case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
+                    ProcessMotion_AutoActivateScreenMouse(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
+                    ProcessMotion_AutoClickOnMouseStop(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
+                    ProcessMotion_ManuallyActivateScreenMouse(e);
+                    break;
+            }
+        }
+
+        void _mouseHook_MotionStop(object sender, MouseMoveEvent e)
+        {
+            switch (Settings.MouseStoppedBehavior)
+            {
+                case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
+                    ProcessMotionStop_AutoActivateScreenMouse(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop:
+                    ProcessMotionStop_AutoClickOnMouseStop(e);
+                    break;
+                case AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse:
+                    ProcessMotionStop_ManuallyActivateScreenMouse(e);
+                    break;
+            }
+        }
+
+        #endregion
+
+
+        public void Dispose()
+        {
+            if (MouseHook.Status != DeviceHookStatus.Uninstalled)
+            {
+                MouseHook.UninstallHook();
+            }
+
+            if (KeyboardHook.Status != DeviceHookStatus.Uninstalled)
+            {
+                KeyboardHook.UninstallHook();
+            }
+        }
+    }
 }

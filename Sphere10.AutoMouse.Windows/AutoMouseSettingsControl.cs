@@ -1,24 +1,20 @@
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
+using Sphere10.Framework.Windows;
+using Sphere10.Framework.Windows.Forms;
 using System;
-using System.IO;
-using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
-using Sphere10.Application;
-using Sphere10.Application.WinForms;
-using Sphere10.Common;
-using Sphere10.Windows;
 
 namespace Sphere10.AutoMouse.Windows
 {
 	[UseSettings(typeof(AutoMouseSettings))]
     public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObject
     {
-		
-        public AutoMouseSettingsControl() {
+		public AutoMouseSettingsControl() {
 			InitializeComponent();
 			_screenMousePictureBox.Image = AutoMouse.Properties.Resources.MouseLMRSettingsAid;
         	AutoDetectChildStateChanges = true;
@@ -26,10 +22,10 @@ namespace Sphere10.AutoMouse.Windows
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public AutoMouseSettings Settings {
-			get { return base.LocatedSettings as AutoMouseSettings; }
+			get { return UserSettings.Get<AutoMouseSettings>(); }
 		}
 
-		public override void SetLocalizedText(System.Globalization.CultureInfo culture = null) {
+		public override void SetLocalizedText(CultureInfo culture = null) {
 			//_showClickSelectorRadioButton.Text = Properties.Resources.TXT_Show_Me_The_Click_Selector_Form_When_Mouse_Stops_Moving;
 			//_autoClickRadioButton.Text = Properties.Resources.TXT_Automatically_Click_The_Mouse_When_Mouse_Stops_Moving;
 			//_leftButtonKeyLabel.Text = Properties.Resources.TXT_What_Key_Will_Activate_The_Click_Selector_Form;
@@ -114,7 +110,7 @@ namespace Sphere10.AutoMouse.Windows
 					_openScreenMouseManuallyRadioButton.Checked = true;
 					break;
 			}
-            _flipLeftRightMouseButtons.Checked = Win32.GetSystemMetrics(Win32.SystemMetric.SM_SWAPBUTTON) != 0;
+            _flipLeftRightMouseButtons.Checked = WinAPI.USER32.GetSystemMetrics(WinAPI.USER32.SystemMetric.SM_SWAPBUTTON) != 0;
         	_showExpandingRingsCheckBox.Checked = Settings.ShowExpandingRings;
 			_keyboardArrowsCanMoveCheckBox.Checked = Settings.KeyboardArrowsMoveScreenMouse;
 			_makeClickSoundCheckBox.Checked = Settings.MakeClickSound;
@@ -171,16 +167,16 @@ namespace Sphere10.AutoMouse.Windows
 			if (_openScreenMouseManuallyRadioButton.Checked) {
 				Settings.MouseStoppedBehavior = AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse;
 			}
-            Win32.SwapMouseButton(_flipLeftRightMouseButtons.Checked);
+			WinAPI.USER32.SwapMouseButton(_flipLeftRightMouseButtons.Checked);
 			Settings.ShowExpandingRings = _showExpandingRingsCheckBox.Checked;
 			Settings.MakeClickSound = _makeClickSoundCheckBox.Checked;
 			Settings.KeyboardArrowsMoveScreenMouse = _keyboardArrowsCanMoveCheckBox.Checked;
 			Settings.AutoStartProgram = _startProgramWithWindowsCheckBox.Checked;
 			// Set the autorun in the OS
-			if (Settings.AutoStartProgram && !ApplicationServices.DoesAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, System.Windows.Forms.Application.ExecutablePath)) {
-				ApplicationServices.SetAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, System.Windows.Forms.Application.ExecutablePath);
+			if (Settings.AutoStartProgram && !ApplicationServices.DoesAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, Application.ExecutablePath)) {
+				ApplicationServices.SetAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, Application.ExecutablePath);
 			} else {
-				ApplicationServices.RemoveAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, System.Windows.Forms.Application.ExecutablePath);
+				ApplicationServices.RemoveAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, Application.ExecutablePath);
 			}
 			Settings.ScreenMouseActivationKey = (Key)_screenMouseActivationKeyComboBox.SelectedValue;
 			Settings.ScreenMouseTimeout = TimeSpan.FromSeconds((double)_screenMouseTimeoutNumeric.Value);

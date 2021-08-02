@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Media;
-using System.Text;
+﻿using System.Drawing;
 using System.Windows.Forms;
-using Sphere10.Application;
-using Sphere10.Application.WinForms;
-using Sphere10.AutoMouse.Properties;
-using Sphere10.Common;
-using Sphere10.Windows;
-using System.Threading;
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
 
 namespace Sphere10.AutoMouse.Windows {
 	public class WindowsAutoMouseController : BaseAutoMouseController {

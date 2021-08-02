@@ -1,3 +1,6 @@
+using System.ComponentModel;
+using System.Windows.Forms;
+
 namespace Sphere10.AutoMouse.Windows
 {
     partial class AutoMouseSettingsControl
@@ -5,7 +8,7 @@ namespace Sphere10.AutoMouse.Windows
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -818,7 +821,7 @@ namespace Sphere10.AutoMouse.Windows
             // AutoMouseSettingsControl
             // 
             this.AutoDetectChildStateChanges = true;
-            this.AutoLocateSettings = true;
+            //this.AutoLocateSettings = true;
             this.AutoSaveSettingsOnStateChanged = true;
             this.Controls.Add(this._tabControl);
             this.Name = "AutoMouseSettingsControl";
@@ -857,69 +860,69 @@ namespace Sphere10.AutoMouse.Windows
 
         #endregion
 
-		private System.Windows.Forms.GroupBox _buttonGroupBox;
-		private System.Windows.Forms.RadioButton _rightButtonRadioButton;
-		private System.Windows.Forms.RadioButton _middleButtonRadioButton;
-		private System.Windows.Forms.RadioButton _leftButtonRadioButton;
-		private System.Windows.Forms.GroupBox _selectRadiusGroupBox;
+		private GroupBox _buttonGroupBox;
+		private RadioButton _rightButtonRadioButton;
+		private RadioButton _middleButtonRadioButton;
+		private RadioButton _leftButtonRadioButton;
+		private GroupBox _selectRadiusGroupBox;
 		private ClickRadiusSelector _clickRadiusSelector;
-		private System.Windows.Forms.RadioButton _showClickSelectorRadioButton;
-		private System.Windows.Forms.RadioButton _autoClickRadioButton;
-		private System.Windows.Forms.RadioButton _singleClickRadioButton;
-		private System.Windows.Forms.RadioButton _doubleClickRadioButton;
-		private System.Windows.Forms.RadioButton _trippleClickRadioButton;
-		private System.Windows.Forms.GroupBox _clickGroupBox;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TabControl _tabControl;
-		private System.Windows.Forms.TabPage _generalTab;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.RadioButton _openScreenMouseManuallyRadioButton;
-		private System.Windows.Forms.TabPage _screenMouseTab;
-		private System.Windows.Forms.TabPage _autoClickTab;
-		private System.Windows.Forms.TabPage _advancedTab;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.NumericUpDown _expandingRingRadiusNumeric;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.NumericUpDown _clickIntervalNumeric;
-		private System.Windows.Forms.CheckBox _startProgramWithWindowsCheckBox;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.NumericUpDown _screenMouseTimeoutNumeric;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.GroupBox groupBox3;
-		private System.Windows.Forms.ComboBox _screenMouseLeftComboBox;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.ComboBox _screenMouseMiddleComboBox;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.PictureBox _screenMousePictureBox;
-		private System.Windows.Forms.ComboBox _screenMouseRightComboBox;
-		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.ComboBox _screenMouseActivationKeyComboBox;
-		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label18;
-		private System.Windows.Forms.NumericUpDown _screenMouseIdleTranslucencyNumeric;
-		private System.Windows.Forms.Label label21;
-		private System.Windows.Forms.Label label20;
-		private System.Windows.Forms.Label label19;
-		private System.Windows.Forms.CheckBox _showExpandingRingsCheckBox;
-		private System.Windows.Forms.Label label22;
-		private System.Windows.Forms.Label label23;
-		private System.Windows.Forms.NumericUpDown _screenMouseActiveTranslucencyNumeric;
-		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.GroupBox groupBox5;
-		private System.Windows.Forms.Label label25;
-		private System.Windows.Forms.Label label24;
-		private System.Windows.Forms.CheckBox _makeClickSoundCheckBox;
-		private System.Windows.Forms.CheckBox _keyboardArrowsCanMoveCheckBox;
-        private System.Windows.Forms.CheckBox _flipLeftRightMouseButtons;
+		private RadioButton _showClickSelectorRadioButton;
+		private RadioButton _autoClickRadioButton;
+		private RadioButton _singleClickRadioButton;
+		private RadioButton _doubleClickRadioButton;
+		private RadioButton _trippleClickRadioButton;
+		private GroupBox _clickGroupBox;
+		private Label label1;
+		private TabControl _tabControl;
+		private TabPage _generalTab;
+		private GroupBox groupBox2;
+		private RadioButton _openScreenMouseManuallyRadioButton;
+		private TabPage _screenMouseTab;
+		private TabPage _autoClickTab;
+		private TabPage _advancedTab;
+		private GroupBox groupBox1;
+		private Label label6;
+		private Label label4;
+		private NumericUpDown _expandingRingRadiusNumeric;
+		private Label label5;
+		private Label label3;
+		private NumericUpDown _clickIntervalNumeric;
+		private CheckBox _startProgramWithWindowsCheckBox;
+		private Label label8;
+		private Label label9;
+		private NumericUpDown _screenMouseTimeoutNumeric;
+		private Label label10;
+		private Label label2;
+		private GroupBox groupBox3;
+		private ComboBox _screenMouseLeftComboBox;
+		private Label label13;
+		private ComboBox _screenMouseMiddleComboBox;
+		private Label label14;
+		private PictureBox _screenMousePictureBox;
+		private ComboBox _screenMouseRightComboBox;
+		private Label label15;
+		private ComboBox _screenMouseActivationKeyComboBox;
+		private Label label17;
+		private Label label16;
+		private Label label12;
+		private Label label11;
+		private Label label7;
+		private Label label18;
+		private NumericUpDown _screenMouseIdleTranslucencyNumeric;
+		private Label label21;
+		private Label label20;
+		private Label label19;
+		private CheckBox _showExpandingRingsCheckBox;
+		private Label label22;
+		private Label label23;
+		private NumericUpDown _screenMouseActiveTranslucencyNumeric;
+		private GroupBox groupBox4;
+		private GroupBox groupBox5;
+		private Label label25;
+		private Label label24;
+		private CheckBox _makeClickSoundCheckBox;
+		private CheckBox _keyboardArrowsCanMoveCheckBox;
+        private CheckBox _flipLeftRightMouseButtons;
 
 
 	}
