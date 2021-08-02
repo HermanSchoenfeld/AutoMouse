@@ -17,7 +17,6 @@ namespace Sphere10.AutoMouse.Windows {
 				AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
-				
 				Sphere10Framework.Instance.StartWinFormsApplication<MainForm>();
 			}
 		}

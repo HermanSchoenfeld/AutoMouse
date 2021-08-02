@@ -10,7 +10,10 @@ namespace Sphere10.AutoMouse.Windows {
 		private readonly WindowsScreenMouse _mouseForm;
 		private bool _hideOnLoad;
 
-		public MainForm(bool hideOnLoad = true) {
+		public MainForm() : this(true) {
+		}
+
+		public MainForm(bool hideOnLoad) {
 			InitializeComponent();
 			_helpIcon.Image = Sphere10.Framework.Windows.Forms.Properties.Resources.Help_16x16x32;
 			_aboutToolStripButton.Image = Sphere10.Framework.Windows.Forms.Properties.Resources.Sphere10_16x16x32;
