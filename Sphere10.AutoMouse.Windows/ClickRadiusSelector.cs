@@ -1,10 +1,10 @@
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
 using Sphere10.Framework;
 using Sphere10.Framework.Windows.Forms;
 using Sphere10.Framework.Windows.Forms.WinForms;
-using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 

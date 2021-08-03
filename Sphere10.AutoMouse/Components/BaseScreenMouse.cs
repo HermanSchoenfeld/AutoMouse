@@ -203,7 +203,7 @@ namespace Sphere10.AutoMouse {
 			// Do the actual fade in or out by the appropriate amount in this iteration
 			if (ImageOpacity != _fadeEndOpacity) {
 				// s = s0 + v*t
-				double fadeDuration = Settings.ScreenMouseFadeDuration.TotalSeconds.ClipTo(Tool.EPSILON, float.MaxValue);
+				double fadeDuration = Settings.ScreenMouseFadeDuration.TotalSeconds.ClipTo(Tools.Maths.EPSILON_D, float.MaxValue);
 				ImageOpacity =
 					(ImageOpacity + (_fadeEndOpacity - _fadeStartOpacity) / fadeDuration * now.Subtract(_fadeStartTime).TotalSeconds)
 					.ClipTo(

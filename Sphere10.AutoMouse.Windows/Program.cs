@@ -1,17 +1,17 @@
-﻿using Sphere10.Framework;
+﻿using System;
+using System.Windows.Forms;
+using Sphere10.Framework;
 using Sphere10.Framework.Application;
 using Sphere10.Framework.Windows.Forms;
-using System;
-using System.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 
 	static class Program {
 
-		/// <summar>y
+		/// <summary>
 		/// The main entry point for the application.
-		/// </summary>`
-		[STAThread]
+		/// </summary>
+		//[STAThread]
 		static void Main(params string[] args) {
 			using (new SingleApplicationInstanceScope()) {
 				AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;

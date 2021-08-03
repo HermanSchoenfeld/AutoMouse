@@ -1,13 +1,14 @@
-using Sphere10.Framework;
-using Sphere10.Framework.Application;
-using Sphere10.Framework.Windows;
-using Sphere10.Framework.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
+using Sphere10.Framework.Windows;
+using Sphere10.Framework.Windows.Forms;
+using Resources = Sphere10.AutoMouse.Properties.Resources;
 
 namespace Sphere10.AutoMouse.Windows
 {
@@ -16,7 +17,7 @@ namespace Sphere10.AutoMouse.Windows
     {
 		public AutoMouseSettingsControl() {
 			InitializeComponent();
-			_screenMousePictureBox.Image = AutoMouse.Properties.Resources.MouseLMRSettingsAid;
+			_screenMousePictureBox.Image = Resources.MouseLMRSettingsAid;
         	AutoDetectChildStateChanges = true;
         }
 
@@ -44,7 +45,7 @@ namespace Sphere10.AutoMouse.Windows
 			// Set priming data
 			_screenMouseActivationKeyComboBox.DisplayMember = "Item1";
 			_screenMouseActivationKeyComboBox.ValueMember = "Item2";
-			_screenMouseActivationKeyComboBox.DataSource = new Tuple<string, Key>[] { 
+			_screenMouseActivationKeyComboBox.DataSource = new[] { 
 					Tuple.Create("Left Shift", Key.LShiftKey),
 					Tuple.Create("Right Shift", Key.RShiftKey),
 			        Tuple.Create("Left Control", Key.LControlKey),

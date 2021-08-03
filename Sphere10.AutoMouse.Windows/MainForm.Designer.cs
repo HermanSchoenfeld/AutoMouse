@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
+using Sphere10.Framework.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 	partial class MainForm {
@@ -231,7 +232,7 @@ namespace Sphere10.AutoMouse.Windows {
 		private ToolStripButton _purchaseToolStripButton;
 		private ToolStripButton _aboutToolStripButton;
 		private Button _resetToDefaultButton;
-		private Sphere10.Framework.Windows.Forms.ApplicationBanner applicationBanner1;
+		private ApplicationBanner applicationBanner1;
 		private Panel panel1;
 	}
 }

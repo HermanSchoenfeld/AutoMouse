@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -112,383 +112,46 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TXT_About" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="TXT_Activate" xml:space="preserve">
-    <value>Activate</value>
-  </data>
-  <data name="TXT_ActivityByWeekday" xml:space="preserve">
-    <value>Activity By Weekday</value>
-  </data>
-  <data name="TXT_AllStretches" xml:space="preserve">
-    <value>All Stretches</value>
-  </data>
-  <data name="TXT_Application" xml:space="preserve">
-    <value>Application</value>
-  </data>
-  <data name="TXT_Application_Analysis" xml:space="preserve">
-    <value>Application Analysis</value>
-  </data>
-  <data name="TXT_Arms" xml:space="preserve">
-    <value>Arms</value>
-  </data>
-  <data name="TXT_Automatically_Send_A_Click_When_Mouse_Stops_Moving" xml:space="preserve">
-    <value>Automatically send a click when the mouse stops moving</value>
-  </data>
-  <data name="TXT_Auto_Click" xml:space="preserve">
-    <value>Auto Click</value>
-  </data>
-  <data name="TXT_AverageCount" xml:space="preserve">
-    <value>Average Count</value>
-  </data>
-  <data name="TXT_AverageKeyPressDuration" xml:space="preserve">
-    <value> Average Key Press Duration</value>
-  </data>
-  <data name="TXT_AverageMouseClickDuration" xml:space="preserve">
-    <value>Average Mouse Click Duration</value>
-  </data>
-  <data name="TXT_AveragePressedDuration" xml:space="preserve">
-    <value>Average Pressed Duration</value>
-  </data>
-  <data name="TXT_Average_Count" xml:space="preserve">
-    <value>Average Count</value>
-  </data>
-  <data name="TXT_Back" xml:space="preserve">
-    <value>Back</value>
-  </data>
-  <data name="TXT_Browse" xml:space="preserve">
-    <value>Browse..</value>
-  </data>
-  <data name="TXT_BuyNow" xml:space="preserve">
-    <value>Buy Now</value>
-  </data>
-  <data name="TXT_CannotWriteKeyInRegistry" xml:space="preserve">
-    <value>A serious error occured with the activation process. Please make sure you have Administrator privileges before trying to activate this software.</value>
-  </data>
-  <data name="TXT_CheckForUpdatesOnStartup" xml:space="preserve">
-    <value>Check for updates on startup</value>
-  </data>
-  <data name="TXT_Close" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="TXT_Contents" xml:space="preserve">
-    <value>Contents</value>
-  </data>
-  <data name="TXT_ContextHelp" xml:space="preserve">
-    <value>Context Help</value>
-  </data>
-  <data name="TXT_Count" xml:space="preserve">
-    <value>Count</value>
-  </data>
-  <data name="TXT_Day" xml:space="preserve">
-    <value>Day</value>
-  </data>
-  <data name="TXT_DeviceUsageOverview" xml:space="preserve">
-    <value>Device Usage Overview</value>
-  </data>
-  <data name="TXT_Double_Click" xml:space="preserve">
-    <value>Double Click</value>
-  </data>
-  <data name="TXT_EnterRegoCode" xml:space="preserve">
-    <value>Please enter your RSI Warrior Activation Key:</value>
-  </data>
-  <data name="TXT_EntireHistory" xml:space="preserve">
-    <value>Entire History</value>
-  </data>
-  <data name="TXT_ErgoWizardA" xml:space="preserve">
-    <value>Position monitor 18" to 24" away (an arm length) and about 15° to 13° below your line of sight</value>
-  </data>
-  <data name="TXT_ErgoWizardB" xml:space="preserve">
-    <value>Don't let light shine in your eyes or on your screen</value>
-  </data>
-  <data name="TXT_ErgoWizardC" xml:space="preserve">
-    <value>Square screen to your line of vision</value>
-  </data>
-  <data name="TXT_ErgoWizardD" xml:space="preserve">
-    <value>Forearms 90° from your spine</value>
-  </data>
-  <data name="TXT_ErgoWizardE" xml:space="preserve">
-    <value>Thighs 90°  from your spine</value>
-  </data>
-  <data name="TXT_ErgoWizardF" xml:space="preserve">
-    <value>Use a well-made adjustable office chair</value>
-  </data>
-  <data name="TXT_ErgoWizardG" xml:space="preserve">
-    <value>Use a wrist pad to support your hands when not typing</value>
-  </data>
-  <data name="TXT_ErgoWizardH" xml:space="preserve">
-    <value>Feet flat on the floor</value>
-  </data>
-  <data name="TXT_Eyes" xml:space="preserve">
-    <value>Eyes</value>
-  </data>
-  <data name="TXT_For_Bad_RSI" xml:space="preserve">
-    <value>For Bad RSI</value>
-  </data>
-  <data name="TXT_For_Preventing_RSI" xml:space="preserve">
-    <value>For Preventing RSI</value>
-  </data>
-  <data name="TXT_For_Recovering_From_RSI" xml:space="preserve">
-    <value>For Recovering from RSI</value>
-  </data>
-  <data name="TXT_Fri" xml:space="preserve">
-    <value>Fri</value>
-  </data>
-  <data name="TXT_General" xml:space="preserve">
-    <value>General</value>
-  </data>
-  <data name="TXT_HarmonicMeanDuration" xml:space="preserve">
-    <value>Harmonic Mean Duration</value>
-  </data>
-  <data name="TXT_Historical_Analysis" xml:space="preserve">
-    <value>Historical Analysis</value>
-  </data>
-  <data name="TXT_How_Often_Would_You_Like_Stretching_Breaks_Presented_To_You" xml:space="preserve">
-    <value>How often would you like stretching breaks presened to you?</value>
-  </data>
-  <data name="TXT_Key" xml:space="preserve">
-    <value>Key</value>
-  </data>
-  <data name="TXT_Keyboard_Analysis" xml:space="preserve">
-    <value>Keyboard Analysis</value>
-  </data>
-  <data name="TXT_KeyPresses" xml:space="preserve">
-    <value>Key Presses</value>
-  </data>
-  <data name="TXT_Left_Button" xml:space="preserve">
-    <value>Left Button</value>
-  </data>
-  <data name="TXT_Legs" xml:space="preserve">
-    <value>Legs</value>
-  </data>
-  <data name="TXT_Let_Me_Know_If_Im_Accumulating_Too_Much_Hand_Strain" xml:space="preserve">
-    <value>Let me know if I'm accumulating too much hand strain</value>
-  </data>
-  <data name="TXT_LoadRSIWarriorOnMachineStartup" xml:space="preserve">
-    <value>Load RSI Warrior on machine startup</value>
-  </data>
-  <data name="TXT_MaxPressedDuration" xml:space="preserve">
-    <value>Max Pressed Duration</value>
-  </data>
-  <data name="TXT_Middle_Button" xml:space="preserve">
-    <value>Middle Button</value>
-  </data>
-  <data name="TXT_MinPressedDuration" xml:space="preserve">
-    <value>Min Pressed Duration</value>
-  </data>
-  <data name="TXT_Mon" xml:space="preserve">
-    <value>Mon</value>
-  </data>
-  <data name="TXT_MostActiveApplication" xml:space="preserve">
-    <value>Most Active Application</value>
-  </data>
-  <data name="TXT_MouseButton" xml:space="preserve">
-    <value>Mouse Button</value>
-  </data>
-  <data name="TXT_MouseClicks" xml:space="preserve">
-    <value>Mouse Clicks</value>
-  </data>
-  <data name="TXT_Mouse_Analysis" xml:space="preserve">
-    <value>Mouse Analysis</value>
-  </data>
-  <data name="TXT_Neck" xml:space="preserve">
-    <value>Neck</value>
-  </data>
-  <data name="TXT_NoDataAvailable" xml:space="preserve">
-    <value>No Data Available</value>
-  </data>
-  <data name="TXT_NumberOfClicksAndPressesByWeekDay" xml:space="preserve">
-    <value>Number of clicks and presses by week day</value>
-  </data>
-  <data name="TXT_NumberOfClicksAndPressesForEntireHistory" xml:space="preserve">
-    <value>Number of clicks and presses for entire history</value>
-  </data>
-  <data name="TXT_Number_Of_Clicks_And_Presses_By_Week_Day" xml:space="preserve">
-    <value>Number of clicks and presses by week day</value>
-  </data>
-  <data name="TXT_Number_Of_Clicks_And_Presses_For_Entire_History" xml:space="preserve">
-    <value>Number of clicks and presses for entire history</value>
-  </data>
-  <data name="TXT_Other" xml:space="preserve">
-    <value>Other</value>
-  </data>
-  <data name="TXT_Overview" xml:space="preserve">
-    <value>Overview</value>
-  </data>
-  <data name="TXT_PercentageSymbol" xml:space="preserve">
-    <value>%</value>
-  </data>
-  <data name="TXT_PirateVersion" xml:space="preserve">
-    <value>This version of RSI Warrior is a pirated copy. We cannot continue to make great ergonomics software for RSI Prevention and Recovery without your support. Please buy a legitamit copy today!</value>
-  </data>
-  <data name="TXT_Random_Stretch" xml:space="preserve">
-    <value>Random Stretch</value>
-  </data>
-  <data name="TXT_RegisteredTrial" xml:space="preserve">
-    <value>You must install the full version of RSI Warrior. Please follow the instructions from the email/booklet you received with your registered copy of RSI Warrior.</value>
-  </data>
-  <data name="TXT_RemindMeToCorrectSeatingPosture" xml:space="preserve">
-    <value>Remind me to correct seating posture</value>
-  </data>
-  <data name="TXT_Remind_Posture" xml:space="preserve">
-    <value>Remind Posture</value>
-  </data>
-  <data name="TXT_Repetitive_Strain_Injury_Monitoring" xml:space="preserve">
-    <value>Repetitive Strain Injury Monitoring</value>
-  </data>
-  <data name="TXT_Right_Button" xml:space="preserve">
-    <value>Right Button</value>
-  </data>
-  <data name="TXT_RSI_Alert" xml:space="preserve">
-    <value>RSI Alert!</value>
-  </data>
-  <data name="TXT_Sat" xml:space="preserve">
-    <value>Sat</value>
-  </data>
-  <data name="TXT_Save_Changes" xml:space="preserve">
-    <value>Save Changes</value>
-  </data>
-  <data name="TXT_Select_How_Far_Mouse_Should_Move_Before_Considering_To_Send_An_AutoClick" xml:space="preserve">
-    <value>Select how far the mouse must move before considering sending an AutoClick</value>
-  </data>
-  <data name="TXT_Select_The_Mouse_Button_To_Simulate" xml:space="preserve">
-    <value>Select the mouse button to simulate</value>
-  </data>
-  <data name="TXT_Select_The_Type_Of_Click_To_Simulate" xml:space="preserve">
-    <value>Select the type of click to simulate</value>
-  </data>
-  <data name="TXT_Settings" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="TXT_ShowErgoWizardOnStartup" xml:space="preserve">
-    <value>Show ErgoWizard on Startup</value>
-  </data>
-  <data name="TXT_Show_This_Screen_On_Startup" xml:space="preserve">
-    <value>Show this screen on startup</value>
-  </data>
-  <data name="TXT_ShutDown" xml:space="preserve">
-    <value>Shutdown</value>
-  </data>
-  <data name="TXT_Shutting_Down_Will_Stop_RSI_Warrior" xml:space="preserve">
-    <value>Shutting down RSI Warrior will disable all RSI prevention mechanisms. Are you sure you want to continue?</value>
-  </data>
-  <data name="TXT_Single_Click" xml:space="preserve">
-    <value>Single Click</value>
-  </data>
-  <data name="TXT_StandardDeviationDuration" xml:space="preserve">
-    <value>Standard Deviation Duration</value>
-  </data>
-  <data name="TXT_Strain" xml:space="preserve">
-    <value>Strain</value>
-  </data>
-  <data name="TXT_StrainLevel" xml:space="preserve">
-    <value>Strain Level</value>
-  </data>
-  <data name="TXT_Stretches" xml:space="preserve">
-    <value>Stretches</value>
-  </data>
-  <data name="TXT_Sun" xml:space="preserve">
-    <value>Sun</value>
-  </data>
-  <data name="TXT_Thu" xml:space="preserve">
-    <value>Thu</value>
-  </data>
-  <data name="TXT_TimeBetweenReminders" xml:space="preserve">
-    <value>Time between reminders (minutes)</value>
-  </data>
-  <data name="TXT_TimeToDisplayPostureReminder" xml:space="preserve">
-    <value>Time to display posture reminder (seconds)</value>
-  </data>
-  <data name="TXT_Time_To_Start_Stretch" xml:space="preserve">
-    <value>Time for a break! Click here to start a stretch.</value>
-  </data>
-  <data name="TXT_TotalClicks" xml:space="preserve">
-    <value>Total Clicks</value>
-  </data>
-  <data name="TXT_TotalInputs" xml:space="preserve">
-    <value>Total Inputs</value>
-  </data>
-  <data name="TXT_TotalKeyPresses" xml:space="preserve">
-    <value>Total Key Presses</value>
-  </data>
-  <data name="TXT_TotalKeys" xml:space="preserve">
-    <value>Total Keys</value>
-  </data>
-  <data name="TXT_TotalMouseClicks" xml:space="preserve">
-    <value>Total Mouse Clicks</value>
-  </data>
-  <data name="TXT_TotalPresses" xml:space="preserve">
-    <value>Total Presses</value>
-  </data>
-  <data name="TXT_Triple_Click" xml:space="preserve">
-    <value>Triple Click</value>
-  </data>
-  <data name="TXT_Tue" xml:space="preserve">
-    <value>Tue</value>
-  </data>
-  <data name="TXT_VariantCoefficient" xml:space="preserve">
-    <value>Variant Coefficient</value>
-  </data>
-  <data name="TXT_Wednesday" xml:space="preserve">
-    <value>Wed</value>
-  </data>
-  <data name="TXT_Weekday" xml:space="preserve">
-    <value>Weekday</value>
-  </data>
-  <data name="TXT_Would_You_Like_To_Keep_Your_Changes" xml:space="preserve">
-    <value>Would you like to keep your changes?</value>
-  </data>
-  <data name="TXT_WrongKey" xml:space="preserve">
-    <value>You have entered the wrong key. Please try again.</value>
-  </data>
-  <data name="TXT_YourEvaluationHasPeriodExpired" xml:space="preserve">
-    <value>Please purchase RSI Warrior Full Edition to continue using these features...</value>
-  </data>
-  <data name="TXT_Automatically_Click_The_Mouse_When_Mouse_Stops_Moving" xml:space="preserve">
-    <value>Automatically click the mouse when mouse stops moving</value>
-  </data>
-  <data name="TXT_Show_Me_The_Click_Selector_Form_When_Mouse_Stops_Moving" xml:space="preserve">
-    <value>Show me the click selector form when mouse stops moving</value>
-  </data>
-  <data name="TXT_What_Distance_Of_Motion_Should_Not_Be_Considered_An_AutoClick" xml:space="preserve">
-    <value>What distance of motion should not be considered an AutoClick</value>
-  </data>
-  <data name="TXT_What_Key_Will_Activate_The_Click_Selector_Form" xml:space="preserve">
-    <value>What key will activate the click selector form?</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MouseLMRSettingsAid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MouseLMRSettingsAid.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="LeftClickDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LeftClickDown.wav;System.IO.MemoryStream, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\resources\leftclickdown.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LeftClickUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LeftClickUp.wav;System.IO.MemoryStream, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\resources\leftclickup.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RightClickDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RightClickDown.wav;System.IO.MemoryStream, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RightClickUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RightClickUp.wav;System.IO.MemoryStream, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="MouseLeftButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MouseLeftButton.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\mouseleftbutton.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MouseLMRSettingsAid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\mouselmrsettingsaid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MouseMiddleButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MouseMiddleButton.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\mousemiddlebutton.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MouseNoButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MouseNoButton.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\mousenobutton.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MouseRightButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MouseRightButton.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\mouserightbutton.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Play_16x16x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\play_16x16x32.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RightClickDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\rightclickdown.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RightClickUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\rightclickup.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Shutdown_16x16x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\shutdown_16x16x32.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sphere10_16x16x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sphere10_16x16x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

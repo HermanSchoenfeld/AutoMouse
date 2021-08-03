@@ -1,8 +1,11 @@
-﻿using Sphere10.Framework.Application;
-using Sphere10.Framework.Windows.Forms;
-using System;
+﻿using System;
 using System.ComponentModel;
-using System.Drawing; 
+using Sphere10.Framework.Application;
+using Sphere10.Framework.Windows.Forms;
+using Tools;
+using Resources = Sphere10.AutoMouse.Properties.Resources;
+using AutoMouseWindowsResources = Sphere10.AutoMouse.Windows.Properties.Resources;
+using FormResources = Sphere10.Framework.Windows.Forms.Resources;
 
 namespace Sphere10.AutoMouse.Windows {
 	public partial class MainForm : LiteMainForm {
@@ -15,11 +18,11 @@ namespace Sphere10.AutoMouse.Windows {
 
 		public MainForm(bool hideOnLoad) {
 			InitializeComponent();
-			_helpIcon.Image = Sphere10.Framework.Windows.Forms.Properties.Resources.Help_16x16x32;
-			_aboutToolStripButton.Image = Sphere10.Framework.Windows.Forms.Properties.Resources.Sphere10_16x16x32;
-			_purchaseToolStripButton.Image = Sphere10.Framework.Windows.Forms.Properties.Resources.Purchase_16x16x32;
-			_notifyIcon.Icon = AutoMouse.Properties.Resources.MouseNoButton;
-			Icon = AutoMouse.Properties.Resources.MouseNoButton;
+			_helpIcon.Image = FormResources.Help_16x16x32;
+			_aboutToolStripButton.Image = Resources.Sphere10_16x16x32;
+			_purchaseToolStripButton.Image = FormResources.Purchase_16x16x32;
+			_notifyIcon.Icon = Resources.MouseNoButton;
+			Icon = Resources.MouseNoButton;
 			AutoMouseController = null;
 			_hideOnLoad = hideOnLoad;
 		}
@@ -28,7 +31,7 @@ namespace Sphere10.AutoMouse.Windows {
 
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
-			if (!Tools.Runtime.IsDesignMode) {
+			if (!Runtime.IsDesignMode) {
 				AutoMouseController = ComponentRegistry.Instance.Resolve<IAutoMouseController>();
 				AutoMouseController.Stop();
 				ToggleOnOff();
@@ -49,13 +52,13 @@ namespace Sphere10.AutoMouse.Windows {
 				if (AutoMouseController.Started) {
 					AutoMouseController.Stop();
 					_toggleToolStripButton.Image =
-						_toggleAutoMouseToolStripMenuItem.Image = Resource.Play_16x16x32.ToBitmap();
+						_toggleAutoMouseToolStripMenuItem.Image = Resources.Play_16x16x32.ToBitmap();
 					_toggleToolStripButton.Text =
 						_toggleAutoMouseToolStripMenuItem.Text = "Turn On";
 				} else {
 					AutoMouseController.Start();
 					_toggleToolStripButton.Image =
-						_toggleAutoMouseToolStripMenuItem.Image = Resource.Shutdown_16x16x32.ToBitmap();
+						_toggleAutoMouseToolStripMenuItem.Image = Resources.Shutdown_16x16x32.ToBitmap();
 					_toggleToolStripButton.Text =
 						_toggleAutoMouseToolStripMenuItem.Text = "Turn Off";
 				}

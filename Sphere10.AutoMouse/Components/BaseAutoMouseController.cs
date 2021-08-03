@@ -186,7 +186,7 @@ namespace Sphere10.AutoMouse
                     ScreenMouse.PressedButton = MouseButton.None;
                 }
 
-                if (Tool.EuclideanDistance(KeyDownX, KeyDownY, LastMouseX, LastMouseY) > Settings.ClickFreeZoneRadius)
+                if (Tools.Maths.EuclideanDistance(KeyDownX, KeyDownY, LastMouseX, LastMouseY) > Settings.ClickFreeZoneRadius)
                 {
                     // If it was a drag-type operation, we also show circle on mouse up
                     if (Settings.ShowExpandingRings)

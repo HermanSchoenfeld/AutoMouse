@@ -18,7 +18,7 @@ namespace Sphere10.AutoMouse.Windows {
 			ScreenForm.Width = DefaultWidth;
 			ScreenForm.Height = DefaultHeight;
 			base.UpdateMouseImage();
-			base.State = ScreenMouseState.Inactive;
+			State = ScreenMouseState.Inactive;
 		}
 
 		public IUserInterfaceServices UserInterfaceServices { get; private set; }
