@@ -822,7 +822,7 @@ namespace Sphere10.AutoMouse.Windows
             // 
             this.AutoDetectChildStateChanges = true;
             //this.AutoLocateSettings = true;
-            this.AutoSaveSettingsOnStateChanged = true;
+            this.AutoUpdateDataSourceOnStateChanged = true;
             this.Controls.Add(this._tabControl);
             this.Name = "AutoMouseSettingsControl";
             this.Size = new System.Drawing.Size(555, 518);

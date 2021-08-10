@@ -18,7 +18,7 @@ namespace Sphere10.AutoMouse.Windows {
 		private PictureBox cursorImage;
 		private bool _mouseOver;
 
-		public event EventHandler RadiusChanged;
+		public event EventHandlerEx RadiusChanged;
 		
 
 		public ClickRadiusSelector() {
@@ -130,7 +130,7 @@ namespace Sphere10.AutoMouse.Windows {
 		private void transparentPanel_MouseDown(object sender, MouseEventArgs e) {
 			SelectedRadius = MouseOverRadius;
 			if (RadiusChanged != null) {
-				RadiusChanged(this, new EventArgs());
+				RadiusChanged();
 			}
 		}
 
@@ -189,11 +189,9 @@ namespace Sphere10.AutoMouse.Windows {
 
 		}
 
+		public class StateEventProvider : IControlStateEventProvider {
 
-
-		public class StateChangeManager : IControlStateChangeManager {
-
-			public void AddStateChangedHandler(Control control, EventHandler eventHandler) {
+			public void AddStateChangedHandler(Control control, EventHandlerEx eventHandler) {
 				if (!(control is ClickRadiusSelector)) {
 					throw new SoftwareException("{0} does not deal with type {1}", GetType().Name, control.GetType().Name);
 				}
@@ -201,7 +199,7 @@ namespace Sphere10.AutoMouse.Windows {
 			}
 
 
-			public void RemoveStateChangedHandler(Control control, EventHandler eventHandler) {
+			public void RemoveStateChangedHandler(Control control, EventHandlerEx eventHandler) {
 				if (!(control is ClickRadiusSelector)) {
 					throw new SoftwareException("{0} does not deal with type {1}", GetType().Name, control.GetType().Name);
 				}

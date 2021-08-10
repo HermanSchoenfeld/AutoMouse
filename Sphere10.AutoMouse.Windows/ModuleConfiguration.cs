@@ -13,7 +13,7 @@ namespace Sphere10.AutoMouse.Windows {
 			registry.RegisterComponent<IScreenMouse, WindowsScreenMouse>();
 			registry.RegisterComponent<IAutoMouseController, WindowsAutoMouseController>();
 			registry.RegisterComponent<IExpandingCircleRenderer, WindowsExpandingCircleRenderer>();
-			registry.RegisterComponent<IControlStateChangeManager, ClickRadiusSelector.StateChangeManager>(typeof(ClickRadiusSelector).FullName);
+			registry.RegisterComponent<IControlStateEventProvider, ClickRadiusSelector.StateEventProvider>(typeof(ClickRadiusSelector).FullName);
 			registry.RegisterComponent<IAboutBox, AboutBox>();
 			registry.RegisterComponent<INagDialog, NagScreen>();
 			registry.RegisterComponent<IHelpServices, CHMHelpProvider>();
