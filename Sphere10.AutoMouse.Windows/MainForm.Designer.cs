@@ -158,7 +158,7 @@ namespace Sphere10.AutoMouse.Windows {
             // _autoMouseSettingsControl
             // 
             //this._autoMouseSettingsControl.AutoLocateSettings = true; 
-            this._autoMouseSettingsControl.AutoUpdateDataSourceOnStateChanged = true;
+            this._autoMouseSettingsControl.UpdateModelOnStateChanged = true;
             this._autoMouseSettingsControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this._autoMouseSettingsControl.Location = new System.Drawing.Point(0, 121);
             this._autoMouseSettingsControl.Name = "_autoMouseSettingsControl";

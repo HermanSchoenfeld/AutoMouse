@@ -41,59 +41,7 @@ namespace Sphere10.AutoMouse.Windows
 			//_rightButtonRadioButton.Text = Properties.Resources.TXT_Right_Button;
 		}
 
-		protected override void PopulatePrimingData() {
-			// Set priming data
-			_screenMouseActivationKeyComboBox.DisplayMember = "Item1";
-			_screenMouseActivationKeyComboBox.ValueMember = "Item2";
-			_screenMouseActivationKeyComboBox.DataSource = new[] { 
-					Tuple.Create("Left Shift", Key.LShiftKey),
-					Tuple.Create("Right Shift", Key.RShiftKey),
-			        Tuple.Create("Left Control", Key.LControlKey),
-			        Tuple.Create("Right Control", Key.RControlKey),
-					Tuple.Create("Alt", Key.Alt)
-			    };
-
-			_screenMouseIdleTranslucencyNumeric.Minimum = 5;
-			_screenMouseIdleTranslucencyNumeric.Maximum = 100;
-			_screenMouseIdleTranslucencyNumeric.Increment = 1;
-
-			_screenMouseActiveTranslucencyNumeric.Minimum = 5;
-			_screenMouseActiveTranslucencyNumeric.Maximum = 100;
-			_screenMouseActiveTranslucencyNumeric.Increment = 1;
-
-			_screenMouseTimeoutNumeric.Minimum = 1;
-			_screenMouseTimeoutNumeric.Increment = 1;
-			_screenMouseTimeoutNumeric.Maximum = 10;
-			_screenMouseTimeoutNumeric.DecimalPlaces = 0;
-
-			_screenMouseLeftComboBox.DisplayMember =
-			_screenMouseMiddleComboBox.DisplayMember =
-			_screenMouseRightComboBox.DisplayMember = "Item1";
-			_screenMouseLeftComboBox.ValueMember =
-			_screenMouseMiddleComboBox.ValueMember =
-			_screenMouseRightComboBox.ValueMember = "Item2";
-
-			var keyDataSource =
-				from key in Enum.GetValues(typeof (Key)).Cast<Key>()
-				select Tuple.Create(key.ToString(), key);
-
-			_screenMouseLeftComboBox.DataSource = new List<Tuple<string,Key>>(keyDataSource);
-			_screenMouseMiddleComboBox.DataSource = new List<Tuple<string, Key>>(keyDataSource);
-			_screenMouseRightComboBox.DataSource = new List<Tuple<string, Key>>(keyDataSource);
-
-
-			_clickIntervalNumeric.Minimum = 10;
-			_clickIntervalNumeric.Increment = 10;
-			_clickIntervalNumeric.Maximum = 500;
-			_clickIntervalNumeric.DecimalPlaces = 0;
-
-			_expandingRingRadiusNumeric.Minimum = 10;
-			_expandingRingRadiusNumeric.Increment = 10;
-			_expandingRingRadiusNumeric.Maximum = 100;
-			_expandingRingRadiusNumeric.DecimalPlaces = 0;
-		}
-
-        protected override void RefreshUserInterfaceWithDataSource() {
+		protected override void InitializeUIPrimingData() {
 			switch (Settings.MouseStoppedBehavior) {
 				case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
 					_showClickSelectorRadioButton.Checked = true;
@@ -158,7 +106,7 @@ namespace Sphere10.AutoMouse.Windows
 			_clickRadiusSelector.SelectedRadius = Settings.ClickFreeZoneRadius;
         }
 
-		protected override void SaveUserInputToDataSource() {
+		protected override void CopyUIToModel() {
 			if (_showClickSelectorRadioButton.Checked) {
 				Settings.MouseStoppedBehavior = AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse;
 			}
