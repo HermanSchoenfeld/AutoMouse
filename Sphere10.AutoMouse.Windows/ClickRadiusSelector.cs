@@ -189,24 +189,22 @@ namespace Sphere10.AutoMouse.Windows {
 
 		}
 
-		public class StateEventProvider : IControlStateEventProvider {
 
-			public void AddStateChangedHandler(Control control, EventHandlerEx eventHandler) {
+		public class StateEventProvider : ControlStateEventProviderBase<ClickRadiusSelector> {
+
+			protected override void RegisterStateChangedListener(ClickRadiusSelector control, EventHandlerEx eventHandler) {
 				if (!(control is ClickRadiusSelector)) {
 					throw new SoftwareException("{0} does not deal with type {1}", GetType().Name, control.GetType().Name);
 				}
-				((ClickRadiusSelector) control).RadiusChanged += eventHandler;
+				control.RadiusChanged += eventHandler;
 			}
 
-
-			public void RemoveStateChangedHandler(Control control, EventHandlerEx eventHandler) {
+			protected override void DeregisterStateChangedListener(ClickRadiusSelector control, EventHandlerEx eventHandler) {
 				if (!(control is ClickRadiusSelector)) {
 					throw new SoftwareException("{0} does not deal with type {1}", GetType().Name, control.GetType().Name);
 				}
-				((ClickRadiusSelector) control).RadiusChanged -= eventHandler;
-
+				control.RadiusChanged -= eventHandler;
 			}
-
 		}
 	}
 }
