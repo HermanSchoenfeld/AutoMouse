@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
-using Sphere10.Framework.Windows.Forms;
+using Hydrogen.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 	partial class MainForm {
@@ -42,7 +42,7 @@ namespace Sphere10.AutoMouse.Windows {
             this._aboutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this._resetToDefaultButton = new System.Windows.Forms.Button();
             this._autoMouseSettingsControl = new Sphere10.AutoMouse.Windows.AutoMouseSettingsControl();
-            this.applicationBanner1 = new Sphere10.Framework.Windows.Forms.ApplicationBanner();
+            this.applicationBanner1 = new Hydrogen.Windows.Forms.ApplicationBanner();
             this.panel1 = new System.Windows.Forms.Panel();
             this._systrayMenu.SuspendLayout();
             this._toolStrip.SuspendLayout();
@@ -168,7 +168,6 @@ namespace Sphere10.AutoMouse.Windows {
             // 
             // applicationBanner1
             // 
-            this.applicationBanner1.AutoDetectChildStateChanges = false;
             this.applicationBanner1.CompanyName = "{CompanyName}";
             this.applicationBanner1.Dock = System.Windows.Forms.DockStyle.Top;
             this.applicationBanner1.FromColor = System.Drawing.Color.RoyalBlue;
@@ -196,7 +195,7 @@ namespace Sphere10.AutoMouse.Windows {
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 625);
-            this.CloseAction = ((Sphere10.Framework.Windows.Forms.FormCloseAction)((Sphere10.Framework.Windows.Forms.FormCloseAction.Hide | Sphere10.Framework.Windows.Forms.FormCloseAction.Minimize)));
+            this.CloseAction = ((Hydrogen.Windows.Forms.FormCloseAction)((Hydrogen.Windows.Forms.FormCloseAction.Hide | Hydrogen.Windows.Forms.FormCloseAction.Minimize)));
             this.ControlBox = false;
             this.Controls.Add(this._autoMouseSettingsControl);
             this.Controls.Add(this._toolStrip);

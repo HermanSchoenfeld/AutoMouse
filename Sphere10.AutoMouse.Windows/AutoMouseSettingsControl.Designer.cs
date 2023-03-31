@@ -820,7 +820,6 @@ namespace Sphere10.AutoMouse.Windows
             // 
             // AutoMouseSettingsControl
             // 
-            this.AutoDetectChildStateChanges = true;
             //this.AutoLocateSettings = true;
             this.UpdateModelOnStateChanged = true;
             this.Controls.Add(this._tabControl);

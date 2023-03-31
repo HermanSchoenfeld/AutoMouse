@@ -1,6 +1,6 @@
 ﻿using System.Media;
 using Sphere10.AutoMouse.Properties;
-using Sphere10.Framework;
+using Hydrogen;
 
 namespace Sphere10.AutoMouse {
 	public class DefaultSoundMaker : ISoundMaker {

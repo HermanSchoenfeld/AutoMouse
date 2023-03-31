@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Sphere10.Framework;
-using Sphere10.Framework.Application;
-using Sphere10.Framework.Windows.Forms;
+using Hydrogen;
+using Hydrogen.Application;
+using Hydrogen.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 
@@ -11,8 +11,8 @@ namespace Sphere10.AutoMouse.Windows {
 		public const int DefaultHeight = 128;
 		public const int DefaultWidth = 128;
 
-		public WindowsScreenMouse(IConfigurationServices configurationServices, IUserInterfaceServices userInterfaceServices)
-			: base(configurationServices) {
+		public WindowsScreenMouse(IUserInterfaceServices userInterfaceServices)
+			: base() {
 			UserInterfaceServices = userInterfaceServices;
 			ScreenForm = new Form();
 			ScreenForm.Width = DefaultWidth;

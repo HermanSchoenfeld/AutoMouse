@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using Sphere10.Framework;
-using Sphere10.Framework.Application;
-using Sphere10.Framework.Windows.Forms;
+using Hydrogen;
+using Hydrogen.Application;
+using Hydrogen.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 
@@ -17,7 +17,7 @@ namespace Sphere10.AutoMouse.Windows {
 				AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
-				Sphere10Framework.Instance.StartWinFormsApplication<MainForm>();
+				HydrogenFramework.Instance.StartWinFormsApplication<MainForm>(options:HydrogenFrameworkOptions.EnableDrm | HydrogenFrameworkOptions.BackgroundLicenseVerify);
 			}
 		}
 

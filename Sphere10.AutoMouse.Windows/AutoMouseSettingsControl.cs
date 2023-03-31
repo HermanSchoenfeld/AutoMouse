@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Sphere10.Framework;
-using Sphere10.Framework.Application;
-using Sphere10.Framework.Windows;
-using Sphere10.Framework.Windows.Forms;
+using Hydrogen;
+using Hydrogen.Application;
+using Hydrogen.Windows;
+using Hydrogen.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
 using Resources = Sphere10.AutoMouse.Properties.Resources;
 
 namespace Sphere10.AutoMouse.Windows
@@ -15,16 +16,24 @@ namespace Sphere10.AutoMouse.Windows
 	[UseSettings(typeof(AutoMouseSettings))]
     public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObject
     {
-		public AutoMouseSettingsControl() {
-			InitializeComponent();
+	    public AutoMouseSettingsControl() {
+		    InitializeComponent();
 			_screenMousePictureBox.Image = Resources.MouseLMRSettingsAid;
-        	AutoDetectChildStateChanges = true;
+
+			if (!Tools.Runtime.IsDesignMode) {
+				AutoRunServices = HydrogenFramework.Instance.ServiceProvider.GetService<IAutoRunServices>();
+				ProductInformationProvider = HydrogenFramework.Instance.ServiceProvider.GetService<IProductInformationProvider>();
+			}
         }
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public AutoMouseSettings Settings {
 			get { return UserSettings.Get<AutoMouseSettings>(); }
 		}
+
+		protected IAutoRunServices AutoRunServices { get; }
+
+		protected IProductInformationProvider ProductInformationProvider { get; }
 
 		public override void SetLocalizedText(CultureInfo culture = null) {
 			//_showClickSelectorRadioButton.Text = Properties.Resources.TXT_Show_Me_The_Click_Selector_Form_When_Mouse_Stops_Moving;
@@ -122,10 +131,10 @@ namespace Sphere10.AutoMouse.Windows
 			Settings.KeyboardArrowsMoveScreenMouse = _keyboardArrowsCanMoveCheckBox.Checked;
 			Settings.AutoStartProgram = _startProgramWithWindowsCheckBox.Checked;
 			// Set the autorun in the OS
-			if (Settings.AutoStartProgram && !ApplicationServices.DoesAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, Application.ExecutablePath)) {
-				ApplicationServices.SetAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, Application.ExecutablePath);
+			if (Settings.AutoStartProgram && !AutoRunServices.DoesAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath)) {
+				AutoRunServices.SetAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath);
 			} else {
-				ApplicationServices.RemoveAutoRun(AutoRunType.CurrentUser, ApplicationServices.ProductInformation.ProductName, Application.ExecutablePath);
+				AutoRunServices.RemoveAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath);
 			}
 			Settings.ScreenMouseActivationKey = (Key)_screenMouseActivationKeyComboBox.SelectedValue;
 			Settings.ScreenMouseTimeout = TimeSpan.FromSeconds((double)_screenMouseTimeoutNumeric.Value);

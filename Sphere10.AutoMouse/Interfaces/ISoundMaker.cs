@@ -1,4 +1,4 @@
-﻿using Sphere10.Framework;
+﻿using Hydrogen;
 
 namespace Sphere10.AutoMouse {
 

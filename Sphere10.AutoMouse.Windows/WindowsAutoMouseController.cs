@@ -1,14 +1,14 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
-using Sphere10.Framework;
-using Sphere10.Framework.Application;
+using Hydrogen;
+using Hydrogen.Application;
 
 namespace Sphere10.AutoMouse.Windows {
 	public class WindowsAutoMouseController : BaseAutoMouseController {
 
 
-		public WindowsAutoMouseController(IMouseHook mouseHook, IKeyboardHook keyboardHook, IScreenMouse screenMouse,  IExpandingCircleRenderer expandingCircleRenderer, ISoundMaker soundMaker, IConfigurationServices configurationServices, IUserInterfaceServices userInterfaceServices)
-			: base(mouseHook, keyboardHook, screenMouse,  expandingCircleRenderer, soundMaker, configurationServices, userInterfaceServices) {
+		public WindowsAutoMouseController(IMouseHook mouseHook, IKeyboardHook keyboardHook, IScreenMouse screenMouse,  IExpandingCircleRenderer expandingCircleRenderer, ISoundMaker soundMaker, IUserInterfaceServices userInterfaceServices)
+			: base(mouseHook, keyboardHook, screenMouse,  expandingCircleRenderer, soundMaker, userInterfaceServices) {
 		}
 
 		public override int CursorCurrentPositionX {

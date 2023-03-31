@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Reflection;
-using Sphere10.Framework;
-using Sphere10.Framework.Application;
+using Hydrogen;
+using Hydrogen.Application;
 using Tools;
 
 namespace Sphere10.AutoMouse {

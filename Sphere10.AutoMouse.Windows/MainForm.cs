@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
-using Sphere10.Framework.Application;
-using Sphere10.Framework.Windows.Forms;
+using Hydrogen.Application;
+using Hydrogen.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
 using Tools;
 using Resources = Sphere10.AutoMouse.Properties.Resources;
 using AutoMouseWindowsResources = Sphere10.AutoMouse.Windows.Properties.Resources;
-using FormResources = Sphere10.Framework.Windows.Forms.Resources;
+using FormResources = Hydrogen.Windows.Forms.Resources;
 
 namespace Sphere10.AutoMouse.Windows {
 	public partial class MainForm : LiteMainForm {
@@ -15,6 +16,8 @@ namespace Sphere10.AutoMouse.Windows {
 
 		public MainForm() : this(true) {
 		}
+
+		
 
 		public MainForm(bool hideOnLoad) {
 			InitializeComponent();
@@ -32,7 +35,7 @@ namespace Sphere10.AutoMouse.Windows {
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
 			if (!Runtime.IsDesignMode) {
-				AutoMouseController = ComponentRegistry.Instance.Resolve<IAutoMouseController>();
+				AutoMouseController = HydrogenFramework.Instance.ServiceProvider.GetService<IAutoMouseController>();
 				AutoMouseController.Stop();
 				ToggleOnOff();
 				if (_hideOnLoad) {
@@ -66,7 +69,7 @@ namespace Sphere10.AutoMouse.Windows {
 		}
 
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
-			ApplicationServices.Exit();
+			Exit();
 		}
 
 		private void optionsToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -94,15 +97,15 @@ namespace Sphere10.AutoMouse.Windows {
 		}
 
 		private void _helpIcon_Click(object sender, EventArgs e) {
-            ApplicationServices.ShowContextHelp(_autoMouseSettingsControl);
+			HydrogenFramework.Instance.ServiceProvider.GetService<IHelpServices>().ShowContextHelp(_autoMouseSettingsControl);
 		}
 
 		private void _aboutToolStripButton_Click(object sender, EventArgs e) {
-			ApplicationServices.ShowAboutBox();
+			base.ShowAboutBox();
 		}
 
 		private void _purchaseToolStripButton_Click(object sender, EventArgs e) {
-			ApplicationServices.LaunchProductPurchaseWebsite();
+			HydrogenFramework.Instance.ServiceProvider.GetRequiredService<IWebsiteLauncher>().LaunchProductPurchaseWebsite();
 		}
 
 

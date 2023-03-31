@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <AssemblyName>AutoMouse</AssemblyName>
     <UseWindowsForms>true</UseWindowsForms>
@@ -35,11 +35,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework.Application\Sphere10.Framework.Application.csproj" />
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework.Drawing\Sphere10.Framework.Drawing.csproj" />
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework.Windows.Forms\Sphere10.Framework.Windows.Forms.csproj" />
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework.Windows\Sphere10.Framework.Windows.csproj" />
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework\Sphere10.Framework.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Application\Hydrogen.Application.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Drawing\Hydrogen.Drawing.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows.Forms\Hydrogen.Windows.Forms.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows\Hydrogen.Windows.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen\Hydrogen.csproj" />
     <ProjectReference Include="..\Sphere10.AutoMouse\Sphere10.AutoMouse.csproj" />
   </ItemGroup>
   <ItemGroup>

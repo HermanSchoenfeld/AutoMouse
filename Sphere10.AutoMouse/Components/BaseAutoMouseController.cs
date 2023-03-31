@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
-using Sphere10.Framework.Application;
-using Sphere10.Framework;
+using Hydrogen.Application;
+using Hydrogen;
 
 
 namespace Sphere10.AutoMouse
@@ -20,9 +20,8 @@ namespace Sphere10.AutoMouse
 
         protected BaseAutoMouseController(IMouseHook mouseHook, IKeyboardHook keyboardHook, IScreenMouse screenMouse,
             IExpandingCircleRenderer expandingCircleRenderer, ISoundMaker soundMaker,
-            IConfigurationServices configurationServices, IUserInterfaceServices userInterfaceServices)
+            IUserInterfaceServices userInterfaceServices)
         {
-            ConfigurationServices = configurationServices;
             MouseHook = mouseHook;
             KeyboardHook = keyboardHook;
             ScreenMouse = screenMouse;
@@ -37,11 +36,11 @@ namespace Sphere10.AutoMouse
             _settings = null;
             _decayGauge = DecayGauge.ScreenMouse;
 
-            MouseHook = ComponentRegistry.Instance.Resolve<IMouseHook>();
+            //MouseHook = ComponentRegistry.Instance.Resolve<IMouseHook>();
             MouseHook.MotionStop += _mouseHook_MotionStop;
             MouseHook.Motion += _mouseHook_Motion;
 
-            KeyboardHook = ComponentRegistry.Instance.Resolve<IKeyboardHook>();
+            //KeyboardHook = ComponentRegistry.Instance.Resolve<IKeyboardHook>();
             KeyboardHook.KeyDown += _keyHook_KeyDown;
             KeyboardHook.KeyUp += _keyHook_KeyUp;
         }
@@ -51,8 +50,6 @@ namespace Sphere10.AutoMouse
         protected IKeyboardHook KeyboardHook { get; private set; }
 
         protected IScreenMouse ScreenMouse { get; private set; }
-
-        protected IConfigurationServices ConfigurationServices { get; private set; }
 
         protected IExpandingCircleRenderer ExpandingCircleRenderer { get; private set; }
 

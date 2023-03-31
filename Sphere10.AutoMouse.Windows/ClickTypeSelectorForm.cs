@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Sphere10.Framework;
+using Hydrogen;
 
 namespace Sphere10.AutoMouse.Windows {
 	public partial class ClickTypeSelectorForm : Form {

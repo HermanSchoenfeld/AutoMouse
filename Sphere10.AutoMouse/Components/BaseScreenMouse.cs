@@ -3,8 +3,8 @@ using System.Drawing;
 using System.Threading;
 using System.Timers;
 using Sphere10.AutoMouse.Properties;
-using Sphere10.Framework;
-using Sphere10.Framework.Application;
+using Hydrogen;
+using Hydrogen.Application;
 using Timer = System.Timers.Timer;
 
 namespace Sphere10.AutoMouse {
@@ -32,9 +32,7 @@ namespace Sphere10.AutoMouse {
 			remove { StateChanged -= value; }
 		}
 
-		public BaseScreenMouse(IConfigurationServices configurationServices) {
-			ConfigurationServices = configurationServices;
-
+		public BaseScreenMouse() {
 			_imageOpacity = 0.0;
 			_timer = new Timer { AutoReset = true };
 			_timer.Elapsed += new ElapsedEventHandler(_timer_Elapsed); 
@@ -114,8 +112,6 @@ namespace Sphere10.AutoMouse {
 		}
 
 		public bool KeepAlive { get; set; }
-
-		protected IConfigurationServices ConfigurationServices { get; set; }
 
 		#endregion
 

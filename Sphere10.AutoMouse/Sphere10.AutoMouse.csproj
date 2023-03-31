@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
 	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -17,13 +17,14 @@
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework.Application\Sphere10.Framework.Application.csproj" />
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework.Drawing\Sphere10.Framework.Drawing.csproj" />
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework.Windows\Sphere10.Framework.Windows.csproj" />
-    <ProjectReference Include="..\..\Framework-v3\src\Sphere10.Framework\Sphere10.Framework.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Application\Hydrogen.Application.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Drawing\Hydrogen.Drawing.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows\Hydrogen.Windows.csproj" />
+    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen\Hydrogen.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
+    <PackageReference Include="NetCoreAudio" Version="1.7.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

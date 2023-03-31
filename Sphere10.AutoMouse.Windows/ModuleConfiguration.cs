@@ -1,27 +1,25 @@
-﻿using Sphere10.Framework;
-using Sphere10.Framework.Application;
-using Sphere10.Framework.Windows;
-using Sphere10.Framework.Windows.Forms;
+﻿using Hydrogen;
+using Hydrogen.Application;
+using Hydrogen.Windows;
+using Hydrogen.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Sphere10.AutoMouse.Windows {
 	public class ModuleConfiguration : ModuleConfigurationBase {
-		public override void RegisterComponents(ComponentRegistry registry) {
-			registry.RegisterComponent<ISoundMaker, DefaultSoundMaker>();
-			registry.RegisterComponent<IActiveApplicationMonitor, NoOpActiveApplicationMonitor>();
-			registry.RegisterComponent<IMouseHook, WindowsMouseHook>();
-			registry.RegisterComponent<IKeyboardHook, WindowsKeyboardHook>();
-			registry.RegisterComponent<IScreenMouse, WindowsScreenMouse>();
-			registry.RegisterComponent<IAutoMouseController, WindowsAutoMouseController>();
-			registry.RegisterComponent<IExpandingCircleRenderer, WindowsExpandingCircleRenderer>();
-			registry.RegisterComponent<IAboutBox, AboutBox>();
-			registry.RegisterComponent<INagDialog, NagScreen>();
-			registry.RegisterComponent<IHelpServices, CHMHelpProvider>();
+		public override void RegisterComponents(IServiceCollection services) {
+			services.AddTransient<ISoundMaker, DefaultSoundMaker>();
+			services.AddTransient<IActiveApplicationMonitor, NoOpActiveApplicationMonitor>();
+			services.AddTransient<IMouseHook, WindowsMouseHook>();
+			services.AddTransient<IKeyboardHook, WindowsKeyboardHook>();
+			services.AddTransient<IScreenMouse, WindowsScreenMouse>();
+			services.AddTransient<IAutoMouseController, WindowsAutoMouseController>();
+			services.AddTransient<IExpandingCircleRenderer, WindowsExpandingCircleRenderer>();
+			services.AddTransient<IHelpServices, CHMHelpProvider>();
 
-			registry.RegisterControlStateEventProvider<ClickRadiusSelector, ClickRadiusSelector.StateEventProvider>();
+			services.AddControlStateEventProvider<ClickRadiusSelector, ClickRadiusSelector.StateEventProvider>();
 
-			registry.RegisterInitializationTask<FirstTimeSetWindowsStartupTask>();
-
-			base.RegisterComponents(registry);
+			services.AddTransient<FirstTimeSetWindowsStartupTask>();
+		
 		}
 	}
 }
