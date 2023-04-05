@@ -16,6 +16,7 @@ namespace Sphere10.AutoMouse.Windows {
 			using (new SingleApplicationInstanceScope()) {
 				AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 				Application.EnableVisualStyles();
+				Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
 				Application.SetCompatibleTextRenderingDefault(false);
 				HydrogenFramework.Instance.StartWinFormsApplication<MainForm>(options:HydrogenFrameworkOptions.EnableDrm | HydrogenFrameworkOptions.BackgroundLicenseVerify);
 			}

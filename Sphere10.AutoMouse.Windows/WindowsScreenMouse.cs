@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using Hydrogen;
@@ -17,6 +18,10 @@ namespace Sphere10.AutoMouse.Windows {
 			ScreenForm = new Form();
 			ScreenForm.Width = DefaultWidth;
 			ScreenForm.Height = DefaultHeight;
+			//ScreenForm.DpiChanged += (sender, args) => {
+			//	Debug.WriteLine($"DPI New: {args.DeviceDpiNew}, DPI Old: {args.DeviceDpiOld}, Rect: {args.SuggestedRectangle}");
+			//};
+
 			base.UpdateMouseImage();
 			State = ScreenMouseState.Inactive;
 		}
@@ -48,7 +53,11 @@ namespace Sphere10.AutoMouse.Windows {
 			base.MoveTo(screenX, screenY);
 			ExecuteInUIFriendlyContext(
 				() => {
-					ScreenForm.Location = new Point(screenX - ScreenForm.Width/2, screenY + 8);
+					var screen = Screen.FromPoint(new Point(screenX, screenY));
+					//Debug.WriteLine($"DPI: {ScreenForm.DeviceDpi}");
+					var dpiRatio = (float)ScreenForm.DeviceDpi / 96.0F;
+					ScreenForm.Location = new Point(screenX - ScreenForm.Width/2, screenY + (int)(dpiRatio*18));
+					//ScreenForm.Location = new Point(screenX, screenY);
 					if (State != ScreenMouseState.Inactive) {
 						ScreenForm.ShowInactiveTopmost();
 					}
@@ -58,7 +67,7 @@ namespace Sphere10.AutoMouse.Windows {
 
 		protected override void OnStateChanged(ScreenMouseStateChangedEvent @event) {
 			base.OnStateChanged(@event);
-			switch(State) {
+			switch (State) {
 				case ScreenMouseState.Active:
 					LastActivityTime = DateTime.Now;
 					if (!ScreenForm.Visible) {
@@ -84,33 +93,37 @@ namespace Sphere10.AutoMouse.Windows {
 		}
 
 		protected class Form : PerPixelAlphaForm {
-
-				public Form() {
-					AutoScaleDimensions = new SizeF(6F, 13F);
-					AutoScaleMode = AutoScaleMode.Font;
-					ClientSize = new Size(128, 128);
-					FormBorderStyle = FormBorderStyle.None;
-					ShowIcon = false;
-					ShowInTaskbar = false;
-					TopMost = true;
-					Enabled = false;
-					Visible = false;
-				}
-
-				protected override CreateParams CreateParams {
-					get {
-						CreateParams cp=base.CreateParams;
-						cp.ExStyle |= 0x00000020;  //WS_EX_TRANSPARENT
-						return cp;
-					}
-				}
-
-				protected override bool ShowWithoutActivation {
-					get {
-						return true;
-					}
-				}
-
+		
+			public Form() {
+				AutoScaleDimensions = new SizeF(7F, 15F);
+				AutoScaleMode = AutoScaleMode.Font;
+				ClientSize = new Size(DefaultWidth, DefaultHeight);
+				FormBorderStyle = FormBorderStyle.FixedToolWindow;
+				ShowIcon = false;
+				ShowInTaskbar = false;
+				TopMost = true;
+				Enabled = false;
+				Visible = false;
+				// These are needed to ensure no resize when moving 
+				// between different screens of different DPI
+				MaximumSize = new Size(DefaultWidth, DefaultHeight);
+				MinimumSize = new Size(DefaultWidth, DefaultHeight);
 			}
+
+			//protected override CreateParams CreateParams {
+			//	get {
+			//		CreateParams cp=base.CreateParams;
+			//		//cp.ExStyle |= 0x00000020;  //WS_EX_TRANSPARENT
+			//		return cp;
+			//	}
+			//}
+
+			protected override bool ShowWithoutActivation {
+				get {
+					return true;
+				}
+			}
+
+		}
 	}
 }

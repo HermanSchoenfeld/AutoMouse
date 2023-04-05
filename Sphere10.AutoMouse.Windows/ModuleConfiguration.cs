@@ -20,6 +20,8 @@ namespace Sphere10.AutoMouse.Windows {
 
 			services.AddTransient<FirstTimeSetWindowsStartupTask>();
 		
+			// Initializers/Finalizers
+			services.AddTransient<IncrementUsageByOneInitializer>();
 		}
 	}
 }
