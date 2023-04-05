@@ -3,861 +3,796 @@ using System.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows
 {
-    partial class AutoMouseSettingsControl
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private IContainer components = null;
+	partial class AutoMouseSettingsControl
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if (disposing && (components != null)) {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        } 
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoMouseSettingsControl));
-            this._buttonGroupBox = new System.Windows.Forms.GroupBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this._rightButtonRadioButton = new System.Windows.Forms.RadioButton();
-            this._middleButtonRadioButton = new System.Windows.Forms.RadioButton();
-            this._leftButtonRadioButton = new System.Windows.Forms.RadioButton();
-            this._selectRadiusGroupBox = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this._clickRadiusSelector = new Sphere10.AutoMouse.Windows.ClickRadiusSelector();
-            this._showClickSelectorRadioButton = new System.Windows.Forms.RadioButton();
-            this._autoClickRadioButton = new System.Windows.Forms.RadioButton();
-            this._singleClickRadioButton = new System.Windows.Forms.RadioButton();
-            this._doubleClickRadioButton = new System.Windows.Forms.RadioButton();
-            this._trippleClickRadioButton = new System.Windows.Forms.RadioButton();
-            this._clickGroupBox = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this._tabControl = new System.Windows.Forms.TabControl();
-            this._generalTab = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this._flipLeftRightMouseButtons = new System.Windows.Forms.CheckBox();
-            this._makeClickSoundCheckBox = new System.Windows.Forms.CheckBox();
-            this._keyboardArrowsCanMoveCheckBox = new System.Windows.Forms.CheckBox();
-            this._showExpandingRingsCheckBox = new System.Windows.Forms.CheckBox();
-            this._startProgramWithWindowsCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this._openScreenMouseManuallyRadioButton = new System.Windows.Forms.RadioButton();
-            this._screenMouseTab = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this._screenMouseActivationKeyComboBox = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this._screenMouseTimeoutNumeric = new System.Windows.Forms.NumericUpDown();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this._screenMouseLeftComboBox = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this._screenMouseMiddleComboBox = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this._screenMousePictureBox = new System.Windows.Forms.PictureBox();
-            this._screenMouseRightComboBox = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this._autoClickTab = new System.Windows.Forms.TabPage();
-            this._advancedTab = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this._screenMouseActiveTranslucencyNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this._screenMouseIdleTranslucencyNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this._expandingRingRadiusNumeric = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this._clickIntervalNumeric = new System.Windows.Forms.NumericUpDown();
-            this._buttonGroupBox.SuspendLayout();
-            this._selectRadiusGroupBox.SuspendLayout();
-            this._clickGroupBox.SuspendLayout();
-            this._tabControl.SuspendLayout();
-            this._generalTab.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this._screenMouseTab.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._screenMouseTimeoutNumeric)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._screenMousePictureBox)).BeginInit();
-            this._autoClickTab.SuspendLayout();
-            this._advancedTab.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._screenMouseActiveTranslucencyNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._screenMouseIdleTranslucencyNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._expandingRingRadiusNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._clickIntervalNumeric)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // _buttonGroupBox
-            // 
-            this._buttonGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._buttonGroupBox.AutoSize = true;
-            this._buttonGroupBox.Controls.Add(this.label25);
-            this._buttonGroupBox.Controls.Add(this._rightButtonRadioButton);
-            this._buttonGroupBox.Controls.Add(this._middleButtonRadioButton);
-            this._buttonGroupBox.Controls.Add(this._leftButtonRadioButton);
-            this._buttonGroupBox.Location = new System.Drawing.Point(6, 117);
-            this._buttonGroupBox.Name = "_buttonGroupBox";
-            this._buttonGroupBox.Size = new System.Drawing.Size(535, 369);
-            this._buttonGroupBox.TabIndex = 6;
-            this._buttonGroupBox.TabStop = false;
-            this._buttonGroupBox.Text = "Auto Click Button";
-            // 
-            // label25
-            // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label25.Location = new System.Drawing.Point(110, 24);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(402, 61);
-            this.label25.TabIndex = 31;
-            this.label25.Text = "When auto clicking is enalbed, this will determine the button that will be simula" +
-    "ted.";
-            // 
-            // _rightButtonRadioButton
-            // 
-            this._rightButtonRadioButton.AutoSize = true;
-            this._rightButtonRadioButton.Location = new System.Drawing.Point(19, 68);
-            this._rightButtonRadioButton.Name = "_rightButtonRadioButton";
-            this._rightButtonRadioButton.Size = new System.Drawing.Size(50, 17);
-            this._rightButtonRadioButton.TabIndex = 7;
-            this._rightButtonRadioButton.TabStop = true;
-            this._rightButtonRadioButton.Text = "Right";
-            this._rightButtonRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _middleButtonRadioButton
-            // 
-            this._middleButtonRadioButton.AutoSize = true;
-            this._middleButtonRadioButton.Location = new System.Drawing.Point(19, 45);
-            this._middleButtonRadioButton.Name = "_middleButtonRadioButton";
-            this._middleButtonRadioButton.Size = new System.Drawing.Size(56, 17);
-            this._middleButtonRadioButton.TabIndex = 6;
-            this._middleButtonRadioButton.TabStop = true;
-            this._middleButtonRadioButton.Text = "Middle";
-            this._middleButtonRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _leftButtonRadioButton
-            // 
-            this._leftButtonRadioButton.AutoSize = true;
-            this._leftButtonRadioButton.Location = new System.Drawing.Point(19, 22);
-            this._leftButtonRadioButton.Name = "_leftButtonRadioButton";
-            this._leftButtonRadioButton.Size = new System.Drawing.Size(43, 17);
-            this._leftButtonRadioButton.TabIndex = 5;
-            this._leftButtonRadioButton.TabStop = true;
-            this._leftButtonRadioButton.Text = "Left";
-            this._leftButtonRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _selectRadiusGroupBox
-            // 
-            this._selectRadiusGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._selectRadiusGroupBox.Controls.Add(this.label1);
-            this._selectRadiusGroupBox.Controls.Add(this._clickRadiusSelector);
-            this._selectRadiusGroupBox.Location = new System.Drawing.Point(9, 162);
-            this._selectRadiusGroupBox.Name = "_selectRadiusGroupBox";
-            this._selectRadiusGroupBox.Size = new System.Drawing.Size(532, 324);
-            this._selectRadiusGroupBox.TabIndex = 7;
-            this._selectRadiusGroupBox.TabStop = false;
-            this._selectRadiusGroupBox.Text = "Discard Zone";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(219, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 182);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Motion within this zone will be discarded. This means you will need to move the m" +
-    "ouse beyond this zone to activate any of the features.";
-            // 
-            // _clickRadiusSelector
-            // 
-            this._clickRadiusSelector.BackColor = System.Drawing.SystemColors.Window;
-            this._clickRadiusSelector.Location = new System.Drawing.Point(19, 30);
-            this._clickRadiusSelector.Name = "_clickRadiusSelector";
-            this._clickRadiusSelector.SelectedRadius = 100;
-            this._clickRadiusSelector.Size = new System.Drawing.Size(187, 182);
-            this._clickRadiusSelector.TabIndex = 8;
-            // 
-            // _showClickSelectorRadioButton
-            // 
-            this._showClickSelectorRadioButton.Checked = true;
-            this._showClickSelectorRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._showClickSelectorRadioButton.Location = new System.Drawing.Point(19, 19);
-            this._showClickSelectorRadioButton.Name = "_showClickSelectorRadioButton";
-            this._showClickSelectorRadioButton.Size = new System.Drawing.Size(316, 23);
-            this._showClickSelectorRadioButton.TabIndex = 9;
-            this._showClickSelectorRadioButton.TabStop = true;
-            this._showClickSelectorRadioButton.Text = "Let me click the mouse using the keys from my keyboard";
-            this._showClickSelectorRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _autoClickRadioButton
-            // 
-            this._autoClickRadioButton.Location = new System.Drawing.Point(19, 93);
-            this._autoClickRadioButton.Name = "_autoClickRadioButton";
-            this._autoClickRadioButton.Size = new System.Drawing.Size(339, 23);
-            this._autoClickRadioButton.TabIndex = 10;
-            this._autoClickRadioButton.Text = "Automatically click the mouse when I stop moving the mouse";
-            this._autoClickRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _singleClickRadioButton
-            // 
-            this._singleClickRadioButton.AutoSize = true;
-            this._singleClickRadioButton.Location = new System.Drawing.Point(19, 22);
-            this._singleClickRadioButton.Name = "_singleClickRadioButton";
-            this._singleClickRadioButton.Size = new System.Drawing.Size(54, 17);
-            this._singleClickRadioButton.TabIndex = 2;
-            this._singleClickRadioButton.TabStop = true;
-            this._singleClickRadioButton.Text = "Single";
-            this._singleClickRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _doubleClickRadioButton
-            // 
-            this._doubleClickRadioButton.AutoSize = true;
-            this._doubleClickRadioButton.Location = new System.Drawing.Point(19, 45);
-            this._doubleClickRadioButton.Name = "_doubleClickRadioButton";
-            this._doubleClickRadioButton.Size = new System.Drawing.Size(59, 17);
-            this._doubleClickRadioButton.TabIndex = 3;
-            this._doubleClickRadioButton.TabStop = true;
-            this._doubleClickRadioButton.Text = "Double";
-            this._doubleClickRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _trippleClickRadioButton
-            // 
-            this._trippleClickRadioButton.AutoSize = true;
-            this._trippleClickRadioButton.Location = new System.Drawing.Point(19, 68);
-            this._trippleClickRadioButton.Name = "_trippleClickRadioButton";
-            this._trippleClickRadioButton.Size = new System.Drawing.Size(51, 17);
-            this._trippleClickRadioButton.TabIndex = 4;
-            this._trippleClickRadioButton.TabStop = true;
-            this._trippleClickRadioButton.Text = "Triple";
-            this._trippleClickRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _clickGroupBox
-            // 
-            this._clickGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._clickGroupBox.AutoSize = true;
-            this._clickGroupBox.Controls.Add(this.label24);
-            this._clickGroupBox.Controls.Add(this._trippleClickRadioButton);
-            this._clickGroupBox.Controls.Add(this._doubleClickRadioButton);
-            this._clickGroupBox.Controls.Add(this._singleClickRadioButton);
-            this._clickGroupBox.Location = new System.Drawing.Point(6, 6);
-            this._clickGroupBox.Name = "_clickGroupBox";
-            this._clickGroupBox.Size = new System.Drawing.Size(535, 104);
-            this._clickGroupBox.TabIndex = 5;
-            this._clickGroupBox.TabStop = false;
-            this._clickGroupBox.Text = "Auto Click Type";
-            // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label24.Location = new System.Drawing.Point(110, 24);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(402, 61);
-            this.label24.TabIndex = 30;
-            this.label24.Text = "When auto clicking is enabled, this will determine the type of click that will be" +
-    " simulated.";
-            // 
-            // _tabControl
-            // 
-            this._tabControl.Controls.Add(this._generalTab);
-            this._tabControl.Controls.Add(this._screenMouseTab);
-            this._tabControl.Controls.Add(this._autoClickTab);
-            this._tabControl.Controls.Add(this._advancedTab);
-            this._tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tabControl.Location = new System.Drawing.Point(0, 0);
-            this._tabControl.Margin = new System.Windows.Forms.Padding(0);
-            this._tabControl.Name = "_tabControl";
-            this._tabControl.SelectedIndex = 0;
-            this._tabControl.Size = new System.Drawing.Size(555, 518);
-            this._tabControl.TabIndex = 22;
-            // 
-            // _generalTab
-            // 
-            this._generalTab.Controls.Add(this.groupBox4);
-            this._generalTab.Controls.Add(this.groupBox2);
-            this._generalTab.Location = new System.Drawing.Point(4, 22);
-            this._generalTab.Name = "_generalTab";
-            this._generalTab.Padding = new System.Windows.Forms.Padding(3);
-            this._generalTab.Size = new System.Drawing.Size(547, 492);
-            this._generalTab.TabIndex = 0;
-            this._generalTab.Text = "General";
-            this._generalTab.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this._flipLeftRightMouseButtons);
-            this.groupBox4.Controls.Add(this._makeClickSoundCheckBox);
-            this.groupBox4.Controls.Add(this._keyboardArrowsCanMoveCheckBox);
-            this.groupBox4.Controls.Add(this._showExpandingRingsCheckBox);
-            this.groupBox4.Controls.Add(this._startProgramWithWindowsCheckBox);
-            this.groupBox4.Location = new System.Drawing.Point(6, 274);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(535, 212);
-            this.groupBox4.TabIndex = 34;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Other Options";
-            // 
-            // _flipLeftRightMouseButtons
-            // 
-            this._flipLeftRightMouseButtons.AutoSize = true;
-            this._flipLeftRightMouseButtons.Location = new System.Drawing.Point(19, 19);
-            this._flipLeftRightMouseButtons.Name = "_flipLeftRightMouseButtons";
-            this._flipLeftRightMouseButtons.Size = new System.Drawing.Size(292, 17);
-            this._flipLeftRightMouseButtons.TabIndex = 40;
-            this._flipLeftRightMouseButtons.Text = "Flip the left and right mouse buttons for left-handed users";
-            this._flipLeftRightMouseButtons.UseVisualStyleBackColor = true;
-            // 
-            // _makeClickSoundCheckBox
-            // 
-            this._makeClickSoundCheckBox.AutoSize = true;
-            this._makeClickSoundCheckBox.Location = new System.Drawing.Point(19, 88);
-            this._makeClickSoundCheckBox.Name = "_makeClickSoundCheckBox";
-            this._makeClickSoundCheckBox.Size = new System.Drawing.Size(256, 17);
-            this._makeClickSoundCheckBox.TabIndex = 39;
-            this._makeClickSoundCheckBox.Text = "Make click sound when simulating a mouse click";
-            this._makeClickSoundCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _keyboardArrowsCanMoveCheckBox
-            // 
-            this._keyboardArrowsCanMoveCheckBox.AutoSize = true;
-            this._keyboardArrowsCanMoveCheckBox.Location = new System.Drawing.Point(19, 65);
-            this._keyboardArrowsCanMoveCheckBox.Name = "_keyboardArrowsCanMoveCheckBox";
-            this._keyboardArrowsCanMoveCheckBox.Size = new System.Drawing.Size(309, 17);
-            this._keyboardArrowsCanMoveCheckBox.TabIndex = 38;
-            this._keyboardArrowsCanMoveCheckBox.Text = "Allow keyboard arrows to move screen mouse (when visible)";
-            this._keyboardArrowsCanMoveCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _showExpandingRingsCheckBox
-            // 
-            this._showExpandingRingsCheckBox.AutoSize = true;
-            this._showExpandingRingsCheckBox.Location = new System.Drawing.Point(19, 42);
-            this._showExpandingRingsCheckBox.Name = "_showExpandingRingsCheckBox";
-            this._showExpandingRingsCheckBox.Size = new System.Drawing.Size(231, 17);
-            this._showExpandingRingsCheckBox.TabIndex = 33;
-            this._showExpandingRingsCheckBox.Text = "Show expanding ring when a click is issued";
-            this._showExpandingRingsCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // _startProgramWithWindowsCheckBox
-            // 
-            this._startProgramWithWindowsCheckBox.AutoSize = true;
-            this._startProgramWithWindowsCheckBox.Location = new System.Drawing.Point(19, 111);
-            this._startProgramWithWindowsCheckBox.Name = "_startProgramWithWindowsCheckBox";
-            this._startProgramWithWindowsCheckBox.Size = new System.Drawing.Size(212, 17);
-            this._startProgramWithWindowsCheckBox.TabIndex = 24;
-            this._startProgramWithWindowsCheckBox.Text = "Start this program when Windows starts";
-            this._startProgramWithWindowsCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this._openScreenMouseManuallyRadioButton);
-            this.groupBox2.Controls.Add(this._showClickSelectorRadioButton);
-            this.groupBox2.Controls.Add(this._autoClickRadioButton);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(535, 262);
-            this.groupBox2.TabIndex = 22;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Mode";
-            // 
-            // label21
-            // 
-            this.label21.Location = new System.Drawing.Point(45, 193);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(390, 45);
-            this.label21.TabIndex = 14;
-            this.label21.Text = "You will activate the Screen Mouse manually, and then click the mouse using keys " +
-    "from your keyboard.";
-            // 
-            // label20
-            // 
-            this.label20.Location = new System.Drawing.Point(45, 119);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(390, 45);
-            this.label20.TabIndex = 13;
-            this.label20.Text = "When you stop moving the mouse, a click will automatically be made at the cursors" +
-    " current position.";
-            // 
-            // label19
-            // 
-            this.label19.Location = new System.Drawing.Point(45, 45);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(390, 45);
-            this.label19.TabIndex = 12;
-            this.label19.Text = "As you move your mouse you will be able to click the mouse by pressing keys from " +
-    "your keyboard (via the Screen Mouse).";
-            // 
-            // _openScreenMouseManuallyRadioButton
-            // 
-            this._openScreenMouseManuallyRadioButton.Location = new System.Drawing.Point(19, 167);
-            this._openScreenMouseManuallyRadioButton.Name = "_openScreenMouseManuallyRadioButton";
-            this._openScreenMouseManuallyRadioButton.Size = new System.Drawing.Size(352, 23);
-            this._openScreenMouseManuallyRadioButton.TabIndex = 11;
-            this._openScreenMouseManuallyRadioButton.Text = "I will activate the Screen Mouse using an activation key";
-            this._openScreenMouseManuallyRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // _screenMouseTab
-            // 
-            this._screenMouseTab.Controls.Add(this.groupBox5);
-            this._screenMouseTab.Controls.Add(this.groupBox3);
-            this._screenMouseTab.Location = new System.Drawing.Point(4, 22);
-            this._screenMouseTab.Name = "_screenMouseTab";
-            this._screenMouseTab.Padding = new System.Windows.Forms.Padding(3);
-            this._screenMouseTab.Size = new System.Drawing.Size(547, 492);
-            this._screenMouseTab.TabIndex = 1;
-            this._screenMouseTab.Text = "Screen Mouse";
-            this._screenMouseTab.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this._screenMouseActivationKeyComboBox);
-            this.groupBox5.Controls.Add(this.label8);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this._screenMouseTimeoutNumeric);
-            this.groupBox5.Location = new System.Drawing.Point(6, 6);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(535, 87);
-            this.groupBox5.TabIndex = 32;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Screen Mouse Options";
-            // 
-            // _screenMouseActivationKeyComboBox
-            // 
-            this._screenMouseActivationKeyComboBox.FormattingEnabled = true;
-            this._screenMouseActivationKeyComboBox.Location = new System.Drawing.Point(164, 23);
-            this._screenMouseActivationKeyComboBox.Name = "_screenMouseActivationKeyComboBox";
-            this._screenMouseActivationKeyComboBox.Size = new System.Drawing.Size(95, 21);
-            this._screenMouseActivationKeyComboBox.TabIndex = 23;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(274, 52);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(249, 13);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "seconds to show screen mouse before fading away";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 13);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Key to show Screen Mouse:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(40, 52);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(118, 13);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Screen Mouse lifespan:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(274, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(167, 13);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "key to activate the Screen Mouse";
-            // 
-            // _screenMouseTimeoutNumeric
-            // 
-            this._screenMouseTimeoutNumeric.Location = new System.Drawing.Point(164, 50);
-            this._screenMouseTimeoutNumeric.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this._screenMouseTimeoutNumeric.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this._screenMouseTimeoutNumeric.Name = "_screenMouseTimeoutNumeric";
-            this._screenMouseTimeoutNumeric.Size = new System.Drawing.Size(95, 20);
-            this._screenMouseTimeoutNumeric.TabIndex = 29;
-            this._screenMouseTimeoutNumeric.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.AutoSize = true;
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this._screenMouseLeftComboBox);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this._screenMouseMiddleComboBox);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this._screenMousePictureBox);
-            this.groupBox3.Controls.Add(this._screenMouseRightComboBox);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Location = new System.Drawing.Point(6, 99);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(535, 387);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Screen Mouse Keys";
-            // 
-            // label17
-            // 
-            this.label17.Location = new System.Drawing.Point(161, 112);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(353, 129);
-            this.label17.TabIndex = 29;
-            this.label17.Text = resources.GetString("label17.Text");
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(274, 76);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(171, 13);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "will click of the mouses right button";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(274, 49);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(181, 13);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "will click of the mouses middle button";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(274, 22);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(165, 13);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "will click of the mouses left button";
-            // 
-            // _screenMouseLeftComboBox
-            // 
-            this._screenMouseLeftComboBox.FormattingEnabled = true;
-            this._screenMouseLeftComboBox.Location = new System.Drawing.Point(164, 19);
-            this._screenMouseLeftComboBox.Name = "_screenMouseLeftComboBox";
-            this._screenMouseLeftComboBox.Size = new System.Drawing.Size(95, 21);
-            this._screenMouseLeftComboBox.TabIndex = 11;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(56, 22);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 13);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Left Button Key (L):";
-            // 
-            // _screenMouseMiddleComboBox
-            // 
-            this._screenMouseMiddleComboBox.FormattingEnabled = true;
-            this._screenMouseMiddleComboBox.Location = new System.Drawing.Point(164, 46);
-            this._screenMouseMiddleComboBox.Name = "_screenMouseMiddleComboBox";
-            this._screenMouseMiddleComboBox.Size = new System.Drawing.Size(95, 21);
-            this._screenMouseMiddleComboBox.TabIndex = 16;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(40, 49);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(114, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Middle Button Key (M):";
-            // 
-            // _screenMousePictureBox
-            // 
-            this._screenMousePictureBox.Location = new System.Drawing.Point(31, 112);
-            this._screenMousePictureBox.Name = "_screenMousePictureBox";
-            this._screenMousePictureBox.Size = new System.Drawing.Size(123, 129);
-            this._screenMousePictureBox.TabIndex = 13;
-            this._screenMousePictureBox.TabStop = false;
-            // 
-            // _screenMouseRightComboBox
-            // 
-            this._screenMouseRightComboBox.FormattingEnabled = true;
-            this._screenMouseRightComboBox.Location = new System.Drawing.Point(164, 73);
-            this._screenMouseRightComboBox.Name = "_screenMouseRightComboBox";
-            this._screenMouseRightComboBox.Size = new System.Drawing.Size(95, 21);
-            this._screenMouseRightComboBox.TabIndex = 17;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(47, 76);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(107, 13);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "Right Button Key (R):";
-            // 
-            // _autoClickTab
-            // 
-            this._autoClickTab.Controls.Add(this._buttonGroupBox);
-            this._autoClickTab.Controls.Add(this._clickGroupBox);
-            this._autoClickTab.Location = new System.Drawing.Point(4, 22);
-            this._autoClickTab.Name = "_autoClickTab";
-            this._autoClickTab.Padding = new System.Windows.Forms.Padding(3);
-            this._autoClickTab.Size = new System.Drawing.Size(547, 492);
-            this._autoClickTab.TabIndex = 2;
-            this._autoClickTab.Text = "Auto Click";
-            this._autoClickTab.UseVisualStyleBackColor = true;
-            // 
-            // _advancedTab
-            // 
-            this._advancedTab.Controls.Add(this.groupBox1);
-            this._advancedTab.Controls.Add(this._selectRadiusGroupBox);
-            this._advancedTab.Location = new System.Drawing.Point(4, 22);
-            this._advancedTab.Name = "_advancedTab";
-            this._advancedTab.Padding = new System.Windows.Forms.Padding(3);
-            this._advancedTab.Size = new System.Drawing.Size(547, 492);
-            this._advancedTab.TabIndex = 3;
-            this._advancedTab.Text = "Advanced";
-            this._advancedTab.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this._screenMouseActiveTranslucencyNumeric);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this._screenMouseIdleTranslucencyNumeric);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this._expandingRingRadiusNumeric);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this._clickIntervalNumeric);
-            this.groupBox1.Location = new System.Drawing.Point(9, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(532, 152);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Miscellaneous Settings";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(348, 104);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(15, 13);
-            this.label22.TabIndex = 13;
-            this.label22.Text = "%";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 104);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(200, 13);
-            this.label23.TabIndex = 12;
-            this.label23.Text = "Screen Mouse translucency when active";
-            // 
-            // _screenMouseActiveTranslucencyNumeric
-            // 
-            this._screenMouseActiveTranslucencyNumeric.Location = new System.Drawing.Point(222, 102);
-            this._screenMouseActiveTranslucencyNumeric.Minimum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this._screenMouseActiveTranslucencyNumeric.Name = "_screenMouseActiveTranslucencyNumeric";
-            this._screenMouseActiveTranslucencyNumeric.Size = new System.Drawing.Size(120, 20);
-            this._screenMouseActiveTranslucencyNumeric.TabIndex = 11;
-            this._screenMouseActiveTranslucencyNumeric.Value = new decimal(new int[] {
-            75,
-            0,
-            0,
-            0});
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(348, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "%";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(19, 78);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(187, 13);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "Screen Mouse translucency when idle";
-            // 
-            // _screenMouseIdleTranslucencyNumeric
-            // 
-            this._screenMouseIdleTranslucencyNumeric.Location = new System.Drawing.Point(222, 76);
-            this._screenMouseIdleTranslucencyNumeric.Minimum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this._screenMouseIdleTranslucencyNumeric.Name = "_screenMouseIdleTranslucencyNumeric";
-            this._screenMouseIdleTranslucencyNumeric.Size = new System.Drawing.Size(120, 20);
-            this._screenMouseIdleTranslucencyNumeric.TabIndex = 8;
-            this._screenMouseIdleTranslucencyNumeric.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(348, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "pixels";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(90, 52);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Size of expanding rings";
-            // 
-            // _expandingRingRadiusNumeric
-            // 
-            this._expandingRingRadiusNumeric.Location = new System.Drawing.Point(222, 50);
-            this._expandingRingRadiusNumeric.Name = "_expandingRingRadiusNumeric";
-            this._expandingRingRadiusNumeric.Size = new System.Drawing.Size(120, 20);
-            this._expandingRingRadiusNumeric.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(348, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "millisecconds";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(197, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Duration between clicks in double clicks";
-            // 
-            // _clickIntervalNumeric
-            // 
-            this._clickIntervalNumeric.Location = new System.Drawing.Point(222, 24);
-            this._clickIntervalNumeric.Name = "_clickIntervalNumeric";
-            this._clickIntervalNumeric.Size = new System.Drawing.Size(120, 20);
-            this._clickIntervalNumeric.TabIndex = 0;
-            // 
-            // AutoMouseSettingsControl
-            // 
-            //this.AutoLocateSettings = true;
-            this.UpdateModelOnStateChanged = true;
-            this.Controls.Add(this._tabControl);
-            this.Name = "AutoMouseSettingsControl";
-            this.Size = new System.Drawing.Size(555, 518);
-            this._buttonGroupBox.ResumeLayout(false);
-            this._buttonGroupBox.PerformLayout();
-            this._selectRadiusGroupBox.ResumeLayout(false);
-            this._clickGroupBox.ResumeLayout(false);
-            this._clickGroupBox.PerformLayout();
-            this._tabControl.ResumeLayout(false);
-            this._generalTab.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this._screenMouseTab.ResumeLayout(false);
-            this._screenMouseTab.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._screenMouseTimeoutNumeric)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._screenMousePictureBox)).EndInit();
-            this._autoClickTab.ResumeLayout(false);
-            this._autoClickTab.PerformLayout();
-            this._advancedTab.ResumeLayout(false);
-            this._advancedTab.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._screenMouseActiveTranslucencyNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._screenMouseIdleTranslucencyNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._expandingRingRadiusNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._clickIntervalNumeric)).EndInit();
-            this.ResumeLayout(false);
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			components = new Container();
+			var resources = new ComponentResourceManager(typeof(AutoMouseSettingsControl));
+			_buttonGroupBox = new GroupBox();
+			arrayGrid1 = new SourceGrid.ArrayGrid();
+			label25 = new Label();
+			_rightButtonRadioButton = new RadioButton();
+			_middleButtonRadioButton = new RadioButton();
+			_leftButtonRadioButton = new RadioButton();
+			_selectRadiusGroupBox = new GroupBox();
+			label1 = new Label();
+			_clickRadiusSelector = new ClickRadiusSelector();
+			_showClickSelectorRadioButton = new RadioButton();
+			_autoClickRadioButton = new RadioButton();
+			_singleClickRadioButton = new RadioButton();
+			_doubleClickRadioButton = new RadioButton();
+			_trippleClickRadioButton = new RadioButton();
+			_clickGroupBox = new GroupBox();
+			label24 = new Label();
+			_tabControl = new TabControl();
+			_generalTab = new TabPage();
+			groupBox4 = new GroupBox();
+			_flipLeftRightMouseButtons = new CheckBox();
+			_makeClickSoundCheckBox = new CheckBox();
+			_keyboardArrowsCanMoveCheckBox = new CheckBox();
+			_showExpandingRingsCheckBox = new CheckBox();
+			_startProgramWithWindowsCheckBox = new CheckBox();
+			groupBox2 = new GroupBox();
+			_openScreenMouseManuallyRadioButton = new RadioButton();
+			_screenMouseTab = new TabPage();
+			groupBox5 = new GroupBox();
+			_screenMouseActivationKeyComboBox = new ComboBox();
+			label8 = new Label();
+			label2 = new Label();
+			label9 = new Label();
+			label10 = new Label();
+			_screenMouseTimeoutNumeric = new NumericUpDown();
+			groupBox3 = new GroupBox();
+			label17 = new Label();
+			label16 = new Label();
+			label12 = new Label();
+			label11 = new Label();
+			_screenMouseLeftComboBox = new ComboBox();
+			label13 = new Label();
+			_screenMouseMiddleComboBox = new ComboBox();
+			label14 = new Label();
+			_screenMousePictureBox = new PictureBox();
+			_screenMouseRightComboBox = new ComboBox();
+			label15 = new Label();
+			_autoClickTab = new TabPage();
+			_advancedTab = new TabPage();
+			groupBox1 = new GroupBox();
+			label22 = new Label();
+			label23 = new Label();
+			_screenMouseActiveTranslucencyNumeric = new NumericUpDown();
+			label7 = new Label();
+			label18 = new Label();
+			_screenMouseIdleTranslucencyNumeric = new NumericUpDown();
+			label6 = new Label();
+			label4 = new Label();
+			_expandingRingRadiusNumeric = new NumericUpDown();
+			label5 = new Label();
+			label3 = new Label();
+			_clickIntervalNumeric = new NumericUpDown();
+			toolTip1 = new ToolTip(components);
+			_buttonGroupBox.SuspendLayout();
+			_selectRadiusGroupBox.SuspendLayout();
+			_clickGroupBox.SuspendLayout();
+			_tabControl.SuspendLayout();
+			_generalTab.SuspendLayout();
+			groupBox4.SuspendLayout();
+			groupBox2.SuspendLayout();
+			_screenMouseTab.SuspendLayout();
+			groupBox5.SuspendLayout();
+			((ISupportInitialize)_screenMouseTimeoutNumeric).BeginInit();
+			groupBox3.SuspendLayout();
+			((ISupportInitialize)_screenMousePictureBox).BeginInit();
+			_autoClickTab.SuspendLayout();
+			_advancedTab.SuspendLayout();
+			groupBox1.SuspendLayout();
+			((ISupportInitialize)_screenMouseActiveTranslucencyNumeric).BeginInit();
+			((ISupportInitialize)_screenMouseIdleTranslucencyNumeric).BeginInit();
+			((ISupportInitialize)_expandingRingRadiusNumeric).BeginInit();
+			((ISupportInitialize)_clickIntervalNumeric).BeginInit();
+			SuspendLayout();
+			// 
+			// _buttonGroupBox
+			// 
+			_buttonGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			_buttonGroupBox.Controls.Add(arrayGrid1);
+			_buttonGroupBox.Controls.Add(label25);
+			_buttonGroupBox.Controls.Add(_rightButtonRadioButton);
+			_buttonGroupBox.Controls.Add(_middleButtonRadioButton);
+			_buttonGroupBox.Controls.Add(_leftButtonRadioButton);
+			_buttonGroupBox.Location = new System.Drawing.Point(6, 121);
+			_buttonGroupBox.Name = "_buttonGroupBox";
+			_buttonGroupBox.Size = new System.Drawing.Size(511, 274);
+			_buttonGroupBox.TabIndex = 6;
+			_buttonGroupBox.TabStop = false;
+			_buttonGroupBox.Text = "Auto Click Button";
+			// 
+			// arrayGrid1
+			// 
+			arrayGrid1.EnableSort = true;
+			arrayGrid1.Location = new System.Drawing.Point(159, 201);
+			arrayGrid1.Name = "arrayGrid1";
+			arrayGrid1.SelectionMode = SourceGrid.GridSelectionMode.Cell;
+			arrayGrid1.Size = new System.Drawing.Size(8, 8);
+			arrayGrid1.TabIndex = 32;
+			arrayGrid1.TabStop = true;
+			arrayGrid1.ToolTipText = "";
+			// 
+			// label25
+			// 
+			label25.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			label25.Location = new System.Drawing.Point(110, 24);
+			label25.Name = "label25";
+			label25.Size = new System.Drawing.Size(378, 61);
+			label25.TabIndex = 31;
+			label25.Text = "When auto clicking is enalbed, this will determine the button that will be simulated.";
+			// 
+			// _rightButtonRadioButton
+			// 
+			_rightButtonRadioButton.AutoSize = true;
+			_rightButtonRadioButton.Location = new System.Drawing.Point(19, 68);
+			_rightButtonRadioButton.Name = "_rightButtonRadioButton";
+			_rightButtonRadioButton.Size = new System.Drawing.Size(53, 19);
+			_rightButtonRadioButton.TabIndex = 7;
+			_rightButtonRadioButton.TabStop = true;
+			_rightButtonRadioButton.Text = "Right";
+			_rightButtonRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _middleButtonRadioButton
+			// 
+			_middleButtonRadioButton.AutoSize = true;
+			_middleButtonRadioButton.Location = new System.Drawing.Point(19, 45);
+			_middleButtonRadioButton.Name = "_middleButtonRadioButton";
+			_middleButtonRadioButton.Size = new System.Drawing.Size(62, 19);
+			_middleButtonRadioButton.TabIndex = 6;
+			_middleButtonRadioButton.TabStop = true;
+			_middleButtonRadioButton.Text = "Middle";
+			_middleButtonRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _leftButtonRadioButton
+			// 
+			_leftButtonRadioButton.AutoSize = true;
+			_leftButtonRadioButton.Location = new System.Drawing.Point(19, 22);
+			_leftButtonRadioButton.Name = "_leftButtonRadioButton";
+			_leftButtonRadioButton.Size = new System.Drawing.Size(45, 19);
+			_leftButtonRadioButton.TabIndex = 5;
+			_leftButtonRadioButton.TabStop = true;
+			_leftButtonRadioButton.Text = "Left";
+			_leftButtonRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _selectRadiusGroupBox
+			// 
+			_selectRadiusGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			_selectRadiusGroupBox.Controls.Add(label1);
+			_selectRadiusGroupBox.Controls.Add(_clickRadiusSelector);
+			_selectRadiusGroupBox.Location = new System.Drawing.Point(9, 159);
+			_selectRadiusGroupBox.Name = "_selectRadiusGroupBox";
+			_selectRadiusGroupBox.Size = new System.Drawing.Size(508, 236);
+			_selectRadiusGroupBox.TabIndex = 7;
+			_selectRadiusGroupBox.TabStop = false;
+			_selectRadiusGroupBox.Text = "Discard Zone";
+			// 
+			// label1
+			// 
+			label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			label1.Location = new System.Drawing.Point(219, 30);
+			label1.Name = "label1";
+			label1.Size = new System.Drawing.Size(283, 182);
+			label1.TabIndex = 9;
+			label1.Text = "Motion within this zone will be discarded. This means you will need to move the mouse beyond this zone to activate any of the features.";
+			// 
+			// _clickRadiusSelector
+			// 
+			_clickRadiusSelector.BackColor = System.Drawing.SystemColors.Window;
+			_clickRadiusSelector.Location = new System.Drawing.Point(19, 30);
+			_clickRadiusSelector.Name = "_clickRadiusSelector";
+			_clickRadiusSelector.SelectedRadius = 100;
+			_clickRadiusSelector.Size = new System.Drawing.Size(187, 182);
+			_clickRadiusSelector.TabIndex = 8;
+			// 
+			// _showClickSelectorRadioButton
+			// 
+			_showClickSelectorRadioButton.AutoSize = true;
+			_showClickSelectorRadioButton.Checked = true;
+			_showClickSelectorRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			_showClickSelectorRadioButton.Location = new System.Drawing.Point(19, 19);
+			_showClickSelectorRadioButton.Name = "_showClickSelectorRadioButton";
+			_showClickSelectorRadioButton.Size = new System.Drawing.Size(291, 17);
+			_showClickSelectorRadioButton.TabIndex = 9;
+			_showClickSelectorRadioButton.TabStop = true;
+			_showClickSelectorRadioButton.Text = "Let me click the mouse using the keys from my keyboard";
+			toolTip1.SetToolTip(_showClickSelectorRadioButton, "As you move your mouse you will be able to click the mouse by pressing keys from your keyboard (via the Screen Mouse).");
+			_showClickSelectorRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _autoClickRadioButton
+			// 
+			_autoClickRadioButton.AutoSize = true;
+			_autoClickRadioButton.Location = new System.Drawing.Point(19, 48);
+			_autoClickRadioButton.Name = "_autoClickRadioButton";
+			_autoClickRadioButton.Size = new System.Drawing.Size(352, 19);
+			_autoClickRadioButton.TabIndex = 10;
+			_autoClickRadioButton.Text = "Automatically click the mouse when I stop moving the mouse";
+			toolTip1.SetToolTip(_autoClickRadioButton, "When you stop moving the mouse, a click will automatically be made at the cursors current position.");
+			_autoClickRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _singleClickRadioButton
+			// 
+			_singleClickRadioButton.AutoSize = true;
+			_singleClickRadioButton.Location = new System.Drawing.Point(19, 22);
+			_singleClickRadioButton.Name = "_singleClickRadioButton";
+			_singleClickRadioButton.Size = new System.Drawing.Size(57, 19);
+			_singleClickRadioButton.TabIndex = 2;
+			_singleClickRadioButton.TabStop = true;
+			_singleClickRadioButton.Text = "Single";
+			_singleClickRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _doubleClickRadioButton
+			// 
+			_doubleClickRadioButton.AutoSize = true;
+			_doubleClickRadioButton.Location = new System.Drawing.Point(19, 45);
+			_doubleClickRadioButton.Name = "_doubleClickRadioButton";
+			_doubleClickRadioButton.Size = new System.Drawing.Size(63, 19);
+			_doubleClickRadioButton.TabIndex = 3;
+			_doubleClickRadioButton.TabStop = true;
+			_doubleClickRadioButton.Text = "Double";
+			_doubleClickRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _trippleClickRadioButton
+			// 
+			_trippleClickRadioButton.AutoSize = true;
+			_trippleClickRadioButton.Location = new System.Drawing.Point(19, 68);
+			_trippleClickRadioButton.Name = "_trippleClickRadioButton";
+			_trippleClickRadioButton.Size = new System.Drawing.Size(53, 19);
+			_trippleClickRadioButton.TabIndex = 4;
+			_trippleClickRadioButton.TabStop = true;
+			_trippleClickRadioButton.Text = "Triple";
+			_trippleClickRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _clickGroupBox
+			// 
+			_clickGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			_clickGroupBox.Controls.Add(label24);
+			_clickGroupBox.Controls.Add(_trippleClickRadioButton);
+			_clickGroupBox.Controls.Add(_doubleClickRadioButton);
+			_clickGroupBox.Controls.Add(_singleClickRadioButton);
+			_clickGroupBox.Location = new System.Drawing.Point(6, 6);
+			_clickGroupBox.Name = "_clickGroupBox";
+			_clickGroupBox.Size = new System.Drawing.Size(511, 109);
+			_clickGroupBox.TabIndex = 5;
+			_clickGroupBox.TabStop = false;
+			_clickGroupBox.Text = "Auto Click Type";
+			// 
+			// label24
+			// 
+			label24.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			label24.Location = new System.Drawing.Point(110, 24);
+			label24.Name = "label24";
+			label24.Size = new System.Drawing.Size(375, 61);
+			label24.TabIndex = 30;
+			label24.Text = "When auto clicking is enabled, this will determine the type of click that will be simulated.";
+			// 
+			// _tabControl
+			// 
+			_tabControl.Controls.Add(_generalTab);
+			_tabControl.Controls.Add(_screenMouseTab);
+			_tabControl.Controls.Add(_autoClickTab);
+			_tabControl.Controls.Add(_advancedTab);
+			_tabControl.Dock = DockStyle.Fill;
+			_tabControl.Location = new System.Drawing.Point(0, 0);
+			_tabControl.Margin = new Padding(0);
+			_tabControl.Name = "_tabControl";
+			_tabControl.SelectedIndex = 0;
+			_tabControl.Size = new System.Drawing.Size(531, 429);
+			_tabControl.TabIndex = 22;
+			// 
+			// _generalTab
+			// 
+			_generalTab.Controls.Add(groupBox4);
+			_generalTab.Controls.Add(groupBox2);
+			_generalTab.Location = new System.Drawing.Point(4, 24);
+			_generalTab.Name = "_generalTab";
+			_generalTab.Padding = new Padding(3);
+			_generalTab.Size = new System.Drawing.Size(523, 401);
+			_generalTab.TabIndex = 0;
+			_generalTab.Text = "General";
+			_generalTab.UseVisualStyleBackColor = true;
+			// 
+			// groupBox4
+			// 
+			groupBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox4.Controls.Add(_flipLeftRightMouseButtons);
+			groupBox4.Controls.Add(_makeClickSoundCheckBox);
+			groupBox4.Controls.Add(_keyboardArrowsCanMoveCheckBox);
+			groupBox4.Controls.Add(_showExpandingRingsCheckBox);
+			groupBox4.Controls.Add(_startProgramWithWindowsCheckBox);
+			groupBox4.Location = new System.Drawing.Point(6, 135);
+			groupBox4.Name = "groupBox4";
+			groupBox4.Size = new System.Drawing.Size(511, 260);
+			groupBox4.TabIndex = 34;
+			groupBox4.TabStop = false;
+			groupBox4.Text = "Other Options";
+			// 
+			// _flipLeftRightMouseButtons
+			// 
+			_flipLeftRightMouseButtons.AutoSize = true;
+			_flipLeftRightMouseButtons.Location = new System.Drawing.Point(19, 19);
+			_flipLeftRightMouseButtons.Name = "_flipLeftRightMouseButtons";
+			_flipLeftRightMouseButtons.Size = new System.Drawing.Size(332, 19);
+			_flipLeftRightMouseButtons.TabIndex = 40;
+			_flipLeftRightMouseButtons.Text = "Flip the left and right mouse buttons for left-handed users";
+			_flipLeftRightMouseButtons.UseVisualStyleBackColor = true;
+			// 
+			// _makeClickSoundCheckBox
+			// 
+			_makeClickSoundCheckBox.AutoSize = true;
+			_makeClickSoundCheckBox.Location = new System.Drawing.Point(19, 88);
+			_makeClickSoundCheckBox.Name = "_makeClickSoundCheckBox";
+			_makeClickSoundCheckBox.Size = new System.Drawing.Size(284, 19);
+			_makeClickSoundCheckBox.TabIndex = 39;
+			_makeClickSoundCheckBox.Text = "Make click sound when simulating a mouse click";
+			_makeClickSoundCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// _keyboardArrowsCanMoveCheckBox
+			// 
+			_keyboardArrowsCanMoveCheckBox.AutoSize = true;
+			_keyboardArrowsCanMoveCheckBox.Location = new System.Drawing.Point(19, 65);
+			_keyboardArrowsCanMoveCheckBox.Name = "_keyboardArrowsCanMoveCheckBox";
+			_keyboardArrowsCanMoveCheckBox.Size = new System.Drawing.Size(345, 19);
+			_keyboardArrowsCanMoveCheckBox.TabIndex = 38;
+			_keyboardArrowsCanMoveCheckBox.Text = "Allow keyboard arrows to move screen mouse (when visible)";
+			_keyboardArrowsCanMoveCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// _showExpandingRingsCheckBox
+			// 
+			_showExpandingRingsCheckBox.AutoSize = true;
+			_showExpandingRingsCheckBox.Location = new System.Drawing.Point(19, 42);
+			_showExpandingRingsCheckBox.Name = "_showExpandingRingsCheckBox";
+			_showExpandingRingsCheckBox.Size = new System.Drawing.Size(253, 19);
+			_showExpandingRingsCheckBox.TabIndex = 33;
+			_showExpandingRingsCheckBox.Text = "Show expanding ring when a click is issued";
+			_showExpandingRingsCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// _startProgramWithWindowsCheckBox
+			// 
+			_startProgramWithWindowsCheckBox.AutoSize = true;
+			_startProgramWithWindowsCheckBox.Location = new System.Drawing.Point(19, 111);
+			_startProgramWithWindowsCheckBox.Name = "_startProgramWithWindowsCheckBox";
+			_startProgramWithWindowsCheckBox.Size = new System.Drawing.Size(236, 19);
+			_startProgramWithWindowsCheckBox.TabIndex = 24;
+			_startProgramWithWindowsCheckBox.Text = "Start this program when Windows starts";
+			_startProgramWithWindowsCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// groupBox2
+			// 
+			groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox2.Controls.Add(_openScreenMouseManuallyRadioButton);
+			groupBox2.Controls.Add(_showClickSelectorRadioButton);
+			groupBox2.Controls.Add(_autoClickRadioButton);
+			groupBox2.Location = new System.Drawing.Point(6, 6);
+			groupBox2.Name = "groupBox2";
+			groupBox2.Size = new System.Drawing.Size(511, 123);
+			groupBox2.TabIndex = 22;
+			groupBox2.TabStop = false;
+			groupBox2.Text = "Mode";
+			// 
+			// _openScreenMouseManuallyRadioButton
+			// 
+			_openScreenMouseManuallyRadioButton.AutoSize = true;
+			_openScreenMouseManuallyRadioButton.Location = new System.Drawing.Point(19, 77);
+			_openScreenMouseManuallyRadioButton.Name = "_openScreenMouseManuallyRadioButton";
+			_openScreenMouseManuallyRadioButton.Size = new System.Drawing.Size(314, 19);
+			_openScreenMouseManuallyRadioButton.TabIndex = 11;
+			_openScreenMouseManuallyRadioButton.Text = "I will activate the Screen Mouse using an activation key";
+			toolTip1.SetToolTip(_openScreenMouseManuallyRadioButton, "You will activate the Screen Mouse manually, and then click the mouse using keys from your keyboard.");
+			_openScreenMouseManuallyRadioButton.UseVisualStyleBackColor = true;
+			// 
+			// _screenMouseTab
+			// 
+			_screenMouseTab.Controls.Add(groupBox5);
+			_screenMouseTab.Controls.Add(groupBox3);
+			_screenMouseTab.Location = new System.Drawing.Point(4, 24);
+			_screenMouseTab.Name = "_screenMouseTab";
+			_screenMouseTab.Padding = new Padding(3);
+			_screenMouseTab.Size = new System.Drawing.Size(523, 401);
+			_screenMouseTab.TabIndex = 1;
+			_screenMouseTab.Text = "Screen Mouse";
+			_screenMouseTab.UseVisualStyleBackColor = true;
+			// 
+			// groupBox5
+			// 
+			groupBox5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox5.Controls.Add(_screenMouseActivationKeyComboBox);
+			groupBox5.Controls.Add(label8);
+			groupBox5.Controls.Add(label2);
+			groupBox5.Controls.Add(label9);
+			groupBox5.Controls.Add(label10);
+			groupBox5.Controls.Add(_screenMouseTimeoutNumeric);
+			groupBox5.Location = new System.Drawing.Point(6, 6);
+			groupBox5.Name = "groupBox5";
+			groupBox5.Size = new System.Drawing.Size(511, 87);
+			groupBox5.TabIndex = 32;
+			groupBox5.TabStop = false;
+			groupBox5.Text = "Screen Mouse Options";
+			// 
+			// _screenMouseActivationKeyComboBox
+			// 
+			_screenMouseActivationKeyComboBox.FormattingEnabled = true;
+			_screenMouseActivationKeyComboBox.Location = new System.Drawing.Point(186, 22);
+			_screenMouseActivationKeyComboBox.Name = "_screenMouseActivationKeyComboBox";
+			_screenMouseActivationKeyComboBox.Size = new System.Drawing.Size(95, 23);
+			_screenMouseActivationKeyComboBox.TabIndex = 23;
+			// 
+			// label8
+			// 
+			label8.AutoSize = true;
+			label8.Location = new System.Drawing.Point(296, 51);
+			label8.Name = "label8";
+			label8.Size = new System.Drawing.Size(190, 15);
+			label8.TabIndex = 31;
+			label8.Text = "screen mouse fades away after this";
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Location = new System.Drawing.Point(18, 26);
+			label2.Name = "label2";
+			label2.Size = new System.Drawing.Size(151, 15);
+			label2.TabIndex = 24;
+			label2.Text = "Key to show Screen Mouse:";
+			// 
+			// label9
+			// 
+			label9.AutoSize = true;
+			label9.Location = new System.Drawing.Point(40, 52);
+			label9.Name = "label9";
+			label9.Size = new System.Drawing.Size(128, 15);
+			label9.TabIndex = 30;
+			label9.Text = "Screen Mouse lifespan:";
+			// 
+			// label10
+			// 
+			label10.AutoSize = true;
+			label10.Location = new System.Drawing.Point(296, 25);
+			label10.Name = "label10";
+			label10.Size = new System.Drawing.Size(180, 15);
+			label10.TabIndex = 25;
+			label10.Text = "key to activate the Screen Mouse";
+			// 
+			// _screenMouseTimeoutNumeric
+			// 
+			_screenMouseTimeoutNumeric.Location = new System.Drawing.Point(186, 49);
+			_screenMouseTimeoutNumeric.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
+			_screenMouseTimeoutNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			_screenMouseTimeoutNumeric.Name = "_screenMouseTimeoutNumeric";
+			_screenMouseTimeoutNumeric.Size = new System.Drawing.Size(95, 23);
+			_screenMouseTimeoutNumeric.TabIndex = 29;
+			_screenMouseTimeoutNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			// 
+			// groupBox3
+			// 
+			groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox3.Controls.Add(label17);
+			groupBox3.Controls.Add(label16);
+			groupBox3.Controls.Add(label12);
+			groupBox3.Controls.Add(label11);
+			groupBox3.Controls.Add(_screenMouseLeftComboBox);
+			groupBox3.Controls.Add(label13);
+			groupBox3.Controls.Add(_screenMouseMiddleComboBox);
+			groupBox3.Controls.Add(label14);
+			groupBox3.Controls.Add(_screenMousePictureBox);
+			groupBox3.Controls.Add(_screenMouseRightComboBox);
+			groupBox3.Controls.Add(label15);
+			groupBox3.Location = new System.Drawing.Point(6, 99);
+			groupBox3.Name = "groupBox3";
+			groupBox3.Size = new System.Drawing.Size(511, 296);
+			groupBox3.TabIndex = 22;
+			groupBox3.TabStop = false;
+			groupBox3.Text = "Screen Mouse Keys";
+			// 
+			// label17
+			// 
+			label17.Location = new System.Drawing.Point(186, 112);
+			label17.Name = "label17";
+			label17.Size = new System.Drawing.Size(309, 129);
+			label17.TabIndex = 29;
+			label17.Text = resources.GetString("label17.Text");
+			// 
+			// label16
+			// 
+			label16.AutoSize = true;
+			label16.Location = new System.Drawing.Point(296, 76);
+			label16.Name = "label16";
+			label16.Size = new System.Drawing.Size(197, 15);
+			label16.TabIndex = 28;
+			label16.Text = "will click of the mouses right button";
+			// 
+			// label12
+			// 
+			label12.AutoSize = true;
+			label12.Location = new System.Drawing.Point(296, 49);
+			label12.Name = "label12";
+			label12.Size = new System.Drawing.Size(209, 15);
+			label12.TabIndex = 27;
+			label12.Text = "will click of the mouses middle button";
+			// 
+			// label11
+			// 
+			label11.AutoSize = true;
+			label11.Location = new System.Drawing.Point(296, 22);
+			label11.Name = "label11";
+			label11.Size = new System.Drawing.Size(189, 15);
+			label11.TabIndex = 26;
+			label11.Text = "will click of the mouses left button";
+			// 
+			// _screenMouseLeftComboBox
+			// 
+			_screenMouseLeftComboBox.FormattingEnabled = true;
+			_screenMouseLeftComboBox.Location = new System.Drawing.Point(186, 19);
+			_screenMouseLeftComboBox.Name = "_screenMouseLeftComboBox";
+			_screenMouseLeftComboBox.Size = new System.Drawing.Size(95, 23);
+			_screenMouseLeftComboBox.TabIndex = 11;
+			// 
+			// label13
+			// 
+			label13.AutoSize = true;
+			label13.Location = new System.Drawing.Point(56, 22);
+			label13.Name = "label13";
+			label13.Size = new System.Drawing.Size(108, 15);
+			label13.TabIndex = 12;
+			label13.Text = "Left Button Key (L):";
+			// 
+			// _screenMouseMiddleComboBox
+			// 
+			_screenMouseMiddleComboBox.FormattingEnabled = true;
+			_screenMouseMiddleComboBox.Location = new System.Drawing.Point(186, 46);
+			_screenMouseMiddleComboBox.Name = "_screenMouseMiddleComboBox";
+			_screenMouseMiddleComboBox.Size = new System.Drawing.Size(95, 23);
+			_screenMouseMiddleComboBox.TabIndex = 16;
+			// 
+			// label14
+			// 
+			label14.AutoSize = true;
+			label14.Location = new System.Drawing.Point(40, 49);
+			label14.Name = "label14";
+			label14.Size = new System.Drawing.Size(130, 15);
+			label14.TabIndex = 14;
+			label14.Text = "Middle Button Key (M):";
+			// 
+			// _screenMousePictureBox
+			// 
+			_screenMousePictureBox.Location = new System.Drawing.Point(31, 112);
+			_screenMousePictureBox.Name = "_screenMousePictureBox";
+			_screenMousePictureBox.Size = new System.Drawing.Size(123, 129);
+			_screenMousePictureBox.TabIndex = 13;
+			_screenMousePictureBox.TabStop = false;
+			// 
+			// _screenMouseRightComboBox
+			// 
+			_screenMouseRightComboBox.FormattingEnabled = true;
+			_screenMouseRightComboBox.Location = new System.Drawing.Point(186, 73);
+			_screenMouseRightComboBox.Name = "_screenMouseRightComboBox";
+			_screenMouseRightComboBox.Size = new System.Drawing.Size(95, 23);
+			_screenMouseRightComboBox.TabIndex = 17;
+			// 
+			// label15
+			// 
+			label15.AutoSize = true;
+			label15.Location = new System.Drawing.Point(47, 76);
+			label15.Name = "label15";
+			label15.Size = new System.Drawing.Size(117, 15);
+			label15.TabIndex = 15;
+			label15.Text = "Right Button Key (R):";
+			// 
+			// _autoClickTab
+			// 
+			_autoClickTab.Controls.Add(_buttonGroupBox);
+			_autoClickTab.Controls.Add(_clickGroupBox);
+			_autoClickTab.Location = new System.Drawing.Point(4, 24);
+			_autoClickTab.Name = "_autoClickTab";
+			_autoClickTab.Padding = new Padding(3);
+			_autoClickTab.Size = new System.Drawing.Size(523, 401);
+			_autoClickTab.TabIndex = 2;
+			_autoClickTab.Text = "Auto Click";
+			_autoClickTab.UseVisualStyleBackColor = true;
+			// 
+			// _advancedTab
+			// 
+			_advancedTab.Controls.Add(groupBox1);
+			_advancedTab.Controls.Add(_selectRadiusGroupBox);
+			_advancedTab.Location = new System.Drawing.Point(4, 24);
+			_advancedTab.Name = "_advancedTab";
+			_advancedTab.Padding = new Padding(3);
+			_advancedTab.Size = new System.Drawing.Size(523, 401);
+			_advancedTab.TabIndex = 3;
+			_advancedTab.Text = "Advanced";
+			_advancedTab.UseVisualStyleBackColor = true;
+			// 
+			// groupBox1
+			// 
+			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox1.Controls.Add(label22);
+			groupBox1.Controls.Add(label23);
+			groupBox1.Controls.Add(_screenMouseActiveTranslucencyNumeric);
+			groupBox1.Controls.Add(label7);
+			groupBox1.Controls.Add(label18);
+			groupBox1.Controls.Add(_screenMouseIdleTranslucencyNumeric);
+			groupBox1.Controls.Add(label6);
+			groupBox1.Controls.Add(label4);
+			groupBox1.Controls.Add(_expandingRingRadiusNumeric);
+			groupBox1.Controls.Add(label5);
+			groupBox1.Controls.Add(label3);
+			groupBox1.Controls.Add(_clickIntervalNumeric);
+			groupBox1.Location = new System.Drawing.Point(9, 6);
+			groupBox1.Name = "groupBox1";
+			groupBox1.Size = new System.Drawing.Size(508, 147);
+			groupBox1.TabIndex = 8;
+			groupBox1.TabStop = false;
+			groupBox1.Text = "Miscellaneous Settings";
+			// 
+			// label22
+			// 
+			label22.AutoSize = true;
+			label22.Location = new System.Drawing.Point(385, 104);
+			label22.Name = "label22";
+			label22.Size = new System.Drawing.Size(17, 15);
+			label22.TabIndex = 13;
+			label22.Text = "%";
+			// 
+			// label23
+			// 
+			label23.AutoSize = true;
+			label23.Location = new System.Drawing.Point(6, 104);
+			label23.Name = "label23";
+			label23.Size = new System.Drawing.Size(217, 15);
+			label23.TabIndex = 12;
+			label23.Text = "Screen Mouse translucency when active";
+			// 
+			// _screenMouseActiveTranslucencyNumeric
+			// 
+			_screenMouseActiveTranslucencyNumeric.Location = new System.Drawing.Point(259, 102);
+			_screenMouseActiveTranslucencyNumeric.Minimum = new decimal(new int[] { 15, 0, 0, 0 });
+			_screenMouseActiveTranslucencyNumeric.Name = "_screenMouseActiveTranslucencyNumeric";
+			_screenMouseActiveTranslucencyNumeric.Size = new System.Drawing.Size(120, 23);
+			_screenMouseActiveTranslucencyNumeric.TabIndex = 11;
+			_screenMouseActiveTranslucencyNumeric.Value = new decimal(new int[] { 75, 0, 0, 0 });
+			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.Location = new System.Drawing.Point(385, 78);
+			label7.Name = "label7";
+			label7.Size = new System.Drawing.Size(17, 15);
+			label7.TabIndex = 10;
+			label7.Text = "%";
+			// 
+			// label18
+			// 
+			label18.AutoSize = true;
+			label18.Location = new System.Drawing.Point(19, 78);
+			label18.Name = "label18";
+			label18.Size = new System.Drawing.Size(205, 15);
+			label18.TabIndex = 9;
+			label18.Text = "Screen Mouse translucency when idle";
+			// 
+			// _screenMouseIdleTranslucencyNumeric
+			// 
+			_screenMouseIdleTranslucencyNumeric.Location = new System.Drawing.Point(259, 76);
+			_screenMouseIdleTranslucencyNumeric.Minimum = new decimal(new int[] { 15, 0, 0, 0 });
+			_screenMouseIdleTranslucencyNumeric.Name = "_screenMouseIdleTranslucencyNumeric";
+			_screenMouseIdleTranslucencyNumeric.Size = new System.Drawing.Size(120, 23);
+			_screenMouseIdleTranslucencyNumeric.TabIndex = 8;
+			_screenMouseIdleTranslucencyNumeric.Value = new decimal(new int[] { 15, 0, 0, 0 });
+			// 
+			// label6
+			// 
+			label6.AutoSize = true;
+			label6.Location = new System.Drawing.Point(385, 52);
+			label6.Name = "label6";
+			label6.Size = new System.Drawing.Size(37, 15);
+			label6.TabIndex = 7;
+			label6.Text = "pixels";
+			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.Location = new System.Drawing.Point(90, 52);
+			label4.Name = "label4";
+			label4.Size = new System.Drawing.Size(129, 15);
+			label4.TabIndex = 6;
+			label4.Text = "Size of expanding rings";
+			// 
+			// _expandingRingRadiusNumeric
+			// 
+			_expandingRingRadiusNumeric.Location = new System.Drawing.Point(259, 50);
+			_expandingRingRadiusNumeric.Name = "_expandingRingRadiusNumeric";
+			_expandingRingRadiusNumeric.Size = new System.Drawing.Size(120, 23);
+			_expandingRingRadiusNumeric.TabIndex = 5;
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.Location = new System.Drawing.Point(385, 26);
+			label5.Name = "label5";
+			label5.Size = new System.Drawing.Size(79, 15);
+			label5.TabIndex = 4;
+			label5.Text = "millisecconds";
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.Location = new System.Drawing.Point(9, 26);
+			label3.Name = "label3";
+			label3.Size = new System.Drawing.Size(218, 15);
+			label3.TabIndex = 1;
+			label3.Text = "Duration between clicks in double clicks";
+			// 
+			// _clickIntervalNumeric
+			// 
+			_clickIntervalNumeric.Location = new System.Drawing.Point(259, 24);
+			_clickIntervalNumeric.Name = "_clickIntervalNumeric";
+			_clickIntervalNumeric.Size = new System.Drawing.Size(120, 23);
+			_clickIntervalNumeric.TabIndex = 0;
+			// 
+			// AutoMouseSettingsControl
+			// 
+			Controls.Add(_tabControl);
+			Name = "AutoMouseSettingsControl";
+			Size = new System.Drawing.Size(531, 429);
+			_buttonGroupBox.ResumeLayout(false);
+			_buttonGroupBox.PerformLayout();
+			_selectRadiusGroupBox.ResumeLayout(false);
+			_clickGroupBox.ResumeLayout(false);
+			_clickGroupBox.PerformLayout();
+			_tabControl.ResumeLayout(false);
+			_generalTab.ResumeLayout(false);
+			groupBox4.ResumeLayout(false);
+			groupBox4.PerformLayout();
+			groupBox2.ResumeLayout(false);
+			groupBox2.PerformLayout();
+			_screenMouseTab.ResumeLayout(false);
+			groupBox5.ResumeLayout(false);
+			groupBox5.PerformLayout();
+			((ISupportInitialize)_screenMouseTimeoutNumeric).EndInit();
+			groupBox3.ResumeLayout(false);
+			groupBox3.PerformLayout();
+			((ISupportInitialize)_screenMousePictureBox).EndInit();
+			_autoClickTab.ResumeLayout(false);
+			_advancedTab.ResumeLayout(false);
+			groupBox1.ResumeLayout(false);
+			groupBox1.PerformLayout();
+			((ISupportInitialize)_screenMouseActiveTranslucencyNumeric).EndInit();
+			((ISupportInitialize)_screenMouseIdleTranslucencyNumeric).EndInit();
+			((ISupportInitialize)_expandingRingRadiusNumeric).EndInit();
+			((ISupportInitialize)_clickIntervalNumeric).EndInit();
+			ResumeLayout(false);
+		}
 
-        }
-
-        #endregion
+		#endregion
 
 		private GroupBox _buttonGroupBox;
 		private RadioButton _rightButtonRadioButton;
@@ -908,9 +843,6 @@ namespace Sphere10.AutoMouse.Windows
 		private Label label7;
 		private Label label18;
 		private NumericUpDown _screenMouseIdleTranslucencyNumeric;
-		private Label label21;
-		private Label label20;
-		private Label label19;
 		private CheckBox _showExpandingRingsCheckBox;
 		private Label label22;
 		private Label label23;
@@ -921,8 +853,8 @@ namespace Sphere10.AutoMouse.Windows
 		private Label label24;
 		private CheckBox _makeClickSoundCheckBox;
 		private CheckBox _keyboardArrowsCanMoveCheckBox;
-        private CheckBox _flipLeftRightMouseButtons;
-
-
+		private CheckBox _flipLeftRightMouseButtons;
+		private ToolTip toolTip1;
+		private SourceGrid.ArrayGrid arrayGrid1;
 	}
 }

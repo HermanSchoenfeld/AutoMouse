@@ -14,20 +14,23 @@ using Resources = Sphere10.AutoMouse.Properties.Resources;
 namespace Sphere10.AutoMouse.Windows
 {
 	[UseSettings(typeof(AutoMouseSettings))]
-    public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObject
-    {
-	    public AutoMouseSettingsControl() {
-		    InitializeComponent();
+	public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObject
+	{
+		public AutoMouseSettingsControl()
+		{
+			InitializeComponent();
 			_screenMousePictureBox.Image = Resources.MouseLMRSettingsAid;
 
-			if (!Tools.Runtime.IsDesignMode) {
+			if (!Tools.Runtime.IsDesignMode)
+			{
 				AutoRunServices = HydrogenFramework.Instance.ServiceProvider.GetService<IAutoRunServices>();
 				ProductInformationProvider = HydrogenFramework.Instance.ServiceProvider.GetService<IProductInformationProvider>();
 			}
-        }
+		}
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public AutoMouseSettings Settings {
+		public AutoMouseSettings Settings
+		{
 			get { return UserSettings.Get<AutoMouseSettings>(); }
 		}
 
@@ -35,7 +38,8 @@ namespace Sphere10.AutoMouse.Windows
 
 		protected IProductInformationProvider ProductInformationProvider { get; }
 
-		public override void SetLocalizedText(CultureInfo culture = null) {
+		public override void SetLocalizedText(CultureInfo culture = null)
+		{
 			//_showClickSelectorRadioButton.Text = Properties.Resources.TXT_Show_Me_The_Click_Selector_Form_When_Mouse_Stops_Moving;
 			//_autoClickRadioButton.Text = Properties.Resources.TXT_Automatically_Click_The_Mouse_When_Mouse_Stops_Moving;
 			//_leftButtonKeyLabel.Text = Properties.Resources.TXT_What_Key_Will_Activate_The_Click_Selector_Form;
@@ -50,8 +54,10 @@ namespace Sphere10.AutoMouse.Windows
 			//_rightButtonRadioButton.Text = Properties.Resources.TXT_Right_Button;
 		}
 
-		protected override void InitializeUIPrimingData() {
-			switch (Settings.MouseStoppedBehavior) {
+		protected override void InitializeUIPrimingData()
+		{
+			switch (Settings.MouseStoppedBehavior)
+			{
 				case AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse:
 					_showClickSelectorRadioButton.Checked = true;
 					_autoClickRadioButton.Checked = false;
@@ -68,61 +74,67 @@ namespace Sphere10.AutoMouse.Windows
 					_openScreenMouseManuallyRadioButton.Checked = true;
 					break;
 			}
-            _flipLeftRightMouseButtons.Checked = WinAPI.USER32.GetSystemMetrics(WinAPI.USER32.SystemMetric.SM_SWAPBUTTON) != 0;
-        	_showExpandingRingsCheckBox.Checked = Settings.ShowExpandingRings;
+			_flipLeftRightMouseButtons.Checked = WinAPI.USER32.GetSystemMetrics(WinAPI.USER32.SystemMetric.SM_SWAPBUTTON) != 0;
+			_showExpandingRingsCheckBox.Checked = Settings.ShowExpandingRings;
 			_keyboardArrowsCanMoveCheckBox.Checked = Settings.KeyboardArrowsMoveScreenMouse;
 			_makeClickSoundCheckBox.Checked = Settings.MakeClickSound;
-        	_startProgramWithWindowsCheckBox.Checked = Settings.AutoStartProgram;
-        	_screenMouseActivationKeyComboBox.SelectedValue = Settings.ScreenMouseActivationKey;
-        	_screenMouseTimeoutNumeric.Value = (decimal)TimeSpan.FromMilliseconds(Settings.ScreenMouseTimeoutMS).TotalSeconds;
-        	_screenMouseLeftComboBox.SelectedValue = Settings.LeftButtonKey;
+			_startProgramWithWindowsCheckBox.Checked = Settings.AutoStartProgram;
+			_screenMouseActivationKeyComboBox.SelectedValue = Settings.ScreenMouseActivationKey;
+			_screenMouseTimeoutNumeric.Value = (decimal)TimeSpan.FromMilliseconds(Settings.ScreenMouseTimeoutMS).TotalSeconds;
+			_screenMouseLeftComboBox.SelectedValue = Settings.LeftButtonKey;
 			_screenMouseMiddleComboBox.SelectedValue = Settings.MiddleButtonKey;
 			_screenMouseRightComboBox.SelectedValue = Settings.RightButtonKey;
 
-			switch (Settings.AutoClickButton) {
-                case MouseButton.Left:
-                    _leftButtonRadioButton.Checked = true;
-                    break;
-                case MouseButton.Middle:
-                    _middleButtonRadioButton.Checked = true;
-                    break;
-                case MouseButton.Right:
-                    _rightButtonRadioButton.Checked = true;
-                    break;
-                default:
-                    _leftButtonRadioButton.Checked = true;
-                    break;
-            }
-			switch (Settings.AutoClickType) {
-                case MouseClickType.Single:
-                    _singleClickRadioButton.Checked = true;
-                    break;
-                case MouseClickType.Double:
-                    _doubleClickRadioButton.Checked = true;
-                    break;
-                case MouseClickType.Tripple:
-                    _trippleClickRadioButton.Checked = true;
-                    break;
-                default:
-                    _singleClickRadioButton.Checked = true;
-                    break;
-            }
+			switch (Settings.AutoClickButton)
+			{
+				case MouseButton.Left:
+					_leftButtonRadioButton.Checked = true;
+					break;
+				case MouseButton.Middle:
+					_middleButtonRadioButton.Checked = true;
+					break;
+				case MouseButton.Right:
+					_rightButtonRadioButton.Checked = true;
+					break;
+				default:
+					_leftButtonRadioButton.Checked = true;
+					break;
+			}
+			switch (Settings.AutoClickType)
+			{
+				case MouseClickType.Single:
+					_singleClickRadioButton.Checked = true;
+					break;
+				case MouseClickType.Double:
+					_doubleClickRadioButton.Checked = true;
+					break;
+				case MouseClickType.Tripple:
+					_trippleClickRadioButton.Checked = true;
+					break;
+				default:
+					_singleClickRadioButton.Checked = true;
+					break;
+			}
 
 			_clickIntervalNumeric.Value = Settings.MultipleClickIntervalMS;
-        	_expandingRingRadiusNumeric.Value = Settings.ExpandingRingRadius;
+			_expandingRingRadiusNumeric.Value = Settings.ExpandingRingRadius;
 			_screenMouseIdleTranslucencyNumeric.Value = Settings.ScreenMouseIdleAlphaPercentage;
 			_screenMouseActiveTranslucencyNumeric.Value = Settings.ScreenMouseActiveAlphaPercentage;
 			_clickRadiusSelector.SelectedRadius = Settings.ClickFreeZoneRadius;
-        }
+		}
 
-		protected override void CopyUIToModel() {
-			if (_showClickSelectorRadioButton.Checked) {
+		protected override void CopyUIToModel()
+		{
+			if (_showClickSelectorRadioButton.Checked)
+			{
 				Settings.MouseStoppedBehavior = AutoMouseSettings.AutoMouseBehavior.AutoActivateScreenMouse;
 			}
-			if (_autoClickRadioButton.Checked) {
+			if (_autoClickRadioButton.Checked)
+			{
 				Settings.MouseStoppedBehavior = AutoMouseSettings.AutoMouseBehavior.AutoClickOnMouseStop;
 			}
-			if (_openScreenMouseManuallyRadioButton.Checked) {
+			if (_openScreenMouseManuallyRadioButton.Checked)
+			{
 				Settings.MouseStoppedBehavior = AutoMouseSettings.AutoMouseBehavior.ManuallyActivateScreenMouse;
 			}
 			WinAPI.USER32.SwapMouseButton(_flipLeftRightMouseButtons.Checked);
@@ -131,9 +143,11 @@ namespace Sphere10.AutoMouse.Windows
 			Settings.KeyboardArrowsMoveScreenMouse = _keyboardArrowsCanMoveCheckBox.Checked;
 			Settings.AutoStartProgram = _startProgramWithWindowsCheckBox.Checked;
 			// Set the autorun in the OS
-			if (Settings.AutoStartProgram && !AutoRunServices.DoesAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath)) {
+			if (Settings.AutoStartProgram && !AutoRunServices.DoesAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath))
+			{
 				AutoRunServices.SetAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath);
-			} else {
+			} else
+			{
 				AutoRunServices.RemoveAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath);
 			}
 			Settings.ScreenMouseActivationKey = (Key)_screenMouseActivationKeyComboBox.SelectedValue;
@@ -142,98 +156,113 @@ namespace Sphere10.AutoMouse.Windows
 			Settings.MiddleButtonKey = (Key)_screenMouseMiddleComboBox.SelectedValue;
 			Settings.RightButtonKey = (Key)_screenMouseRightComboBox.SelectedValue;
 
-			if (_leftButtonRadioButton.Checked) {
+			if (_leftButtonRadioButton.Checked)
+			{
 				Settings.AutoClickButton = MouseButton.Left;
 			}
-			if (_middleButtonRadioButton.Checked) {
+			if (_middleButtonRadioButton.Checked)
+			{
 				Settings.AutoClickButton = MouseButton.Middle;
 			}
-			if (_rightButtonRadioButton.Checked) {
+			if (_rightButtonRadioButton.Checked)
+			{
 				Settings.AutoClickButton = MouseButton.Right;
 			}
 
-			
-			if(_singleClickRadioButton.Checked) {
-			Settings.AutoClickType = MouseClickType.Single;	
+
+			if (_singleClickRadioButton.Checked)
+			{
+				Settings.AutoClickType = MouseClickType.Single;
 			}
-			if(_doubleClickRadioButton.Checked) {
+			if (_doubleClickRadioButton.Checked)
+			{
 				Settings.AutoClickType = MouseClickType.Double;
 			}
-			if(_trippleClickRadioButton.Checked) {
+			if (_trippleClickRadioButton.Checked)
+			{
 				Settings.AutoClickType = MouseClickType.Tripple;
 			}
 			Settings.MultipleClickIntervalMS = (int)_clickIntervalNumeric.Value;
 			Settings.ExpandingRingRadius = (int)_expandingRingRadiusNumeric.Value;
-            Settings.ScreenMouseIdleAlphaPercentage = (int)_screenMouseIdleTranslucencyNumeric.Value;
-            Settings.ScreenMouseActiveAlphaPercentage = (int)_screenMouseActiveTranslucencyNumeric.Value;
+			Settings.ScreenMouseIdleAlphaPercentage = (int)_screenMouseIdleTranslucencyNumeric.Value;
+			Settings.ScreenMouseActiveAlphaPercentage = (int)_screenMouseActiveTranslucencyNumeric.Value;
 			Settings.ClickFreeZoneRadius = _clickRadiusSelector.SelectedRadius;
 			Settings.Save();
 		}
 
 		#region IHelpableObject Implementation
 
-		public HelpType Type {
-			get {
+		public HelpType Type
+		{
+			get
+			{
 				return HelpType.CHM;
 			}
 		}
 
-		public string FileName {
-			get {
+		public string FileName
+		{
+			get
+			{
 				return null; // gotten from global scope
 			}
 		}
 
-		public string Url {
-			get {
+		public string Url
+		{
+			get
+			{
 				return null;
 			}
 		}
 
-		public int? PageNumber {
-			get {
+		public int? PageNumber
+		{
+			get
+			{
 				return null;
 			}
 		}
 
 
-		public int? HelpTopicID {
-			get {
-                int topicId = 1;
-                if (_tabControl.SelectedTab == _generalTab)
-                {
-                    topicId = 300;
-                }
-                else if (_tabControl.SelectedTab == _screenMouseTab)
-                {
-                    topicId = 400;
-                }
-                else if (_tabControl.SelectedTab == _autoClickTab)
-                {
-                    topicId = 500;
-                } else if (_tabControl.SelectedTab == _advancedTab)
-                {
-                    topicId = 600;
-                }
-                else
-                {
-                    topicId = 1;
-                }
-                return topicId;
+		public int? HelpTopicID
+		{
+			get
+			{
+				int topicId = 1;
+				if (_tabControl.SelectedTab == _generalTab)
+				{
+					topicId = 300;
+				} else if (_tabControl.SelectedTab == _screenMouseTab)
+				{
+					topicId = 400;
+				} else if (_tabControl.SelectedTab == _autoClickTab)
+				{
+					topicId = 500;
+				} else if (_tabControl.SelectedTab == _advancedTab)
+				{
+					topicId = 600;
+				} else
+				{
+					topicId = 1;
+				}
+				return topicId;
 			}
 		}
 
 
-		public int? HelpTopicAlias {
-			get {
+		public int? HelpTopicAlias
+		{
+			get
+			{
 				return null;
 			}
 		}
 
 		#endregion
 
-        
-       
+
+
 	}
 }
 
