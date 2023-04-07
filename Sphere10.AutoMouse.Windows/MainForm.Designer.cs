@@ -161,7 +161,7 @@ namespace Sphere10.AutoMouse.Windows
 			_autoMouseSettingsControl.Location = new System.Drawing.Point(0, 136);
 			_autoMouseSettingsControl.Margin = new Padding(4, 3, 4, 3);
 			_autoMouseSettingsControl.Name = "_autoMouseSettingsControl";
-			_autoMouseSettingsControl.Padding = new Padding(5, 5, 5, 5);
+			_autoMouseSettingsControl.Padding = new Padding(5);
 			_autoMouseSettingsControl.Size = new System.Drawing.Size(568, 433);
 			_autoMouseSettingsControl.TabIndex = 1;
 			// 
@@ -172,6 +172,7 @@ namespace Sphere10.AutoMouse.Windows
 			applicationBanner1.FromColor = System.Drawing.Color.RoyalBlue;
 			applicationBanner1.Location = new System.Drawing.Point(0, 0);
 			applicationBanner1.Margin = new Padding(5, 3, 5, 3);
+			applicationBanner1.MaximumSize = new System.Drawing.Size(9999, 111);
 			applicationBanner1.Name = "applicationBanner1";
 			applicationBanner1.Size = new System.Drawing.Size(568, 111);
 			applicationBanner1.TabIndex = 22;
@@ -203,6 +204,7 @@ namespace Sphere10.AutoMouse.Windows
 			Controls.Add(panel1);
 			Controls.Add(applicationBanner1);
 			FormBorderStyle = FormBorderStyle.Fixed3D;
+			Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
 			Margin = new Padding(4, 3, 4, 3);
 			MaximizeBox = false;
 			MinimizeBox = false;

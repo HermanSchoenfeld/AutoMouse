@@ -21,6 +21,8 @@
 	</PropertyGroup>
 	<PropertyGroup>
 		<StartupObject>Sphere10.AutoMouse.Windows.Program</StartupObject>
+		<Company>Sphere 10 Software</Company>
+		<Description>Auto Mouse is an ergonomics tool that allows you to click your mouse with using the mouse buttons</Description>
 	</PropertyGroup>
 	<ItemGroup>
 		<Compile Update="AutoMouseSettingsControl.cs">

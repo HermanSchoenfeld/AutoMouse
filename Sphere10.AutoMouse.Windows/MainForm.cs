@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using Hydrogen;
@@ -26,8 +27,9 @@ namespace Sphere10.AutoMouse.Windows
 		public MainForm(bool hideOnLoad)
 		{
 			InitializeComponent();
-			_helpIcon.Image = FormResources.Help_16x16x32;
-			_aboutToolStripButton.Image = Resources.Sphere10_16x16x32;
+			var scale = this.DeviceDpi / 96.0D;
+			_helpIcon.Image = Resources.Help_128x128_32.Resize(new Size(16, 16).ScaleBy(scale));
+			_aboutToolStripButton.Image = Resources.Sphere10_286x286_32.Resize(new Size(16, 16).ScaleBy(scale));
 			_purchaseToolStripButton.Image = FormResources.Purchase_16x16x32;
 			_notifyIcon.Icon = Resources.MouseNoButton;
 			_notifyIcon.EnableContextMenuOnLeftClick();

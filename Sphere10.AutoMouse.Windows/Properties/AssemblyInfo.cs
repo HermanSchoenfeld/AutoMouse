@@ -19,13 +19,12 @@ using System.Runtime.InteropServices;
 [assembly: Guid("EC221BB7-1AD9-45E6-BC3B-307C8F39CA0D")]
 
 
-[assembly: AssemblyDescription("Auto Mouse")]
 [assembly: AssemblyCopyright("Copyright © Sphere 10 Software 2008 - {CurrentYear}")]
 [assembly: AssemblyProductDistribution(ProductDistribution.ReleaseCandidate)]
 [assembly: AssemblyCompanyNumber("ABN 39600596316")]
 [assembly: AssemblyCompanyLink("https://sphere10.com")]
 [assembly: AssemblyProductCode("2fbd6040-dece-45df-9f7a-7d2b562141ad")]
-[assembly: AssemblyProductLink("https://sphere10.com")]
+[assembly: AssemblyProductLink("https://sphere10.com/products/automouse")]
 [assembly: AssemblyProductPurchaseLink("https://sphere10.com/products/automouse")]
 [assembly: AssemblyProductSecret("db7d8cb29fa78c6eb2d6fa268fa0ed4d06f01422adce6a17b355655c3df3f4fc")]
 #if DEBUG

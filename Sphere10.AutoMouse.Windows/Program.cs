@@ -35,6 +35,5 @@ namespace Sphere10.AutoMouse.Windows {
 			}
 		}
 
-
 	}
 }
