@@ -18,14 +18,8 @@ namespace Sphere10.AutoMouse.Windows
 	{
 		private AutoMouseSettings _settings;
 		private readonly WindowsScreenMouse _mouseForm;
-		private bool _hideOnLoad;
 
-		public MainForm() : this(true)
-		{
-		}
-
-		public MainForm(bool hideOnLoad)
-		{
+		public MainForm() {
 			InitializeComponent();
 			var scale = this.DeviceDpi / 96.0D;
 			_helpIcon.Image = Resources.Help_128x128_32.Resize(new Size(16, 16).ScaleBy(scale));
@@ -35,7 +29,6 @@ namespace Sphere10.AutoMouse.Windows
 			_notifyIcon.EnableContextMenuOnLeftClick();
 			Icon = Resources.MouseNoButton;
 			AutoMouseController = null;
-			_hideOnLoad = hideOnLoad;
 		}
 
 		public IAutoMouseController AutoMouseController { get; set; }
@@ -48,10 +41,10 @@ namespace Sphere10.AutoMouse.Windows
 				AutoMouseController = HydrogenFramework.Instance.ServiceProvider.GetService<IAutoMouseController>();
 				AutoMouseController.Stop();
 				ToggleOnOff();
-				if (_hideOnLoad)
-				{
+				var xxx  = HydrogenFramework.Instance.ServiceProvider.GetService<IProductUsageServices>().ProductUsageInformation.NumberOfUsesByUser;
+				var hideOnLoad = HydrogenFramework.Instance.ServiceProvider.GetService<IProductUsageServices>().ProductUsageInformation.NumberOfUsesByUser > 1;
+				if (hideOnLoad)
 					Hide();
-				}
 			}
 		}
 

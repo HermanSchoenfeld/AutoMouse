@@ -1,8 +1,10 @@
-﻿using System.Reflection;
+﻿using System.Net.Mime;
+using System.Reflection;
+using System.Windows.Forms;
 using Hydrogen.Application;
 
 
-namespace Sphere10.AutoMouse {
+namespace Sphere10.AutoMouse.Windows {
 	public class FirstTimeSetWindowsStartupTask : ApplicationInitializerBase {
 
 		public FirstTimeSetWindowsStartupTask(IProductInformationProvider productInformationProvider, IProductUsageServices productUsageServices, IAutoRunServices autoRunServices) {
@@ -18,10 +20,10 @@ namespace Sphere10.AutoMouse {
 		public override void Initialize() {
 			if (ProductUsageServices.ProductUsageInformation.NumberOfUsesByUser == 1) {
 				// Set the app to autorun, when user first loads this application
-				if (AutoRunServices.DoesAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Assembly.GetExecutingAssembly().Location)) {
-					AutoRunServices.RemoveAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Assembly.GetExecutingAssembly().Location);
+				if (AutoRunServices.DoesAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath)) {
+					AutoRunServices.RemoveAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath);
 				}
-				AutoRunServices.SetAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Assembly.GetExecutingAssembly().Location);
+				AutoRunServices.SetAutoRun(AutoRunType.CurrentUser, ProductInformationProvider.ProductInformation.ProductName, Application.ExecutablePath, null);
 			}
 		}
 	}

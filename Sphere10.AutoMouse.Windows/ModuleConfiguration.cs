@@ -15,13 +15,14 @@ namespace Sphere10.AutoMouse.Windows {
 			services.AddTransient<IAutoMouseController, WindowsAutoMouseController>();
 			services.AddTransient<IExpandingCircleRenderer, WindowsExpandingCircleRenderer>();
 			services.AddTransient<IHelpServices, CHMHelpProvider>();
-
+			services.AddTransient<IAutoRunServices, StartupFolderAutoRunServicesProvider>();
+			
+			// State changed providers
 			services.AddControlStateEventProvider<ClickRadiusSelector, ClickRadiusSelector.StateEventProvider>();
-
-			services.AddTransient<FirstTimeSetWindowsStartupTask>();
 		
 			// Initializers/Finalizers
-			services.AddTransient<IncrementUsageByOneInitializer>();
+			services.AddInitializer<FirstTimeSetWindowsStartupTask>();
+			//services.AddInitializer<IncrementUsageByOneInitializer>();  // done in Hydrogen.Application
 		}
 	}
 }

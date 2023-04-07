@@ -61,7 +61,7 @@ namespace Sphere10.AutoMouse.Windows
 			_openScreenMouseManuallyRadioButton = new RadioButton();
 			_screenMouseTab = new TabPage();
 			groupBox5 = new GroupBox();
-			_screenMouseActivationKeyComboBox = new ComboBox();
+			_screenMouseActivationKeyComboBox = new Hydrogen.Windows.Forms.EnumComboBox();
 			label8 = new Label();
 			label2 = new Label();
 			label9 = new Label();
@@ -72,12 +72,12 @@ namespace Sphere10.AutoMouse.Windows
 			label16 = new Label();
 			label12 = new Label();
 			label11 = new Label();
-			_screenMouseLeftComboBox = new ComboBox();
+			_screenMouseLeftComboBox = new Hydrogen.Windows.Forms.EnumComboBox();
 			label13 = new Label();
-			_screenMouseMiddleComboBox = new ComboBox();
+			_screenMouseMiddleComboBox = new Hydrogen.Windows.Forms.EnumComboBox();
 			label14 = new Label();
 			_screenMousePictureBox = new PictureBox();
-			_screenMouseRightComboBox = new ComboBox();
+			_screenMouseRightComboBox = new Hydrogen.Windows.Forms.EnumComboBox();
 			label15 = new Label();
 			_autoClickTab = new TabPage();
 			_advancedTab = new TabPage();
@@ -441,11 +441,16 @@ namespace Sphere10.AutoMouse.Windows
 			// 
 			// _screenMouseActivationKeyComboBox
 			// 
+			_screenMouseActivationKeyComboBox.AllowEmptyOption = false;
+			_screenMouseActivationKeyComboBox.DisplayMember = "Display";
+			_screenMouseActivationKeyComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+			_screenMouseActivationKeyComboBox.EmptyOptionText = "";
 			_screenMouseActivationKeyComboBox.FormattingEnabled = true;
 			_screenMouseActivationKeyComboBox.Location = new System.Drawing.Point(186, 22);
 			_screenMouseActivationKeyComboBox.Name = "_screenMouseActivationKeyComboBox";
 			_screenMouseActivationKeyComboBox.Size = new System.Drawing.Size(95, 23);
 			_screenMouseActivationKeyComboBox.TabIndex = 23;
+			_screenMouseActivationKeyComboBox.ValueMember = "Value";
 			// 
 			// label8
 			// 
@@ -485,6 +490,8 @@ namespace Sphere10.AutoMouse.Windows
 			// 
 			// _screenMouseTimeoutNumeric
 			// 
+			_screenMouseTimeoutNumeric.DecimalPlaces = 2;
+			_screenMouseTimeoutNumeric.Increment = new decimal(new int[] { 25, 0, 0, 131072 });
 			_screenMouseTimeoutNumeric.Location = new System.Drawing.Point(186, 49);
 			_screenMouseTimeoutNumeric.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
 			_screenMouseTimeoutNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -551,11 +558,16 @@ namespace Sphere10.AutoMouse.Windows
 			// 
 			// _screenMouseLeftComboBox
 			// 
+			_screenMouseLeftComboBox.AllowEmptyOption = false;
+			_screenMouseLeftComboBox.DisplayMember = "Display";
+			_screenMouseLeftComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+			_screenMouseLeftComboBox.EmptyOptionText = "";
 			_screenMouseLeftComboBox.FormattingEnabled = true;
 			_screenMouseLeftComboBox.Location = new System.Drawing.Point(186, 19);
 			_screenMouseLeftComboBox.Name = "_screenMouseLeftComboBox";
 			_screenMouseLeftComboBox.Size = new System.Drawing.Size(95, 23);
 			_screenMouseLeftComboBox.TabIndex = 11;
+			_screenMouseLeftComboBox.ValueMember = "Value";
 			// 
 			// label13
 			// 
@@ -568,11 +580,16 @@ namespace Sphere10.AutoMouse.Windows
 			// 
 			// _screenMouseMiddleComboBox
 			// 
+			_screenMouseMiddleComboBox.AllowEmptyOption = false;
+			_screenMouseMiddleComboBox.DisplayMember = "Display";
+			_screenMouseMiddleComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+			_screenMouseMiddleComboBox.EmptyOptionText = "";
 			_screenMouseMiddleComboBox.FormattingEnabled = true;
 			_screenMouseMiddleComboBox.Location = new System.Drawing.Point(186, 46);
 			_screenMouseMiddleComboBox.Name = "_screenMouseMiddleComboBox";
 			_screenMouseMiddleComboBox.Size = new System.Drawing.Size(95, 23);
 			_screenMouseMiddleComboBox.TabIndex = 16;
+			_screenMouseMiddleComboBox.ValueMember = "Value";
 			// 
 			// label14
 			// 
@@ -593,11 +610,16 @@ namespace Sphere10.AutoMouse.Windows
 			// 
 			// _screenMouseRightComboBox
 			// 
+			_screenMouseRightComboBox.AllowEmptyOption = false;
+			_screenMouseRightComboBox.DisplayMember = "Display";
+			_screenMouseRightComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+			_screenMouseRightComboBox.EmptyOptionText = "";
 			_screenMouseRightComboBox.FormattingEnabled = true;
 			_screenMouseRightComboBox.Location = new System.Drawing.Point(186, 73);
 			_screenMouseRightComboBox.Name = "_screenMouseRightComboBox";
 			_screenMouseRightComboBox.Size = new System.Drawing.Size(95, 23);
 			_screenMouseRightComboBox.TabIndex = 17;
+			_screenMouseRightComboBox.ValueMember = "Value";
 			// 
 			// label15
 			// 
@@ -828,14 +850,13 @@ namespace Sphere10.AutoMouse.Windows
 		private Label label10;
 		private Label label2;
 		private GroupBox groupBox3;
-		private ComboBox _screenMouseLeftComboBox;
+		private Hydrogen.Windows.Forms.EnumComboBox _screenMouseLeftComboBox;
 		private Label label13;
-		private ComboBox _screenMouseMiddleComboBox;
+		private Hydrogen.Windows.Forms.EnumComboBox _screenMouseMiddleComboBox;
 		private Label label14;
 		private PictureBox _screenMousePictureBox;
-		private ComboBox _screenMouseRightComboBox;
+		private Hydrogen.Windows.Forms.EnumComboBox _screenMouseRightComboBox;
 		private Label label15;
-		private ComboBox _screenMouseActivationKeyComboBox;
 		private Label label17;
 		private Label label16;
 		private Label label12;
@@ -856,5 +877,6 @@ namespace Sphere10.AutoMouse.Windows
 		private CheckBox _flipLeftRightMouseButtons;
 		private ToolTip toolTip1;
 		private SourceGrid.ArrayGrid arrayGrid1;
+		private Hydrogen.Windows.Forms.EnumComboBox _screenMouseActivationKeyComboBox;
 	}
 }

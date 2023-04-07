@@ -26,6 +26,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProductCode("2fbd6040-dece-45df-9f7a-7d2b562141ad")]
 [assembly: AssemblyProductLink("https://sphere10.com/products/automouse")]
 [assembly: AssemblyProductPurchaseLink("https://sphere10.com/products/automouse")]
+[assembly: AssemblyProductHelpCHM("{StartPath}/AutoMouse.CHM")]
 [assembly: AssemblyProductSecret("db7d8cb29fa78c6eb2d6fa268fa0ed4d06f01422adce6a17b355655c3df3f4fc")]
 #if DEBUG
 [assembly: AssemblyProductDrmApi("http://localhost:5000/api/drm")]
