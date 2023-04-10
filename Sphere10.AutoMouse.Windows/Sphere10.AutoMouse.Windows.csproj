@@ -23,7 +23,16 @@
 		<StartupObject>Sphere10.AutoMouse.Windows.Program</StartupObject>
 		<Company>Sphere 10 Software</Company>
 		<Description>Auto Mouse is an ergonomics tool that allows you to click your mouse with using the mouse buttons</Description>
+		<Product>Auto Mouse</Product>
+		<PackageProjectUrl>https://sphere10.com/products/automouse</PackageProjectUrl>
+		<PackageIcon>MouseNoButton.ico</PackageIcon>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="..\Resources\Icons\MouseNoButton.ico">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 	<ItemGroup>
 		<Compile Update="AutoMouseSettingsControl.cs">
 			<SubType>UserControl</SubType>
@@ -43,7 +52,6 @@
 		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows.Forms\Hydrogen.Windows.Forms.csproj" />
 		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows\Hydrogen.Windows.csproj" />
 		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen\Hydrogen.csproj" />
-		<ProjectReference Include="..\Sphere10.AutoMouse\Sphere10.AutoMouse.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />

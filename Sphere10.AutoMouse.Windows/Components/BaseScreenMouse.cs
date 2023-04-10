@@ -2,12 +2,12 @@
 using System.Drawing;
 using System.Threading;
 using System.Timers;
-using Sphere10.AutoMouse.Properties;
 using Hydrogen;
 using Hydrogen.Application;
 using Timer = System.Timers.Timer;
+using Sphere10.AutoMouse.Windows.Properties;
 
-namespace Sphere10.AutoMouse {
+namespace Sphere10.AutoMouse.Windows {
 
 	public abstract class BaseScreenMouse : IScreenMouse {
 

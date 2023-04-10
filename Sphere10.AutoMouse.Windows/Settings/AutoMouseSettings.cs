@@ -6,7 +6,7 @@ using Hydrogen;
 using Hydrogen.Application;
 using Tools;
 
-namespace Sphere10.AutoMouse {
+namespace Sphere10.AutoMouse.Windows {
 
     [Obfuscation(Exclude = true)]
 	public class AutoMouseSettings : SettingsObject {

@@ -1,10 +1,8 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Sphere10.AutoMouse.Windows
-{
-	partial class AutoMouseSettingsControl
-	{
+namespace Sphere10.AutoMouse.Windows {
+	partial class AutoMouseSettingsControl {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -14,10 +12,8 @@ namespace Sphere10.AutoMouse.Windows
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
+		protected override void Dispose(bool disposing) {
+			if (disposing && (components != null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -29,8 +25,7 @@ namespace Sphere10.AutoMouse.Windows
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent()
-		{
+		private void InitializeComponent() {
 			components = new Container();
 			var resources = new ComponentResourceManager(typeof(AutoMouseSettingsControl));
 			_buttonGroupBox = new GroupBox();
@@ -493,8 +488,8 @@ namespace Sphere10.AutoMouse.Windows
 			_screenMouseTimeoutNumeric.DecimalPlaces = 2;
 			_screenMouseTimeoutNumeric.Increment = new decimal(new int[] { 25, 0, 0, 131072 });
 			_screenMouseTimeoutNumeric.Location = new System.Drawing.Point(186, 49);
-			_screenMouseTimeoutNumeric.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
-			_screenMouseTimeoutNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			_screenMouseTimeoutNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+			_screenMouseTimeoutNumeric.Minimum = new decimal(new int[] { 25, 0, 0, 131072 });
 			_screenMouseTimeoutNumeric.Name = "_screenMouseTimeoutNumeric";
 			_screenMouseTimeoutNumeric.Size = new System.Drawing.Size(95, 23);
 			_screenMouseTimeoutNumeric.TabIndex = 29;

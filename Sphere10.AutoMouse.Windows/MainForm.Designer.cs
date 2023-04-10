@@ -2,10 +2,8 @@
 using System.Windows.Forms;
 using Hydrogen.Windows.Forms;
 
-namespace Sphere10.AutoMouse.Windows
-{
-	partial class MainForm
-	{
+namespace Sphere10.AutoMouse.Windows {
+	partial class MainForm {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -15,10 +13,8 @@ namespace Sphere10.AutoMouse.Windows
 		/// Clean up any resources being used.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
+		protected override void Dispose(bool disposing) {
+			if (disposing && (components != null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -30,8 +26,7 @@ namespace Sphere10.AutoMouse.Windows
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent()
-		{
+		private void InitializeComponent() {
 			components = new Container();
 			var resources = new ComponentResourceManager(typeof(MainForm));
 			_systrayMenu = new ContextMenuStrip(components);
@@ -49,6 +44,7 @@ namespace Sphere10.AutoMouse.Windows
 			_autoMouseSettingsControl = new AutoMouseSettingsControl();
 			applicationBanner1 = new ApplicationBanner();
 			panel1 = new Panel();
+			_testSoundButton = new Button();
 			_systrayMenu.SuspendLayout();
 			_toolStrip.SuspendLayout();
 			panel1.SuspendLayout();
@@ -182,6 +178,7 @@ namespace Sphere10.AutoMouse.Windows
 			// 
 			// panel1
 			// 
+			panel1.Controls.Add(_testSoundButton);
 			panel1.Controls.Add(_closeButton);
 			panel1.Controls.Add(_resetToDefaultButton);
 			panel1.Dock = DockStyle.Bottom;
@@ -191,6 +188,16 @@ namespace Sphere10.AutoMouse.Windows
 			panel1.Padding = new Padding(0, 0, 5, 0);
 			panel1.Size = new System.Drawing.Size(568, 51);
 			panel1.TabIndex = 23;
+			// 
+			// _testSoundButton
+			// 
+			_testSoundButton.Location = new System.Drawing.Point(236, 10);
+			_testSoundButton.Name = "_testSoundButton";
+			_testSoundButton.Size = new System.Drawing.Size(90, 27);
+			_testSoundButton.TabIndex = 22;
+			_testSoundButton.Text = "Test Sound";
+			_testSoundButton.UseVisualStyleBackColor = true;
+			_testSoundButton.Click += _testSoundButton_Click;
 			// 
 			// MainForm
 			// 
@@ -204,7 +211,6 @@ namespace Sphere10.AutoMouse.Windows
 			Controls.Add(panel1);
 			Controls.Add(applicationBanner1);
 			FormBorderStyle = FormBorderStyle.Fixed3D;
-			Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
 			Margin = new Padding(4, 3, 4, 3);
 			MaximizeBox = false;
 			MinimizeBox = false;
@@ -236,5 +242,6 @@ namespace Sphere10.AutoMouse.Windows
 		private Button _resetToDefaultButton;
 		private ApplicationBanner applicationBanner1;
 		private Panel panel1;
+		private Button _testSoundButton;
 	}
 }

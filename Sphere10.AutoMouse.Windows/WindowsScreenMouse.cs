@@ -18,10 +18,6 @@ namespace Sphere10.AutoMouse.Windows {
 			ScreenForm = new Form();
 			ScreenForm.Width = DefaultWidth;
 			ScreenForm.Height = DefaultHeight;
-			//ScreenForm.DpiChanged += (sender, args) => {
-			//	Debug.WriteLine($"DPI New: {args.DeviceDpiNew}, DPI Old: {args.DeviceDpiOld}, Rect: {args.SuggestedRectangle}");
-			//};
-
 			base.UpdateMouseImage();
 			State = ScreenMouseState.Inactive;
 		}
@@ -110,13 +106,13 @@ namespace Sphere10.AutoMouse.Windows {
 				MinimumSize = new Size(DefaultWidth, DefaultHeight);
 			}
 
-			//protected override CreateParams CreateParams {
-			//	get {
-			//		CreateParams cp=base.CreateParams;
-			//		//cp.ExStyle |= 0x00000020;  //WS_EX_TRANSPARENT
-			//		return cp;
-			//	}
-			//}
+			protected override CreateParams CreateParams {
+				get {
+					CreateParams cp = base.CreateParams;
+					//cp.ExStyle |= 0x00000020;  //WS_EX_TRANSPARENT
+					return cp;
+				}
+			}
 
 			protected override bool ShowWithoutActivation {
 				get {

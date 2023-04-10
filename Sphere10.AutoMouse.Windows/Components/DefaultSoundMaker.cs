@@ -1,8 +1,9 @@
-﻿using System.Media;
-using Sphere10.AutoMouse.Properties;
+﻿using System.Diagnostics;
+using System.Media;
 using Hydrogen;
+using Sphere10.AutoMouse.Windows.Properties;
 
-namespace Sphere10.AutoMouse {
+namespace Sphere10.AutoMouse.Windows {
 	public class DefaultSoundMaker : ISoundMaker {
 
 		private const int MaxTimeSingleSoundQueued = 3;
@@ -25,7 +26,7 @@ namespace Sphere10.AutoMouse {
 			_rightClickUpSoundPlayer = new SoundPlayer(Resources.RightClickUp);
 		}
 
-		public void PlayClickSound(MouseButton button, MouseButtonState buttonState) {
+		public async void PlayClickSound(MouseButton button, MouseButtonState buttonState) {
 			SoundPlayer player = null;
 			string soundName = string.Empty;
 			switch (button) {
@@ -50,6 +51,7 @@ namespace Sphere10.AutoMouse {
 					}
 					break;
 			}
+			
 
 			if (player != null) {
 				Tools.Lambda.ActionAsAsyncronous(
@@ -57,21 +59,23 @@ namespace Sphere10.AutoMouse {
 						bool skip = false;
 						if (_clicksQueued < MaxTimeSingleSoundQueued) {
 							_clicksQueued++;
-						}
-						else {
+						} else {
 							skip = true;
 						}
 
 						if (!skip) {
-							player.PlaySync();
+							player.Play();
 							_clicksQueued--;
-						}
-						else {
-							int x = 1;
-						}
+						} 
 
 					}).Invoke();
 			}
+		}
+		public void Dispose() {
+			_leftClickDownSoundPlayer?.Dispose();
+			_leftClickUpSoundPlayer?.Dispose();
+			_rightClickDownSoundPlayer?.Dispose();
+			_rightClickUpSoundPlayer?.Dispose();
 		}
 	}
 }

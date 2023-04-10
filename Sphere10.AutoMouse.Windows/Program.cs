@@ -24,14 +24,10 @@ namespace Sphere10.AutoMouse.Windows {
 
 		static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) {
 			try {
-				MessageBox.Show(
-					e.ExceptionObject!= null ? (e.ExceptionObject is Exception ? ((Exception)e.ExceptionObject).ToDisplayString() : e.ToString()) : "(no information available)",
-					"Unexpected Error",
-					MessageBoxButtons.OK,
-					MessageBoxIcon.Error
-				);
+				if (e.ExceptionObject is Exception exception) {
+					ExceptionDialog.Show("Unexpected error", exception);
+				} else MessageBox.Show("No information available", "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			} catch {
-
 			}
 		}
 

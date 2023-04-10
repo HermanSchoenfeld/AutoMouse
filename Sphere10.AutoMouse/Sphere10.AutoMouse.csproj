@@ -1,6 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <OutputType>Library</OutputType>
 	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -19,11 +19,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Application\Hydrogen.Application.csproj" />
     <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Drawing\Hydrogen.Drawing.csproj" />
-    <ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows\Hydrogen.Windows.csproj" />
     <ProjectReference Include="..\..\Hydrogen\src\Hydrogen\Hydrogen.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NetCoreAudio" Version="1.7.0" />
     <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>

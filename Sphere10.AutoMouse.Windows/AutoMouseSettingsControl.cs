@@ -9,7 +9,7 @@ using Hydrogen.Application;
 using Hydrogen.Windows;
 using Hydrogen.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
-using Resources = Sphere10.AutoMouse.Properties.Resources;
+using Resources = Sphere10.AutoMouse.Windows.Properties.Resources;
 
 namespace Sphere10.AutoMouse.Windows;
 
@@ -92,8 +92,6 @@ public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObj
 		if (_rightButtonRadioButton.Checked) {
 			Settings.AutoClickButton = MouseButton.Right;
 		}
-
-
 		if (_singleClickRadioButton.Checked) {
 			Settings.AutoClickType = MouseClickType.Single;
 		}

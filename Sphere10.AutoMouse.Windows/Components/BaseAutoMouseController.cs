@@ -6,7 +6,7 @@ using Hydrogen.Application;
 using Hydrogen;
 
 
-namespace Sphere10.AutoMouse
+namespace Sphere10.AutoMouse.Windows
 {
     public abstract class BaseAutoMouseController : IAutoMouseController
     {
