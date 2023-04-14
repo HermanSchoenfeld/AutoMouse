@@ -48,6 +48,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Application\Hydrogen.Application.csproj" />
+		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.CryptoEx\Hydrogen.CryptoEx.csproj" />
 		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Drawing\Hydrogen.Drawing.csproj" />
 		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows.Forms\Hydrogen.Windows.Forms.csproj" />
 		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows\Hydrogen.Windows.csproj" />

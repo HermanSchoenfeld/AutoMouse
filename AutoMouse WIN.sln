@@ -66,6 +66,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hydrogen.Windows", "..\Hydr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hydrogen.Windows.Forms", "..\Hydrogen\src\Hydrogen.Windows.Forms\Hydrogen.Windows.Forms.csproj", "{290A4E0A-1A37-4766-B805-A2F46319B055}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hydrogen.CryptoEx", "..\Hydrogen\src\Hydrogen.CryptoEx\Hydrogen.CryptoEx.csproj", "{F53CF343-587E-4E3E-BC62-D91BDF32468A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -159,6 +161,18 @@ Global
 		{290A4E0A-1A37-4766-B805-A2F46319B055}.Release|Any CPU.Build.0 = Release|Any CPU
 		{290A4E0A-1A37-4766-B805-A2F46319B055}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{290A4E0A-1A37-4766-B805-A2F46319B055}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.All|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.All|Any CPU.Build.0 = Debug|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.All|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.All|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F53CF343-587E-4E3E-BC62-D91BDF32468A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
