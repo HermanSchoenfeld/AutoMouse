@@ -208,7 +208,7 @@ namespace Sphere10.AutoMouse.Windows {
 					);
 			}
 			// Form has faded out completely, so make it inactive
-			if (_fadingOut && ImageOpacity <= 0) {
+			if (/*_fadingOut &&*/ ImageOpacity <= 0) {
 				_fadingOut = false;
 				State = ScreenMouseState.Inactive;
 			}
