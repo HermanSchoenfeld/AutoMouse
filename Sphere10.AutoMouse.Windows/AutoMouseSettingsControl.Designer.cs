@@ -452,9 +452,9 @@ namespace Sphere10.AutoMouse.Windows {
 			label8.AutoSize = true;
 			label8.Location = new System.Drawing.Point(296, 51);
 			label8.Name = "label8";
-			label8.Size = new System.Drawing.Size(190, 15);
+			label8.Size = new System.Drawing.Size(169, 15);
 			label8.TabIndex = 31;
-			label8.Text = "screen mouse fades away after this";
+			label8.Text = "fades away after these seconds";
 			// 
 			// label2
 			// 
