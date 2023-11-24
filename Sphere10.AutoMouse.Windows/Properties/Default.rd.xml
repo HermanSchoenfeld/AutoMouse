@@ -1,0 +1,6 @@
+﻿<Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
+	<Application>
+		<!-- Add your runtime directives here. -->
+		<Namespace Name="Windows.Networking.Vpn" Dynamic="Excluded" Serialize="Excluded" Browse="Excluded" Activate="Excluded" />
+	</Application>
+</Directives>

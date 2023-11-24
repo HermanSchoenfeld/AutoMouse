@@ -51,14 +51,14 @@ using System.Runtime.InteropServices;
 	      "majorVersionApplicable": 1,
 	      "expirationDays": 30
 	    },
-	    "Signature": "MEQCICyNYvrMQD0aZUpZdQKskiV+PbQGB530pVbLscNTIrg8AiAVO7hs7WkBt4wVCX52mBj/TY+p/67INJiLCwE7dm0lug=="
+	    "Signature": "MEQCIDhpDe8yvfMBCVWush6J5Dr/kN9qB35G5CHwJH9HDgVZAiAD/aY091s9MH2hMrh2BKOM5L3tS0hJg0lhuDCd8nVF/Q=="
 	  },
 	  "command": {
 	    "Item": {
 	      "productKey": "0000-0000-0000-0003",
 	      "action": "enable"
 	    },
-	    "Signature": "MEQCIHcZcf+8MvivmZF/TTKDQt1v6dz/pscQNfrJ/OOqyop+AiBkLBj5ugambukYjCFa3EbdZPUuMqXtD2Bwe+My/x4wjQ=="
+	    "Signature": "MEQCICJkeU9oVyTkIqUiZFCLMAU2oqXF8rdznuF+Ff+8jhqHAiACJPlHNZU759y1KKsYO6Yh09Iixxu5C9PsbpGcpX0+TQ=="
 	  }
 	}
 	""")]

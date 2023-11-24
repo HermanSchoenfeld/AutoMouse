@@ -27,16 +27,5 @@ namespace Sphere10.AutoMouse.Windows {
 
 		}
 
-		public override void OnInitialize(IServiceProvider serviceProvider) {
-			base.OnInitialize(serviceProvider);
-			// Need to explicitly register the Hydrogen.CryptoEx so that cryptography providers are plugged into Hashers and Signers
-			Hydrogen.CryptoEx.ExplicitModuleConfiguration.Initialize();
-		}
-
-		public override void OnFinalize(IServiceProvider serviceProvider) {
-			base.OnFinalize(serviceProvider);
-			Hydrogen.CryptoEx.ExplicitModuleConfiguration.Finalize();
-		}
-
 	}
 }

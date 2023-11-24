@@ -158,9 +158,9 @@ namespace Sphere10.AutoMouse.Windows {
 
 				#endregion
 
-				#region If it a key not related to Auto Mouse, nother key, then user is typing so disable screen mouse
+				#region If it a key not related to Auto Mouse (or shift/alt/control/win), then user is typing so disable screen mouse
 
-				if (!e.Key.IsIn(Key.Left, Key.Right, Key.Up, Key.Down, Settings.LeftButtonKey, Settings.MiddleButtonKey, Settings.RightButtonKey)) {
+				if (!e.Key.IsIn(Settings.LeftButtonKey, Settings.MiddleButtonKey, Settings.RightButtonKey, Key.Left, Key.Right, Key.Up, Key.Down, Key.LShiftKey, Key.RShiftKey, Key.LControlKey, Key.RControlKey, Key.LWin, Key.RWin, Key.Alt)) {
 					_interceptAutoMouseKeys = false;
 					ScreenMouse.FadeOut();
 				}
@@ -441,8 +441,14 @@ namespace Sphere10.AutoMouse.Windows {
 			}
 		}
 
-		private bool _keyHook_ShouldIntercept(Key key, KeyState keyState)
-			=> _interceptAutoMouseKeys && key.IsIn(Key.Left, Key.Right, Key.Up, Key.Down, Settings.LeftButtonKey, Settings.MiddleButtonKey, Settings.RightButtonKey);
+		private bool _keyHook_ShouldIntercept(Key key, KeyState keyState) {
+			var automouseKeys =
+				Settings.KeyboardArrowsMoveScreenMouse ?
+				new [] { Settings.LeftButtonKey, Settings.MiddleButtonKey, Settings.RightButtonKey, Key.Left, Key.Right, Key.Up, Key.Down } :
+				new [] { Settings.LeftButtonKey, Settings.MiddleButtonKey, Settings.RightButtonKey};
+
+			return _interceptAutoMouseKeys && key.IsIn(automouseKeys);
+		}
 
 
 		void _mouseHook_Motion(object sender, MouseMoveEvent e) {

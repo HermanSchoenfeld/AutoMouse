@@ -3,8 +3,8 @@ dotnet publish "Sphere10.AutoMouse.Windows\Sphere10.AutoMouse.Windows.csproj" -c
 
 
 # Delete .pdb and .json files from the specified directory
-Remove-Item "Z:\Builds\AutoMouse\current\portable\*.pdb"
-Remove-Item "Z:\Builds\AutoMouse\current\portable\*.json"
+Remove-Item "Z:\Builds\AutoMouse\latest\portable\*.pdb"
+Remove-Item "Z:\Builds\AutoMouse\latest\portable\*.json"
 
 # Remove runtimes directory with contents
-Remove-Item "Z:\Builds\AutoMouse\current\portable\runtimes" -Force -Recurse
+Remove-Item "Z:\Builds\AutoMouse\latest\portable\runtimes" -Force -Recurse
