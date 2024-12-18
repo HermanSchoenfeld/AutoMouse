@@ -42,8 +42,6 @@ namespace Sphere10.AutoMouse.Windows {
 
 		void MouseFormStateChanged_AutoClickOnMouseStop(ScreenMouseStateChangedEvent e);
 
-
-
 		void ProcessKeyDown_ManuallyActivateScreenMouse(KeyEvent e);
 
 		void ProcessKeyUp_ManuallyActivateScreenMouse(KeyEvent e);

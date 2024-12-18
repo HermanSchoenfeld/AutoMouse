@@ -31,7 +31,7 @@ using System.Runtime.InteropServices;
 #if DEBUG
 [assembly: AssemblyProductDrmApi("http://localhost:5000/api/drm")]
 #else
-[assembly: AssemblyProductDrmApi("https://sphere10.com/api/drm")]
+[assembly: AssemblyProductDrmApi("https://services.sphere10.com/drm")]
 #endif
 [assembly: AssemblyProductLicense(
 	"""

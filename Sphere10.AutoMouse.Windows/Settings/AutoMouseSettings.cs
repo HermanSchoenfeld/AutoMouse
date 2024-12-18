@@ -64,6 +64,16 @@ namespace Sphere10.AutoMouse.Windows {
 		[DefaultValue(30)]
 		public int MultipleClickIntervalMS { get; set; }
 
+
+
+		[DefaultValue(120)]
+		public int MouseStoppedIntervalMS { get; set; }
+
+		public TimeSpan MouseStoppedInterval {
+			get => TimeSpan.FromMilliseconds(MouseStoppedIntervalMS);
+			set => MouseStoppedIntervalMS = (int)value.TotalMilliseconds;
+		}
+
 		public TimeSpan MultipleClickInterval {
 			get { return TimeSpan.FromMilliseconds(MultipleClickIntervalMS); }
 			set { MultipleClickIntervalMS = (int)value.TotalMilliseconds; }

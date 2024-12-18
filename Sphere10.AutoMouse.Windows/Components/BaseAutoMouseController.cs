@@ -71,6 +71,11 @@ namespace Sphere10.AutoMouse.Windows {
 					lock (this) {
 						if (_settings == null) {
 							_settings = UserSettings.Get<AutoMouseSettings>();
+							MouseHook.MovingStoppedInterval = Settings.MouseStoppedInterval;
+							UserSettings.Provider.Changed += () => {
+								MouseHook.MovingStoppedInterval = _settings.MouseStoppedInterval;
+							};
+							
 						}
 					}
 				}
@@ -343,7 +348,6 @@ namespace Sphere10.AutoMouse.Windows {
 			ScreenMouse.KeepAlive = false;
 			Started = false;
 		}
-
 
 		public void SimulateMouse(MouseButton button, MouseClickType clickType, int centerX, int centerY) {
 			var mouseActions = new List<Tuple<MouseButton, MouseButtonState, TimeSpan>>();

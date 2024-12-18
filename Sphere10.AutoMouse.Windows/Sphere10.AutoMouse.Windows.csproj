@@ -26,7 +26,7 @@
 		<Product>Auto Mouse</Product>
 		<PackageProjectUrl>https://sphere10.com/products/automouse</PackageProjectUrl>
 		<PackageIcon>MouseNoButton.ico</PackageIcon>
-		<AssemblyVersion>1.1.0.0</AssemblyVersion>
+		<AssemblyVersion>1.2.0.0</AssemblyVersion>
 	</PropertyGroup>
 	<ItemGroup>
 		<RdXmlFile Include="Properties\Default.rd.xml" />

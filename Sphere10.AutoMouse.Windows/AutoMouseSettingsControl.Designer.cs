@@ -77,6 +77,9 @@ namespace Sphere10.AutoMouse.Windows {
 			_autoClickTab = new TabPage();
 			_advancedTab = new TabPage();
 			groupBox1 = new GroupBox();
+			_mouseStoppedDuration = new NumericUpDown();
+			label19 = new Label();
+			label20 = new Label();
 			label22 = new Label();
 			label23 = new Label();
 			_screenMouseActiveTranslucencyNumeric = new NumericUpDown();
@@ -105,6 +108,7 @@ namespace Sphere10.AutoMouse.Windows {
 			_autoClickTab.SuspendLayout();
 			_advancedTab.SuspendLayout();
 			groupBox1.SuspendLayout();
+			((ISupportInitialize)_mouseStoppedDuration).BeginInit();
 			((ISupportInitialize)_screenMouseActiveTranslucencyNumeric).BeginInit();
 			((ISupportInitialize)_screenMouseIdleTranslucencyNumeric).BeginInit();
 			((ISupportInitialize)_expandingRingRadiusNumeric).BeginInit();
@@ -184,9 +188,9 @@ namespace Sphere10.AutoMouse.Windows {
 			_selectRadiusGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 			_selectRadiusGroupBox.Controls.Add(label1);
 			_selectRadiusGroupBox.Controls.Add(_clickRadiusSelector);
-			_selectRadiusGroupBox.Location = new System.Drawing.Point(9, 159);
+			_selectRadiusGroupBox.Location = new System.Drawing.Point(9, 176);
 			_selectRadiusGroupBox.Name = "_selectRadiusGroupBox";
-			_selectRadiusGroupBox.Size = new System.Drawing.Size(508, 236);
+			_selectRadiusGroupBox.Size = new System.Drawing.Size(508, 219);
 			_selectRadiusGroupBox.TabIndex = 7;
 			_selectRadiusGroupBox.TabStop = false;
 			_selectRadiusGroupBox.Text = "Discard Zone";
@@ -194,10 +198,10 @@ namespace Sphere10.AutoMouse.Windows {
 			// label1
 			// 
 			label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-			label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			label1.Location = new System.Drawing.Point(219, 30);
 			label1.Name = "label1";
-			label1.Size = new System.Drawing.Size(283, 182);
+			label1.Size = new System.Drawing.Size(283, 72);
 			label1.TabIndex = 9;
 			label1.Text = "Motion within this zone will be discarded. This means you will need to move the mouse beyond this zone to activate any of the features.";
 			// 
@@ -207,14 +211,14 @@ namespace Sphere10.AutoMouse.Windows {
 			_clickRadiusSelector.Location = new System.Drawing.Point(19, 30);
 			_clickRadiusSelector.Name = "_clickRadiusSelector";
 			_clickRadiusSelector.SelectedRadius = 100;
-			_clickRadiusSelector.Size = new System.Drawing.Size(187, 182);
+			_clickRadiusSelector.Size = new System.Drawing.Size(194, 183);
 			_clickRadiusSelector.TabIndex = 8;
 			// 
 			// _showClickSelectorRadioButton
 			// 
 			_showClickSelectorRadioButton.AutoSize = true;
 			_showClickSelectorRadioButton.Checked = true;
-			_showClickSelectorRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			_showClickSelectorRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			_showClickSelectorRadioButton.Location = new System.Drawing.Point(19, 19);
 			_showClickSelectorRadioButton.Name = "_showClickSelectorRadioButton";
 			_showClickSelectorRadioButton.Size = new System.Drawing.Size(291, 17);
@@ -652,6 +656,9 @@ namespace Sphere10.AutoMouse.Windows {
 			// groupBox1
 			// 
 			groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			groupBox1.Controls.Add(_mouseStoppedDuration);
+			groupBox1.Controls.Add(label19);
+			groupBox1.Controls.Add(label20);
 			groupBox1.Controls.Add(label22);
 			groupBox1.Controls.Add(label23);
 			groupBox1.Controls.Add(_screenMouseActiveTranslucencyNumeric);
@@ -666,15 +673,43 @@ namespace Sphere10.AutoMouse.Windows {
 			groupBox1.Controls.Add(_clickIntervalNumeric);
 			groupBox1.Location = new System.Drawing.Point(9, 6);
 			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new System.Drawing.Size(508, 147);
+			groupBox1.Size = new System.Drawing.Size(508, 164);
 			groupBox1.TabIndex = 8;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "Miscellaneous Settings";
 			// 
+			// _mouseStoppedDuration
+			// 
+			_mouseStoppedDuration.Location = new System.Drawing.Point(264, 18);
+			_mouseStoppedDuration.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+			_mouseStoppedDuration.Minimum = new decimal(new int[] { 100, 0, 0, 0 });
+			_mouseStoppedDuration.Name = "_mouseStoppedDuration";
+			_mouseStoppedDuration.Size = new System.Drawing.Size(120, 23);
+			_mouseStoppedDuration.TabIndex = 14;
+			_mouseStoppedDuration.Value = new decimal(new int[] { 100, 0, 0, 0 });
+			// 
+			// label19
+			// 
+			label19.AutoSize = true;
+			label19.Location = new System.Drawing.Point(390, 20);
+			label19.Name = "label19";
+			label19.Size = new System.Drawing.Size(79, 15);
+			label19.TabIndex = 16;
+			label19.Text = "millisecconds";
+			// 
+			// label20
+			// 
+			label20.AutoSize = true;
+			label20.Location = new System.Drawing.Point(75, 20);
+			label20.Name = "label20";
+			label20.Size = new System.Drawing.Size(167, 15);
+			label20.TabIndex = 15;
+			label20.Text = "Idle duration before auto-click";
+			// 
 			// label22
 			// 
 			label22.AutoSize = true;
-			label22.Location = new System.Drawing.Point(385, 104);
+			label22.Location = new System.Drawing.Point(390, 136);
 			label22.Name = "label22";
 			label22.Size = new System.Drawing.Size(17, 15);
 			label22.TabIndex = 13;
@@ -683,7 +718,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// label23
 			// 
 			label23.AutoSize = true;
-			label23.Location = new System.Drawing.Point(6, 104);
+			label23.Location = new System.Drawing.Point(25, 136);
 			label23.Name = "label23";
 			label23.Size = new System.Drawing.Size(217, 15);
 			label23.TabIndex = 12;
@@ -691,7 +726,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// 
 			// _screenMouseActiveTranslucencyNumeric
 			// 
-			_screenMouseActiveTranslucencyNumeric.Location = new System.Drawing.Point(259, 102);
+			_screenMouseActiveTranslucencyNumeric.Location = new System.Drawing.Point(264, 134);
 			_screenMouseActiveTranslucencyNumeric.Minimum = new decimal(new int[] { 15, 0, 0, 0 });
 			_screenMouseActiveTranslucencyNumeric.Name = "_screenMouseActiveTranslucencyNumeric";
 			_screenMouseActiveTranslucencyNumeric.Size = new System.Drawing.Size(120, 23);
@@ -701,7 +736,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// label7
 			// 
 			label7.AutoSize = true;
-			label7.Location = new System.Drawing.Point(385, 78);
+			label7.Location = new System.Drawing.Point(390, 107);
 			label7.Name = "label7";
 			label7.Size = new System.Drawing.Size(17, 15);
 			label7.TabIndex = 10;
@@ -710,7 +745,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// label18
 			// 
 			label18.AutoSize = true;
-			label18.Location = new System.Drawing.Point(19, 78);
+			label18.Location = new System.Drawing.Point(38, 107);
 			label18.Name = "label18";
 			label18.Size = new System.Drawing.Size(205, 15);
 			label18.TabIndex = 9;
@@ -718,7 +753,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// 
 			// _screenMouseIdleTranslucencyNumeric
 			// 
-			_screenMouseIdleTranslucencyNumeric.Location = new System.Drawing.Point(259, 76);
+			_screenMouseIdleTranslucencyNumeric.Location = new System.Drawing.Point(264, 105);
 			_screenMouseIdleTranslucencyNumeric.Minimum = new decimal(new int[] { 15, 0, 0, 0 });
 			_screenMouseIdleTranslucencyNumeric.Name = "_screenMouseIdleTranslucencyNumeric";
 			_screenMouseIdleTranslucencyNumeric.Size = new System.Drawing.Size(120, 23);
@@ -728,7 +763,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// label6
 			// 
 			label6.AutoSize = true;
-			label6.Location = new System.Drawing.Point(385, 52);
+			label6.Location = new System.Drawing.Point(390, 78);
 			label6.Name = "label6";
 			label6.Size = new System.Drawing.Size(37, 15);
 			label6.TabIndex = 7;
@@ -737,7 +772,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// label4
 			// 
 			label4.AutoSize = true;
-			label4.Location = new System.Drawing.Point(90, 52);
+			label4.Location = new System.Drawing.Point(114, 78);
 			label4.Name = "label4";
 			label4.Size = new System.Drawing.Size(129, 15);
 			label4.TabIndex = 6;
@@ -745,7 +780,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// 
 			// _expandingRingRadiusNumeric
 			// 
-			_expandingRingRadiusNumeric.Location = new System.Drawing.Point(259, 50);
+			_expandingRingRadiusNumeric.Location = new System.Drawing.Point(264, 76);
 			_expandingRingRadiusNumeric.Name = "_expandingRingRadiusNumeric";
 			_expandingRingRadiusNumeric.Size = new System.Drawing.Size(120, 23);
 			_expandingRingRadiusNumeric.TabIndex = 5;
@@ -753,7 +788,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// label5
 			// 
 			label5.AutoSize = true;
-			label5.Location = new System.Drawing.Point(385, 26);
+			label5.Location = new System.Drawing.Point(390, 49);
 			label5.Name = "label5";
 			label5.Size = new System.Drawing.Size(79, 15);
 			label5.TabIndex = 4;
@@ -762,7 +797,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// label3
 			// 
 			label3.AutoSize = true;
-			label3.Location = new System.Drawing.Point(9, 26);
+			label3.Location = new System.Drawing.Point(25, 49);
 			label3.Name = "label3";
 			label3.Size = new System.Drawing.Size(218, 15);
 			label3.TabIndex = 1;
@@ -770,7 +805,7 @@ namespace Sphere10.AutoMouse.Windows {
 			// 
 			// _clickIntervalNumeric
 			// 
-			_clickIntervalNumeric.Location = new System.Drawing.Point(259, 24);
+			_clickIntervalNumeric.Location = new System.Drawing.Point(264, 47);
 			_clickIntervalNumeric.Name = "_clickIntervalNumeric";
 			_clickIntervalNumeric.Size = new System.Drawing.Size(120, 23);
 			_clickIntervalNumeric.TabIndex = 0;
@@ -802,6 +837,7 @@ namespace Sphere10.AutoMouse.Windows {
 			_advancedTab.ResumeLayout(false);
 			groupBox1.ResumeLayout(false);
 			groupBox1.PerformLayout();
+			((ISupportInitialize)_mouseStoppedDuration).EndInit();
 			((ISupportInitialize)_screenMouseActiveTranslucencyNumeric).EndInit();
 			((ISupportInitialize)_screenMouseIdleTranslucencyNumeric).EndInit();
 			((ISupportInitialize)_expandingRingRadiusNumeric).EndInit();
@@ -873,5 +909,8 @@ namespace Sphere10.AutoMouse.Windows {
 		private ToolTip toolTip1;
 		private SourceGrid.ArrayGrid arrayGrid1;
 		private Hydrogen.Windows.Forms.EnumComboBox _screenMouseActivationKeyComboBox;
+		private Label label19;
+		private Label label20;
+		private NumericUpDown _mouseStoppedDuration;
 	}
 }

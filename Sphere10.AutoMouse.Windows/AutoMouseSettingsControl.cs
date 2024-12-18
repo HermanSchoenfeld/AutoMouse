@@ -101,6 +101,7 @@ public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObj
 		if (_trippleClickRadioButton.Checked) {
 			Settings.AutoClickType = MouseClickType.Tripple;
 		}
+		Settings.MouseStoppedIntervalMS = (int)_mouseStoppedDuration.Value;
 		Settings.MultipleClickIntervalMS = (int)_clickIntervalNumeric.Value;
 		Settings.ExpandingRingRadius = (int)_expandingRingRadiusNumeric.Value;
 		Settings.ScreenMouseIdleAlphaPercentage = (int)_screenMouseIdleTranslucencyNumeric.Value;
@@ -168,6 +169,7 @@ public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObj
 				break;
 		}
 
+		_mouseStoppedDuration.Value = Settings.MouseStoppedIntervalMS;
 		_clickIntervalNumeric.Value = Settings.MultipleClickIntervalMS;
 		_expandingRingRadiusNumeric.Value = Settings.ExpandingRingRadius;
 		_screenMouseIdleTranslucencyNumeric.Value = Settings.ScreenMouseIdleAlphaPercentage;

@@ -16,8 +16,6 @@ using FormResources = Hydrogen.Windows.Forms.Resources;
 
 namespace Sphere10.AutoMouse.Windows {
 	public partial class MainForm : LiteMainForm {
-		private AutoMouseSettings _settings;
-		private readonly WindowsScreenMouse _mouseForm;
 
 		public MainForm() {
 			InitializeComponent();
@@ -30,8 +28,12 @@ namespace Sphere10.AutoMouse.Windows {
 			Icon = Resources.MouseNoButton;
 			AutoMouseController = null;
 #if !DEBUG
-			_testSoundButton.Visible = false;	
+			_testSoundButton.Visible = false;
 #endif
+			// disable _purchaseToolStripButton if DRM disabled
+			if (!HydrogenFramework.Instance.Options.HasFlag(HydrogenFrameworkOptions.EnableDrm)) {
+				_purchaseToolStripButton.Visible = false;
+			}
 		}
 
 		public IAutoMouseController AutoMouseController { get; set; }

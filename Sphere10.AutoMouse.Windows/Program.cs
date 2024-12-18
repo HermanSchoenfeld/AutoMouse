@@ -18,7 +18,7 @@ namespace Sphere10.AutoMouse.Windows {
 				Application.EnableVisualStyles();
 				Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
 				Application.SetCompatibleTextRenderingDefault(false);
-				HydrogenFramework.Instance.StartWinFormsApplication<MainForm>(options:HydrogenFrameworkOptions.EnableDrm | HydrogenFrameworkOptions.BackgroundLicenseVerify);
+				HydrogenFramework.Instance.StartWinFormsApplication<MainForm>(/*options:HydrogenFrameworkOptions.EnableDrm | HydrogenFrameworkOptions.BackgroundLicenseVerify*/);
 			}
 		}
 
