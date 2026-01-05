@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: Guid("EC221BB7-1AD9-45E6-BC3B-307C8F39CA0D")]
 
 
-[assembly: AssemblyCopyright("Copyright © Herman Schoenfeld 2008 - {CurrentYear}")]
+[assembly: AssemblyCopyright("Copyright ï¿½ Herman Schoenfeld 2008 - {CurrentYear}")]
 [assembly: AssemblyProductDistribution(ProductDistribution.ReleaseCandidate)]
 [assembly: AssemblyCompanyNumber("herman@sphere10.com")]
 [assembly: AssemblyCompanyLink("https://sphere10.com")]
