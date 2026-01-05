@@ -48,12 +48,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		AutoMouse WIN_Release_x86.obproj = AutoMouse WIN_Release_x86.obproj
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "License", "License", "{555CBB83-421C-4B54-82C4-1796D53DE976}"
-	ProjectSection(SolutionItems) = preProject
-		Resources\License\DA.rtf = Resources\License\DA.rtf
-		Resources\License\EULA.rtf = Resources\License\EULA.rtf
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -122,7 +116,6 @@ Global
 		{A35B8FBA-CFE2-42F2-BFD3-EC76DBB12B7A} = {63DED3DA-C4A0-48B1-AE0D-9A7E930935F1}
 		{ACCE0B4B-D38C-4FC0-9A74-40C82971953D} = {63DED3DA-C4A0-48B1-AE0D-9A7E930935F1}
 		{AAB296BA-1517-4A00-A79C-646687CF4502} = {ACCE0B4B-D38C-4FC0-9A74-40C82971953D}
-		{555CBB83-421C-4B54-82C4-1796D53DE976} = {63DED3DA-C4A0-48B1-AE0D-9A7E930935F1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A24DCAEF-0E44-4816-9FC8-87EB1447FC38}
