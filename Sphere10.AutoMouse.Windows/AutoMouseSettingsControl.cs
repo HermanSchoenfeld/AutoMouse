@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Hydrogen;
-using Hydrogen.Application;
-using Hydrogen.Windows;
-using Hydrogen.Windows.Forms;
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
+using Sphere10.Framework.Windows;
+using Sphere10.Framework.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Resources = Sphere10.AutoMouse.Windows.Properties.Resources;
 
@@ -20,8 +20,8 @@ public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObj
 		_screenMousePictureBox.Image = Resources.MouseLMRSettingsAid;
 
 		if (!Tools.Runtime.IsDesignMode) {
-			AutoRunServices = HydrogenFramework.Instance.ServiceProvider.GetService<IAutoRunServices>();
-			ProductInformationProvider = HydrogenFramework.Instance.ServiceProvider.GetService<IProductInformationProvider>();
+			AutoRunServices = Sphere10Framework.Instance.ServiceProvider.GetService<IAutoRunServices>();
+			ProductInformationProvider = Sphere10Framework.Instance.ServiceProvider.GetService<IProductInformationProvider>();
 		}
 	}
 

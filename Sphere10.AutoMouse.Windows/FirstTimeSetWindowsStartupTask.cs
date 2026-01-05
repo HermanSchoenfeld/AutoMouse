@@ -1,7 +1,7 @@
 ﻿using System.Net.Mime;
 using System.Reflection;
 using System.Windows.Forms;
-using Hydrogen.Application;
+using Sphere10.Framework.Application;
 
 
 namespace Sphere10.AutoMouse.Windows {

@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
-using Hydrogen.Application;
-using Hydrogen;
+using Sphere10.Framework.Application;
+using Sphere10.Framework;
 
 
 namespace Sphere10.AutoMouse.Windows {

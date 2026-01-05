@@ -2,8 +2,8 @@
 using System.Drawing;
 using System.Threading;
 using System.Timers;
-using Hydrogen;
-using Hydrogen.Application;
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
 using Timer = System.Timers.Timer;
 using Sphere10.AutoMouse.Windows.Properties;
 

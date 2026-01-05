@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
-using Hydrogen.Windows.Forms;
+using Sphere10.Framework.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 	partial class MainForm {

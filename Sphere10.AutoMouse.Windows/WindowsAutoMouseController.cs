@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
-using Hydrogen;
-using Hydrogen.Application;
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
 
 namespace Sphere10.AutoMouse.Windows {
 	public class WindowsAutoMouseController : BaseAutoMouseController {

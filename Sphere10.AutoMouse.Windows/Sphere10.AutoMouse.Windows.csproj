@@ -49,14 +49,7 @@
 		</Compile>
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Application\Hydrogen.Application.csproj" />
-		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.CryptoEx\Hydrogen.CryptoEx.csproj" />
-		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Drawing\Hydrogen.Drawing.csproj" />
-		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows.Forms\Hydrogen.Windows.Forms.csproj" />
-		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen.Windows\Hydrogen.Windows.csproj" />
-		<ProjectReference Include="..\..\Hydrogen\src\Hydrogen\Hydrogen.csproj" />
-	</ItemGroup>
-	<ItemGroup>
+		<PackageReference Include="Sphere10.Framework.Windows.Forms" Version="3.0.2" />
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
 	</ItemGroup>
 	<ItemGroup>

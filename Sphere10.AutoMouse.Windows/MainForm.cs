@@ -5,14 +5,14 @@ using System.IO;
 using System.Media;
 using System.Reflection;
 using System.Windows.Forms;
-using Hydrogen;
-using Hydrogen.Application;
-using Hydrogen.Windows.Forms;
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
+using Sphere10.Framework.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 using Tools;
 using Resources = Sphere10.AutoMouse.Windows.Properties.Resources;
-using FormResources = Hydrogen.Windows.Forms.Resources;
+using FormResources = Sphere10.Framework.Windows.Forms.Resources;
 
 namespace Sphere10.AutoMouse.Windows {
 	public partial class MainForm : LiteMainForm {
@@ -31,7 +31,7 @@ namespace Sphere10.AutoMouse.Windows {
 			_testSoundButton.Visible = false;
 #endif
 			// disable _purchaseToolStripButton if DRM disabled
-			if (!HydrogenFramework.Instance.Options.HasFlag(HydrogenFrameworkOptions.EnableDrm)) {
+			if (!Sphere10Framework.Instance.Options.HasFlag(Sphere10FrameworkOptions.EnableDrm)) {
 				_purchaseToolStripButton.Visible = false;
 			}
 		}
@@ -41,10 +41,10 @@ namespace Sphere10.AutoMouse.Windows {
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
 			if (!Runtime.IsDesignMode) {
-				AutoMouseController = HydrogenFramework.Instance.ServiceProvider.GetService<IAutoMouseController>();
+				AutoMouseController = Sphere10Framework.Instance.ServiceProvider.GetService<IAutoMouseController>();
 				AutoMouseController.Stop();
 				ToggleOnOff();
-				var hideOnLoad = HydrogenFramework.Instance.ServiceProvider.GetService<IProductUsageServices>().ProductUsageInformation.NumberOfUsesByUser > 1;
+				var hideOnLoad = Sphere10Framework.Instance.ServiceProvider.GetService<IProductUsageServices>().ProductUsageInformation.NumberOfUsesByUser > 1;
 				if (hideOnLoad)
 					Hide();
 			}
@@ -107,7 +107,7 @@ namespace Sphere10.AutoMouse.Windows {
 		}
 
 		private void _helpIcon_Click(object sender, EventArgs e) {
-			HydrogenFramework.Instance.ServiceProvider.GetService<IHelpServices>().ShowContextHelp(_autoMouseSettingsControl);
+			Sphere10Framework.Instance.ServiceProvider.GetService<IHelpServices>().ShowContextHelp(_autoMouseSettingsControl);
 		}
 
 		private void _aboutToolStripButton_Click(object sender, EventArgs e) {
@@ -115,7 +115,7 @@ namespace Sphere10.AutoMouse.Windows {
 		}
 
 		private void _purchaseToolStripButton_Click(object sender, EventArgs e) {
-			HydrogenFramework.Instance.ServiceProvider.GetRequiredService<IWebsiteLauncher>().LaunchProductPurchaseWebsite();
+			Sphere10Framework.Instance.ServiceProvider.GetRequiredService<IWebsiteLauncher>().LaunchProductPurchaseWebsite();
 		}
 
 		private void _testSoundButton_Click(object sender, EventArgs e) {

@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using Hydrogen.Windows.Forms;
+using Sphere10.Framework.Windows.Forms;
 
 namespace Sphere10.AutoMouse.Windows {
 	public class WindowsExpandingCircleRenderer : IExpandingCircleRenderer {

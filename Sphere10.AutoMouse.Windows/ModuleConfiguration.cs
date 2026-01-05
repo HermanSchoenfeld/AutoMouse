@@ -1,8 +1,8 @@
 ﻿using System;
-using Hydrogen;
-using Hydrogen.Application;
-using Hydrogen.Windows;
-using Hydrogen.Windows.Forms;
+using Sphere10.Framework;
+using Sphere10.Framework.Application;
+using Sphere10.Framework.Windows;
+using Sphere10.Framework.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Sphere10.AutoMouse.Windows {
@@ -23,7 +23,7 @@ namespace Sphere10.AutoMouse.Windows {
 		
 			// Initializers/Finalizers
 			services.AddInitializer<FirstTimeSetWindowsStartupTask>();
-			//services.AddInitializer<IncrementUsageByOneInitializer>();  // done in Hydrogen.Application
+			//services.AddInitializer<IncrementUsageByOneInitializer>();  // done in Sphere10.Framework.Application
 
 		}
 

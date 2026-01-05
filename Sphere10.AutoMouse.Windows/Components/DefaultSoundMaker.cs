@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Media;
-using Hydrogen;
+using Sphere10.Framework;
 using Sphere10.AutoMouse.Windows.Properties;
 
 namespace Sphere10.AutoMouse.Windows {

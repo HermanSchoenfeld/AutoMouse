@@ -2,9 +2,9 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing;
-using Hydrogen;
-using Hydrogen.Windows.Forms;
-using Hydrogen.Windows.Forms.WinForms;
+using Sphere10.Framework;
+using Sphere10.Framework.Windows.Forms;
+using Sphere10.Framework.Windows.Forms.WinForms;
 
 namespace Sphere10.AutoMouse.Windows {
 
