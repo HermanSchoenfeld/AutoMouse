@@ -6,7 +6,7 @@ using Sphere10.Framework;
 using Sphere10.Framework.Windows.Forms;
 using Sphere10.Framework.Windows.Forms.WinForms;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 
 	/// <summary>
 	/// Summary description for AutoClickRadiusSelector.

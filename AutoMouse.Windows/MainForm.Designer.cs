@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Sphere10.Framework.Windows.Forms;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	partial class MainForm {
 		/// <summary>
 		/// Required designer variable.

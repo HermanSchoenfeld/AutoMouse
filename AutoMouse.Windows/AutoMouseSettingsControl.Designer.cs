@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	partial class AutoMouseSettingsControl {
 		/// <summary>
 		/// Required designer variable.

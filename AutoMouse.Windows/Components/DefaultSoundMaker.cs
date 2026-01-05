@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Media;
 using Sphere10.Framework;
-using Sphere10.AutoMouse.Windows.Properties;
+using AutoMouse.Windows.Properties;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	public class DefaultSoundMaker : ISoundMaker {
 
 		private const int MaxTimeSingleSoundQueued = 3;

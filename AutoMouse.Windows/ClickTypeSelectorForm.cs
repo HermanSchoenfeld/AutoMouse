@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Sphere10.Framework;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	public partial class ClickTypeSelectorForm : Form {
 		private readonly TimeSpan FormTimerPollPeriod = TimeSpan.FromMilliseconds(5);
 		private const double FormOpacityFadeRatePerSecond = 2;

@@ -9,9 +9,9 @@ using Sphere10.Framework.Application;
 using Sphere10.Framework.Windows;
 using Sphere10.Framework.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
-using Resources = Sphere10.AutoMouse.Windows.Properties.Resources;
+using Resources = AutoMouse.Windows.Properties.Resources;
 
-namespace Sphere10.AutoMouse.Windows;
+namespace AutoMouse.Windows;
 
 [UseSettings(typeof(AutoMouseSettings))]
 public partial class AutoMouseSettingsControl : ApplicationControl, IHelpableObject {

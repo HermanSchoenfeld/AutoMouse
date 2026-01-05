@@ -11,10 +11,10 @@ using Sphere10.Framework.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
 using Tools;
-using Resources = Sphere10.AutoMouse.Windows.Properties.Resources;
+using Resources = AutoMouse.Windows.Properties.Resources;
 using FormResources = Sphere10.Framework.Windows.Forms.Resources;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	public partial class MainForm : LiteMainForm {
 
 		public MainForm() {

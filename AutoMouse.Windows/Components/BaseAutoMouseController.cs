@@ -8,7 +8,7 @@ using Sphere10.Framework.Application;
 using Sphere10.Framework;
 
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	public abstract class BaseAutoMouseController : IAutoMouseController {
 		private volatile AutoMouseSettings _settings;
 		private volatile bool _interceptAutoMouseKeys;

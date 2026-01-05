@@ -5,7 +5,7 @@ using Sphere10.Framework.Windows;
 using Sphere10.Framework.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	public class ModuleConfiguration : ModuleConfigurationBase {
 		public override void RegisterComponents(IServiceCollection services) {
 			services.AddTransient<ISoundMaker, DefaultSoundMaker>();

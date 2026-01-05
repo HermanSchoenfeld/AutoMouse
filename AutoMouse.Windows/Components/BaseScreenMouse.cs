@@ -5,9 +5,9 @@ using System.Timers;
 using Sphere10.Framework;
 using Sphere10.Framework.Application;
 using Timer = System.Timers.Timer;
-using Sphere10.AutoMouse.Windows.Properties;
+using AutoMouse.Windows.Properties;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 
 	public abstract class BaseScreenMouse : IScreenMouse {
 

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Sphere10.Framework.Application;
 
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	public class FirstTimeSetWindowsStartupTask : ApplicationInitializerBase {
 
 		public FirstTimeSetWindowsStartupTask(IProductInformationProvider productInformationProvider, IProductUsageServices productUsageServices, IAutoRunServices autoRunServices) {

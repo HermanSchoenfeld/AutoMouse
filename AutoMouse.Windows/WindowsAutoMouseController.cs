@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Sphere10.Framework;
 using Sphere10.Framework.Application;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 	public class WindowsAutoMouseController : BaseAutoMouseController {
 
 

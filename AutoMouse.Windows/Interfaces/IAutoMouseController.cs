@@ -2,7 +2,7 @@
 using System;
 using Sphere10.Framework;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 
 	public interface IAutoMouseController : IDisposable {
 

@@ -6,7 +6,7 @@ using Sphere10.Framework;
 using Sphere10.Framework.Application;
 using Tools;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 
     [Obfuscation(Exclude = true)]
 	public class AutoMouseSettings : SettingsObject {

@@ -6,7 +6,7 @@ using Sphere10.Framework;
 using Sphere10.Framework.Application;
 using Sphere10.Framework.Windows.Forms;
 
-namespace Sphere10.AutoMouse.Windows {
+namespace AutoMouse.Windows {
 
 	public class WindowsScreenMouse : BaseScreenMouse {
 		public const int DefaultHeight = 128;

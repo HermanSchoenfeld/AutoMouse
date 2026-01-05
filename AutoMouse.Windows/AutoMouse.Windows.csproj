@@ -20,7 +20,7 @@
 		<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
 	</PropertyGroup>
 	<PropertyGroup>
-		<StartupObject>Sphere10.AutoMouse.Windows.Program</StartupObject>
+		<StartupObject>AutoMouse.Windows.Program</StartupObject>
 		<Company>Herman Schoenfeld</Company>
 		<Description>Auto Mouse is an ergonomics tool that allows you to click your mouse with using the mouse buttons</Description>
 		<Product>Auto Mouse</Product>
