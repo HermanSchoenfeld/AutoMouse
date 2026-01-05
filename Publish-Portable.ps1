@@ -1,5 +1,5 @@
-# Publish Sphere10.AutoMouse.Windows.csproj with .NET Core SDK
-dotnet publish "Sphere10.AutoMouse.Windows\Sphere10.AutoMouse.Windows.csproj" -c Release /p:PublishProfile=portable
+# Publish AutoMouse.Windows.csproj with .NET Core SDK
+dotnet publish "AutoMouse.Windows\AutoMouse.Windows.csproj" -c Release /p:PublishProfile=portable
 
 
 # Delete .pdb and .json files from the specified directory

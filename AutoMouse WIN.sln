@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33402.96
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sphere10.AutoMouse.Windows", "Sphere10.AutoMouse.Windows\Sphere10.AutoMouse.Windows.csproj", "{D75836CD-0FD3-4547-8DCB-D493664867A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoMouse.Windows", "AutoMouse.Windows\AutoMouse.Windows.csproj", "{D75836CD-0FD3-4547-8DCB-D493664867A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{63DED3DA-C4A0-48B1-AE0D-9A7E930935F1}"
 EndProject

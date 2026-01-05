@@ -1,12 +1,12 @@
 <Project ProjectFileVersion="2" UseRelativePaths="True" CheckVersionsWhileResolvingAssemblies="True" ID="{f6c0f882-88dc-4875-ac18-d584a312fc58}">
   <SearchDirectories />
-  <OutputSettings OutputPath=".\Sphere10.AutoMouse.Windows\bin\Release" MainAssemblyPath="" RunAssemblyPath="" SNPath="" SignToolPath="" LicensingDLLPath="" LicensingMergeAssemblyName="" OverwriteInputFiles="False" BuildID="">
+  <OutputSettings OutputPath=".\AutoMouse.Windows\bin\Release" MainAssemblyPath="" RunAssemblyPath="" SNPath="" SignToolPath="" LicensingDLLPath="" LicensingMergeAssemblyName="" OverwriteInputFiles="False" BuildID="">
     <AdditionalAssemblies />
   </OutputSettings>
   <ExceptionReporting ExceptionReportingServiceURL="" TryToContinueOnException="True" LocalReportPath=".\AutoMouse WIN_Release_x86_ExceptionReports" ApplicationName="" CompanyName="" ShowUI="True" EnableSaveToFileButton="True" EnableSendReportButton="True" />
   <ObfuscationSettings RenamingScheme="2" UseOverloadedFieldNames="True" UseOverloadedMethodNames="True" HonorObfuscationAttributes="True" ExcludeSerializedTypes="True" ProcessInlineStrings="True" ForceXAMLProcessingModeExclude="False" ForceRenameParams="False" />
   <ObfuscationRules />
-  <Assembly Load="true" Path=".\Sphere10.AutoMouse.Windows\obj\x86\Release\AutoMouse.exe" XapEntryName="" KeyFilePath="..\SchoenfeldSoftware.snk" CertFilePath="" TimeStampURL="" Embed="True" AddExceptionReporting="False" PfxPassword="" PfxPasswordCert="">
+  <Assembly Load="true" Path=".\AutoMouse.Windows\obj\x86\Release\AutoMouse.exe" XapEntryName="" KeyFilePath="..\SchoenfeldSoftware.snk" CertFilePath="" TimeStampURL="" Embed="True" AddExceptionReporting="False" PfxPassword="" PfxPasswordCert="">
     <ObfuscationSettings EncryptStrings="True" EncryptMethods="True" EncryptConstants="True" SuppressReflector="True" ReduceMetaData="False" ObfuscationDisposition="0" FlowObfuscation="2" SuppressILDASM="True" SuppressReflection="False" CombineResources="True" EncryptResources="True" CompressResources="True" MarkAsSealed="True" EnableTamperDetection="True" EnableAntiDebugging="True" SymbolRenaming="True" HideExternalCalls="False" HideInternalCalls="False" GeneratePdbFile="True" ObfuscatePdbFileNames="True" Encrypt="False" Compress="False" MSBuild="True" ObfuscatedNamespace="A" RetainNamespace="False">
       <Watermarks Watermark0="Schoenfeld Software" Watermark1="Sphere 10 Software" Watermark2="Auto Mouse" Watermark3="" Watermark4="" Watermark5="" Watermark6="" Watermark7="" Watermark8="" Watermark9="" />
     </ObfuscationSettings>
@@ -21,7 +21,7 @@
       <Watermarks Watermark0="Schoenfeld Software" Watermark1="Sphere 10 Software" Watermark2="Auto Mouse" Watermark3="" Watermark4="" Watermark5="" Watermark6="" Watermark7="" Watermark8="" Watermark9="" />
     </ObfuscationSettings>
   </Assembly>
-  <Assembly Load="true" Path=".\Sphere10.AutoMouse\obj\x86\Release\Sphere10.AutoMouse.dll" XapEntryName="" KeyFilePath="..\SchoenfeldSoftware.snk" CertFilePath="" TimeStampURL="" Embed="True" AddExceptionReporting="False" PfxPassword="" PfxPasswordCert="">
+  <Assembly Load="true" Path=".\AutoMouse\obj\x86\Release\AutoMouse.dll" XapEntryName="" KeyFilePath="..\SchoenfeldSoftware.snk" CertFilePath="" TimeStampURL="" Embed="True" AddExceptionReporting="False" PfxPassword="" PfxPasswordCert="">
     <ObfuscationSettings EncryptStrings="True" EncryptMethods="True" EncryptConstants="True" SuppressReflector="True" ReduceMetaData="False" ObfuscationDisposition="0" FlowObfuscation="2" SuppressILDASM="True" SuppressReflection="False" CombineResources="True" EncryptResources="True" CompressResources="True" MarkAsSealed="True" EnableTamperDetection="True" EnableAntiDebugging="True" SymbolRenaming="True" HideExternalCalls="False" HideInternalCalls="False" GeneratePdbFile="True" ObfuscatePdbFileNames="True" Encrypt="False" Compress="False" MSBuild="True" ObfuscatedNamespace="A" RetainNamespace="False">
       <Watermarks Watermark0="Schoenfeld Software" Watermark1="Sphere 10 Software" Watermark2="Auto Mouse" Watermark3="" Watermark4="" Watermark5="" Watermark6="" Watermark7="" Watermark8="" Watermark9="" />
     </ObfuscationSettings>
